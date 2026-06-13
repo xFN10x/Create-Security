@@ -1,6 +1,7 @@
 package dev.xplate.create_security;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.builders.NoConfigBuilder;
 import com.tterrag.registrate.util.entry.RegistryEntry;
@@ -30,7 +31,7 @@ import org.slf4j.Logger;
 public class CSecurity {
     public static final String MODID = "create_security";
     private static final Logger LOGGER = LogUtils.getLogger();
-    public final static Registrate REG = Registrate.create(MODID);
+    public final static CreateRegistrate REG = CreateRegistrate.create(MODID);
 
     public static final RegistryEntry<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = REG.defaultCreativeTab("create_security_tab",
                     t -> CreativeModeTab.builder()
@@ -39,7 +40,7 @@ public class CSecurity {
                             .displayItems((parameters, output) -> {
                                 output.accept(SecurityBlocks.SIGHT_SENSOR.asItem().getDefaultInstance());
                             }))
-            .lang(t -> "en_us", "Create: Security")
+            .lang(t -> "creativeTab.create_security.main", "Create: Security")
             .register();
 //    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB =
 //            CREATIVE_MODE_TABS
@@ -53,14 +54,14 @@ public class CSecurity {
 
     public CSecurity(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
         REG.registerEventListeners(modEventBus);
+        modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
-        SecurityBlockEntities.reg();
-        SecurityBlocks.reg();
         SecurityItems.reg();
+        SecurityBlocks.reg();
+        SecurityBlockEntities.reg();
 
         modEventBus.addListener(DataGen::gatherData);
 

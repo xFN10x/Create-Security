@@ -1,0 +1,6 @@
+// 1.21.1	2026-06-13T17:46:48.4473539	Registrate Provider for create_security [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+79be02b2bdda8431bc225fca0bb37212f7fa99f7 assets/create_security/blockstates/sight_sensor.json
+3b6fd8716b61ab74369582aa3b9c7b5e02ba6a68 assets/create_security/lang/en_ud.json
+7ae38b71c60435de22264f56e360f16c1f28cbfb assets/create_security/lang/en_us.json
+a830d5f491a4e1fce108ce96427da58d95c3e194 assets/create_security/models/item/sight_sensor.json
+dd365d279fc183e5a4477cf323bf718b770932ea data/create_security/loot_table/blocks/sight_sensor.json

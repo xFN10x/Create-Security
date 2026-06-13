@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class SightSensorEntity extends BlockEntity {
-    public SightSensorEntity( BlockPos pos, BlockState blockState) {
-        super(SecurityBlockEntities.SIGHT_SENSOR_ENTITY.get().get(), pos, blockState);
+    public SightSensorEntity(BlockPos pos, BlockState blockState) {
+        super(SecurityBlockEntities.SIGHT_SENSOR_ENTITY.get(), pos, blockState);
     }
 }
