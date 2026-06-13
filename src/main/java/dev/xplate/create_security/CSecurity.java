@@ -1,24 +1,28 @@
 package dev.xplate.create_security;
 
 import com.mojang.logging.LogUtils;
+import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.builders.NoConfigBuilder;
+import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.xplate.create_security.datagen.DataGen;
+import dev.xplate.create_security.reg.SecurityBlockEntities;
+import dev.xplate.create_security.reg.SecurityBlocks;
+import dev.xplate.create_security.reg.SecurityItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -26,38 +30,44 @@ import org.slf4j.Logger;
 public class CSecurity {
     public static final String MODID = "create_security";
     private static final Logger LOGGER = LogUtils.getLogger();
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    public final static Registrate REG = Registrate.create(MODID);
 
-//    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB =
+    public static final RegistryEntry<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = REG.defaultCreativeTab("create_security_tab",
+                    t -> CreativeModeTab.builder()
+                            .title(Component.translatable("itemGroup.create_security"))
+                            .icon(() -> SecurityBlocks.SIGHT_SENSOR.asItem().getDefaultInstance())
+                            .displayItems((parameters, output) -> {
+                                output.accept(SecurityBlocks.SIGHT_SENSOR.asItem().getDefaultInstance());
+                            }))
+            .lang(t -> "en_us", "Create: Security")
+            .register();
+//    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB =
 //            CREATIVE_MODE_TABS
 //                    .register("example_tab", () -> CreativeModeTab.builder()
 //                            .title(Component.translatable("itemGroup.create_security"))
 //                            .withTabsBefore(CreativeModeTabs.COMBAT)
-//                            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+//                            .icon(() -> SecurityBlocks.SIGHT_SENSOR.asItem().getDefaultInstance())
 //                            .displayItems((parameters, output) -> {
+//                                output.accept(SecurityBlocks.SIGHT_SENSOR.asItem().getDefaultInstance());
 //    }).build());
 
     public CSecurity(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
-        CREATIVE_MODE_TABS.register(modEventBus);
+        REG.registerEventListeners(modEventBus);
         NeoForge.EVENT_BUS.register(this);
-
         modEventBus.addListener(this::addCreative);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        SecurityBlockEntities.reg();
+        SecurityBlocks.reg();
+        SecurityItems.reg();
+
+        modEventBus.addListener(DataGen::gatherData);
+
+        //modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
-        if (Config.logDirtBlock) LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
     // Add the example block item to the building blocks tab

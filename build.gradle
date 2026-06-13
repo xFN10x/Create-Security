@@ -124,7 +124,12 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
                              mod_license            : mod_license,
                              mod_version            : mod_version,
                              mod_authors            : mod_authors,
-                             mod_description        : mod_description]
+                             mod_description        : mod_description,
+                             create_version : create_version,
+                             ponder_version : ponder_version,
+                             flywheel_version : flywheel_version,
+                             registrate_version : registrate_version
+    ]
     inputs.properties replaceProperties
     expand replaceProperties
     from "src/main/templates"
