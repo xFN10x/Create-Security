@@ -6,18 +6,15 @@ import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollVa
 import com.simibubi.create.foundation.utility.CreateLang;
 import dev.xplate.create_security.CSecurity;
 import dev.xplate.create_security.blocks.SightSensor;
-import net.createmod.catnip.outliner.Outliner;
-import net.minecraft.client.particle.Particle;
+import dev.xplate.create_security.reg.SecurityBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -25,11 +22,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
-import java.util.Random;
 
 public class SightSensorEntity extends SmartBlockEntity {
 
@@ -66,28 +60,44 @@ public class SightSensorEntity extends SmartBlockEntity {
         public void tick() {
             super.tick();
             Level level = getWorld();
-            if (level == null) return;
-            if (!(blockEntity instanceof SightSensorEntity)) return;
-            SightSensorEntity sse = (SightSensorEntity) blockEntity;
+            if (level == null || level.isClientSide) return;
+            if (!(blockEntity instanceof SightSensorEntity sse)) return;
             int size = sse.scrollVal.getValue();
-            Vec3i Vsize = new Vec3i(size, size, size);
-            AABB area = AABB.ofSize(getPos().getCenter(), size, size, size);
+            // times by 2 because the dimensions 15x15x15 in the center only has range of 7.5x7.5x7.5
+            AABB area = AABB.ofSize(getPos().getCenter(), size * 2, size * 2, size * 2);
             List<Entity> entities = level.getEntities(null, area);
+
+            BlockState me = level.getBlockState(getPos());
+            BlockPos thisPos = getPos();
+
             for (Entity entity : entities) {
-                    HitResult pick = entity.pick(50, 5, false);
-                    if (pick.getType().equals(HitResult.Type.BLOCK)) {
-                        BlockHitResult res = ((BlockHitResult) pick);
-                        BlockPos hitLoc = res.getBlockPos();
-                        Direction dir = res.getDirection();
-                        BlockState found = level.getBlockState(hitLoc);
-                        BlockPos thisPos = getPos();
-                        //CSecurity.LOGGER.info("this: " + thisPos + " other: " + hitLoc);
-                        if (hitLoc.equals(thisPos) && found.getValue(SightSensor.FACING).equals(dir)) {
-                            level.addParticle(ParticleTypes.DUST_PLUME, true, hitLoc.getX() + level.random.nextFloat(), hitLoc.getY() + level.random.nextFloat(), hitLoc.getZ() + level.random.nextFloat(), 0,0,0);
+                HitResult pick = entity.pick(50, 1, false);
+                if (pick.getType().equals(HitResult.Type.BLOCK)) {
+                    BlockHitResult res = ((BlockHitResult) pick);
+                    BlockPos hitLoc = res.getBlockPos();
+                    Direction dir = res.getDirection();
+                    //CSecurity.LOGGER.info("this: " + thisPos + " other: " + hitLoc);
+                    if (hitLoc.equals(thisPos) && me.is(SecurityBlocks.SIGHT_SENSOR) && me.getValue(SightSensor.FACING).equals(dir)) {
+                        if (!me.getValue(SightSensor.ACTIVE)) {
+                            level.playSound(null, thisPos, SoundEvents.VAULT_ACTIVATE, SoundSource.BLOCKS, 0.5f,0.4f);
+                            level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.5f,0.4f);
                         }
-                        //Outliner.getInstance().showLine("ray",entity.getPosition(2), hitLoc.getCenter());
-                        //CSecurity.LOGGER.info("looking: " + found);
+                        double dist = thisPos.getCenter().distanceTo(entity.position());
+                        double distPercent = dist / size;
+                        int power = (int) (15 * distPercent);
+                        level.setBlockAndUpdate(thisPos,me.setValue(SightSensor.POWER, power).setValue(SightSensor.ACTIVE, true));
+                        CSecurity.LOGGER.info("dist: " + dist);
+                        level.addParticle(ParticleTypes.DRAGON_BREATH, true, hitLoc.getX() + level.random.nextFloat(), hitLoc.getY() + level.random.nextFloat(), hitLoc.getZ() + level.random.nextFloat(), 0, 0, 0);
+                        return;
                     }
+                    //Outliner.getInstance().showLine("ray",entity.getPosition(2), hitLoc.getCenter());
+                    //CSecurity.LOGGER.info("looking: " + found);
+                }
+            }
+            if (me.getValue(SightSensor.ACTIVE)) {
+                level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.ACTIVE, false).setValue(SightSensor.POWER, 0));
+                level.playSound(null, thisPos, SoundEvents.VAULT_DEACTIVATE, SoundSource.BLOCKS, 0.2f,0.4f);
+                level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_CLOSE, SoundSource.BLOCKS, 0.2f,0.4f);
             }
         }
     }
