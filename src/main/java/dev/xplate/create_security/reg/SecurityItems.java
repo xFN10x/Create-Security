@@ -13,7 +13,6 @@ public class SecurityItems {
                     .stacksTo(1))
             .lang("Keycard")
             .defaultModel()
-            .tab(CSecurity.CREATIVE_TAB.getKey())
             .register();
 
     public static void reg() {}

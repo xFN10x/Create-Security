@@ -12,12 +12,11 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import static dev.xplate.create_security.CSecurity.REG;
 
 public class SecurityBlocks {
-    public static BlockEntry<SightSensor> SIGHT_SENSOR = REG.block("sight_sensor", SightSensor::new)
+    public static final BlockEntry<SightSensor> SIGHT_SENSOR = REG.block("sight_sensor", SightSensor::new)
             .initialProperties(AllBlocks.ANDESITE_CASING::get)
-            .properties(p -> p.noOcclusion())
+            .properties(BlockBehaviour.Properties::noOcclusion)
             .simpleItem()
             .defaultLoot()
-            .addLayer(() -> RenderType::cutoutMipped)
             .lang("Sight Sensor")
             .blockstate(new SightSensorGenerator()::generate)
             .register();
