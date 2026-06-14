@@ -5,9 +5,11 @@ import com.simibubi.create.foundation.blockEntity.behaviour.*;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour;
 import com.simibubi.create.foundation.utility.CreateLang;
 import dev.xplate.create_security.CSecurity;
+import dev.xplate.create_security.blocks.SightSensor;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -27,6 +29,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
+import java.util.Random;
 
 public class SightSensorEntity extends SmartBlockEntity {
 
@@ -48,6 +51,7 @@ public class SightSensorEntity extends SmartBlockEntity {
     }
 
     public static class SightSensorBehavior extends BlockEntityBehaviour {
+        public static final BehaviourType<SightSensorBehavior> TYPE = new BehaviourType<>();
 
         public SightSensorBehavior(SmartBlockEntity be) {
             super(be);
@@ -55,7 +59,7 @@ public class SightSensorEntity extends SmartBlockEntity {
 
         @Override
         public BehaviourType<?> getType() {
-            return null;
+            return TYPE;
         }
 
         @Override
@@ -67,25 +71,23 @@ public class SightSensorEntity extends SmartBlockEntity {
             SightSensorEntity sse = (SightSensorEntity) blockEntity;
             int size = sse.scrollVal.getValue();
             Vec3i Vsize = new Vec3i(size, size, size);
-            List<Entity> entities = level.getEntities(null, AABB.ofSize(Vec3.atCenterOf(Vsize), size, size, size));
+            AABB area = AABB.ofSize(getPos().getCenter(), size, size, size);
+            List<Entity> entities = level.getEntities(null, area);
             for (Entity entity : entities) {
-                if (entity.isCrouching()) {
                     HitResult pick = entity.pick(50, 5, false);
                     if (pick.getType().equals(HitResult.Type.BLOCK)) {
-                        Vec3 hitLoc = pick.getLocation();
-
-                        BlockPos hitLocBPos = BlockPos.containing(hitLoc);
-                        BlockState found = level.getBlockState(hitLocBPos);
-                        BlockPos blockPos = getPos();
-                        CSecurity.LOGGER.info("this: " + blockPos + " other: " + hitLocBPos);
-
-                        if (hitLocBPos.equals(blockPos)) {
-                            level.addParticle(ParticleTypes.CRIT.getType(), true, hitLoc.x, hitLoc.y, hitLoc.z, 0,0,0);
+                        BlockHitResult res = ((BlockHitResult) pick);
+                        BlockPos hitLoc = res.getBlockPos();
+                        Direction dir = res.getDirection();
+                        BlockState found = level.getBlockState(hitLoc);
+                        BlockPos thisPos = getPos();
+                        //CSecurity.LOGGER.info("this: " + thisPos + " other: " + hitLoc);
+                        if (hitLoc.equals(thisPos) && found.getValue(SightSensor.FACING).equals(dir)) {
+                            level.addParticle(ParticleTypes.DUST_PLUME, true, hitLoc.getX() + level.random.nextFloat(), hitLoc.getY() + level.random.nextFloat(), hitLoc.getZ() + level.random.nextFloat(), 0,0,0);
                         }
-                        Outliner.getInstance().showLine("ray",entity.getPosition(2), hitLoc);
-                        CSecurity.LOGGER.info("looking: " + found);
+                        //Outliner.getInstance().showLine("ray",entity.getPosition(2), hitLoc.getCenter());
+                        //CSecurity.LOGGER.info("looking: " + found);
                     }
-                }
             }
         }
     }
