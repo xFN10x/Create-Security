@@ -30,7 +30,7 @@ import org.slf4j.Logger;
 @Mod(CSecurity.MODID)
 public class CSecurity {
     public static final String MODID = "create_security";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public final static CreateRegistrate REG = CreateRegistrate.create(MODID);
 
     public static final RegistryEntry<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = REG.defaultCreativeTab("create_security_tab",

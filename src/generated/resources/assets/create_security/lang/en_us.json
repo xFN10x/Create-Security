@@ -1,5 +1,5 @@
 {
   "block.create_security.sight_sensor": "Sight Sensor",
-  "en_us": "Create: Security",
+  "creativeTab.create_security.main": "Create: Security",
   "itemGroup.create_security.create_security_tab": "Create Security Tab"
 }

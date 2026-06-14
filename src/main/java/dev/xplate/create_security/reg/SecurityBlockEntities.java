@@ -1,14 +1,17 @@
 package dev.xplate.create_security.reg;
 
+import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.SignBlockEntity;
+import dev.xplate.create_security.blocks.entity.SightSensorEntity;
 
 import static dev.xplate.create_security.CSecurity.REG;
 
 public class SecurityBlockEntities {
-    public static final BlockEntityEntry<BlockEntity> SIGHT_SENSOR_ENTITY = REG.blockEntity("sight_sensor_tile", SignBlockEntity::new)
+    public static final BlockEntityEntry<SightSensorEntity> SIGHT_SENSOR_ENTITY = REG
+            .blockEntity("sight_sensor_tile", SightSensorEntity::new)
             .validBlocks(SecurityBlocks.SIGHT_SENSOR)
+            .renderer(() -> SmartBlockEntityRenderer::new)
             .register();
+
     public static void reg() {}
 }
