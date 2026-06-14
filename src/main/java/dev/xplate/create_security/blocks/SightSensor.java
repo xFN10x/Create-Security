@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.CubeVoxelShape;
@@ -22,10 +23,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class SightSensor extends Block implements IBE<SightSensorEntity> {
     public static DirectionProperty FACING = BlockStateProperties.FACING;
+    public static BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public SightSensor(Properties properties) {
         super(properties);
-        registerDefaultState(defaultBlockState().setValue(FACING, Direction.UP));
+        registerDefaultState(defaultBlockState()
+                .setValue(FACING, Direction.UP)
+                .setValue(ACTIVE, false));
     }
 
     @Override
@@ -59,7 +63,7 @@ public class SightSensor extends Block implements IBE<SightSensorEntity> {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(FACING);
+        builder.add(FACING, ACTIVE);
     }
 
     @Override

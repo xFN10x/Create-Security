@@ -1,28 +1,54 @@
 {
   "variants": {
-    "facing=down": {
+    "active=false,facing=down": {
       "model": "create_security:block/sight_sensor",
       "x": 180
     },
-    "facing=east": {
+    "active=false,facing=east": {
       "model": "create_security:block/sight_sensor",
       "x": 90,
       "y": 90
     },
-    "facing=north": {
+    "active=false,facing=north": {
       "model": "create_security:block/sight_sensor",
       "x": 90
     },
-    "facing=south": {
+    "active=false,facing=south": {
       "model": "create_security:block/sight_sensor",
       "x": 90,
       "y": 180
     },
-    "facing=up": {
+    "active=false,facing=up": {
       "model": "create_security:block/sight_sensor"
     },
-    "facing=west": {
+    "active=false,facing=west": {
       "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=down": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=east": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=north": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=south": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=up": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=west": {
+      "model": "create_security:block/sight_sensor_active",
       "x": 90,
       "y": 270
     }

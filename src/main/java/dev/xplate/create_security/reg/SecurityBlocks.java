@@ -1,10 +1,13 @@
 package dev.xplate.create_security.reg;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.foundation.data.BlockStateGen;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xplate.create_security.blocks.SightSensor;
+import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 
 import static dev.xplate.create_security.CSecurity.REG;
 
@@ -16,9 +19,7 @@ public class SecurityBlocks {
             .defaultLoot()
             .addLayer(() -> RenderType::cutoutMipped)
             .lang("Sight Sensor")
-            .blockstate((ctx, prov) -> {
-                prov.directionalBlock(ctx.get(), prov.models().getExistingFile(prov.modLoc("block/sight_sensor")));
-            })
+            .blockstate(new SightSensorGenerator()::generate)
             .register();
 
     public static void reg() {}
