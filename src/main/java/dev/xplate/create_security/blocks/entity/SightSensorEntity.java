@@ -1,5 +1,6 @@
 package dev.xplate.create_security.blocks.entity;
 
+import com.simibubi.create.AllTags;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.*;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour;
@@ -14,8 +15,15 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,8 +31,10 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SightSensorEntity extends SmartBlockEntity {
 
@@ -72,35 +82,47 @@ public class SightSensorEntity extends SmartBlockEntity {
             BlockState me = level.getBlockState(getPos());
             BlockPos thisPos = getPos();
 
-            for (Entity entity : entities) {
-                HitResult pick = entity.pick(50, 1, false);
-                if (pick.getType().equals(HitResult.Type.BLOCK)) {
-                    BlockHitResult res = ((BlockHitResult) pick);
-                    BlockPos hitLoc = res.getBlockPos();
-                    Direction dir = res.getDirection();
-                    //CSecurity.LOGGER.info("this: " + thisPos + " other: " + hitLoc);
-                    if (hitLoc.equals(thisPos) && me.is(SecurityBlocks.SIGHT_SENSOR) && me.getValue(SightSensor.FACING).equals(dir)) {
-                        if (!me.getValue(SightSensor.ACTIVE)) {
-                            level.playSound(null, thisPos, SoundEvents.VAULT_ACTIVATE, SoundSource.BLOCKS, 0.5f, 0.4f);
-                            level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.5f, 0.4f);
+            for (Entity ent : entities) {
+                if (ent instanceof LivingEntity entity) {
+                    AtomicBoolean wearingHead = new AtomicBoolean(false);
+                    if (entity instanceof Player) {
+                        ItemStack headItem = ((Player) entity).getItemBySlot(EquipmentSlot.HEAD);
+                        if (headItem.getItem() instanceof BlockItem bi) {
+                            wearingHead.set(bi.getBlock().defaultBlockState().is(Tags.Blocks.SKULLS));
                         }
-
-                        double dist = thisPos.getCenter().distanceTo(entity.position());
-                        int power = getRedstonePowerFromDistance(thisPos, entity.position(), size);
-
-                        level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWER, power).setValue(SightSensor.ACTIVE, true));
-
-                        double rand = -(level.random.nextFloat() * (dist / 1.5));
-                        for (ServerPlayer player : level.players()) {
-                            Vec3 lookAngle = entity.getLookAngle();
-                            Vec3 test = thisPos.getCenter().add(lookAngle.multiply(rand,rand,rand));
-                            level.sendParticles(player, ParticleTypes.DRAGON_BREATH, true, test.x(), test.y(), test.z(), 1, 0.1,0.1,0.1,0.01);
-                        }
-                        //CSecurity.LOGGER.info("dist: {}", dist);
-                        return;
                     }
-                    //Outliner.getInstance().showLine("ray",entity.getPosition(2), hitLoc.getCenter());
-                    //CSecurity.LOGGER.info("looking: " + found);
+                    if (entity.isSpectator() || entity instanceof Warden || wearingHead.get()) {
+                        continue;
+                    }
+                    HitResult pick = entity.pick(50, 1, false);
+                    if (pick.getType().equals(HitResult.Type.BLOCK)) {
+                        BlockHitResult res = ((BlockHitResult) pick);
+                        BlockPos hitLoc = res.getBlockPos();
+                        Direction dir = res.getDirection();
+                        //CSecurity.LOGGER.info("this: " + thisPos + " other: " + hitLoc);
+                        if (hitLoc.equals(thisPos) && me.is(SecurityBlocks.SIGHT_SENSOR) && me.getValue(SightSensor.FACING).equals(dir)) {
+                            if (!me.getValue(SightSensor.ACTIVE)) {
+                                level.playSound(null, thisPos, SoundEvents.VAULT_ACTIVATE, SoundSource.BLOCKS, 0.5f, 0.4f);
+                                level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.5f, 0.4f);
+                            }
+
+                            double dist = thisPos.getCenter().distanceTo(entity.position());
+                            int power = getRedstonePowerFromDistance(thisPos, entity.position(), size);
+
+                            level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWER, power).setValue(SightSensor.ACTIVE, true));
+
+                            double rand = -(level.random.nextFloat() * (dist / 1.5));
+                            for (ServerPlayer player : level.players()) {
+                                Vec3 lookAngle = entity.getLookAngle();
+                                Vec3 test = thisPos.getCenter().add(lookAngle.multiply(rand, rand, rand));
+                                level.sendParticles(player, ParticleTypes.DRAGON_BREATH, true, test.x(), test.y(), test.z(), 1, 0.1, 0.1, 0.1, 0.01);
+                            }
+                            //CSecurity.LOGGER.info("dist: {}", dist);
+                            return;
+                        }
+                        //Outliner.getInstance().showLine("ray",entity.getPosition(2), hitLoc.getCenter());
+                        //CSecurity.LOGGER.info("looking: " + found);
+                    }
                 }
             }
             if (me.getValue(SightSensor.ACTIVE)) {
