@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -63,7 +64,8 @@ public class CSecurity {
         SecurityBlocks.reg();
         SecurityBlockEntities.reg();
 
-        modEventBus.addListener(DataGen::gatherData);
+        modEventBus.addListener(EventPriority.HIGHEST, DataGen::gatherHigherData);
+        modEventBus.addListener(EventPriority.NORMAL, DataGen::gatherData);
 
         //modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
