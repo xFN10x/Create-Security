@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "create:sturdy_sheet"
+    },
+    {
+      "item": "create:brass_nugget"
+    },
+    {
+      "item": "create:cardboard"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_security:keycard"
+  }
+}

@@ -1,10 +1,10 @@
 {
   "block.create_security.sight_sensor": "ɹosuǝS ʇɥbıS",
-  "create_security.ponder.basic_sight_sensor.header": "ɐ ɹosuǝS ʇɥbıS ǝɥ⟘",
+  "create_security.ponder.basic_sight_sensor.header": "ɹosuǝS ʇɥbıS ǝɥ⟘",
   "create_security.ponder.basic_sight_sensor.text_1": "˙ʇı ʇɐ buıʞooן ǝɹɐ sǝıʇıʇuǝ uǝɥʍ ʇɔǝʇǝp oʇ pǝsn ǝq uɐɔ ɹosuǝS ʇɥbıS ǝɥ⟘",
   "create_security.ponder.basic_sight_sensor.text_2": "˙sı ʎʇıʇuǝ ǝɥʇ ɹɐɟ ʍoɥ uo buıpuǝdǝp ןɐubıs ǝuoʇspǝɹ ɐ sʇndʇno ʇI",
   "create_security.ponder.basic_sight_sensor.text_3": "˙ןɐubıs ǝɥʇ ǝsɹǝʌǝɹ oʇ ɥɔuǝɹʍ ɐ ɥʇıʍ ʞɔɐq ǝɥʇ ʞɔıןɔ-ʇɥbıᴚ",
   "create_security.ponder.basic_sight_sensor.text_4": "˙ɹosuǝs ʇɥbıs ǝɥʇ ɟo ǝbuɐɹ ǝɥʇ ǝbuɐɥɔ osןɐ uɐɔ noʎ 'ɥɔuǝɹʍ ɐ buıpןoɥ ǝɹɐ noʎ ɟI",
-  "itemGroup.create.base": "ʎʇıɹnɔǝS :ǝʇɐǝɹƆ",
-  "itemGroup.create_security.create_security_tab": "qɐ⟘ ʎʇıɹnɔǝS ǝʇɐǝɹƆ"
+  "item.create_security.keycard": "pɹɐɔʎǝʞ",
+  "itemGroup.create_security": "ʎʇıɹnɔǝS :ǝʇɐǝɹƆ"
 }

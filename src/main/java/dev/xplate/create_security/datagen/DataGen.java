@@ -1,6 +1,8 @@
 package dev.xplate.create_security.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
+import dev.xplate.create_security.CSecurity;
+import dev.xplate.create_security.datagen.provider.RecipeProvider;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.core.HolderLookup;
@@ -20,7 +22,7 @@ public class DataGen {
     public static void gatherHigherData(GatherDataEvent event) {
         if (event.getMods().contains(MODID))
             REG.addDataGenerator(ProviderType.LANG, prov -> {
-                prov.add("itemGroup.create.base", "Create: Security");
+                prov.add(CSecurity.CREATIVE_TAB.get(), "Create: Security");
                 providePonderLang(prov::add);
             });
     }
@@ -30,6 +32,8 @@ public class DataGen {
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
+
+        generator.addProvider(event.includeServer(), new RecipeProvider(output, lookup));
     }
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {
