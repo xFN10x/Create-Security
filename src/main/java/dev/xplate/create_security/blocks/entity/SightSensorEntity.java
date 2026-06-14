@@ -84,9 +84,10 @@ public class SightSensorEntity extends SmartBlockEntity {
                             level.playSound(null, thisPos, SoundEvents.VAULT_ACTIVATE, SoundSource.BLOCKS, 0.5f, 0.4f);
                             level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.5f, 0.4f);
                         }
+
                         double dist = thisPos.getCenter().distanceTo(entity.position());
-                        double distPercent = dist / size;
-                        int power = Math.clamp((int) (15 * distPercent), 0, 15);
+                        int power = getRedstonePowerFromDistance(thisPos, entity.position(), size);
+
                         level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWER, power).setValue(SightSensor.ACTIVE, true));
 
                         double rand = -(level.random.nextFloat() * (dist / 1.5));
@@ -108,6 +109,12 @@ public class SightSensorEntity extends SmartBlockEntity {
                 level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_CLOSE, SoundSource.BLOCKS, 0.2f, 0.4f);
             }
         }
+    }
+
+    public static int getRedstonePowerFromDistance(BlockPos thisPos, Vec3 entityPos, int range) {
+        double dist = thisPos.getCenter().distanceTo(entityPos);
+        double distPercent = dist / range;
+        return Math.clamp((int) (15 * distPercent), 0, 15);
     }
 
     public static class SightSensorScrollValueBehavior extends ScrollValueBehaviour {

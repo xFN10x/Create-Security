@@ -6,9 +6,11 @@ import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.builders.NoConfigBuilder;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xplate.create_security.datagen.DataGen;
+import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityBlockEntities;
 import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityItems;
+import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -36,12 +38,11 @@ public class CSecurity {
 
     public static final RegistryEntry<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = REG.defaultCreativeTab("create_security_tab",
                     t -> CreativeModeTab.builder()
-                            .title(Component.translatable("itemGroup.create_security"))
+                            .title(Component.translatable("creativeTab.create_security_tab"))
                             .icon(() -> SecurityBlocks.SIGHT_SENSOR.asItem().getDefaultInstance())
                             .displayItems((parameters, output) -> {
                                 output.accept(SecurityBlocks.SIGHT_SENSOR.asItem().getDefaultInstance());
                             }))
-            .lang(t -> "creativeTab.create_security.main", "Create: Security")
             .register();
 //    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB =
 //            CREATIVE_MODE_TABS
@@ -88,9 +89,9 @@ public class CSecurity {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            PonderIndex.addPlugin(new SecurityPonderPlugin());
+
+            LOGGER.info("Hello from Create Security client!");
         }
     }
 }

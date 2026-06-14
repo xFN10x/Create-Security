@@ -6,7 +6,6 @@ import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -19,9 +18,11 @@ import static dev.xplate.create_security.CSecurity.REG;
 public class DataGen {
 
     public static void gatherHigherData(GatherDataEvent event) {
-        REG.addDataGenerator(ProviderType.LANG, prov -> {
-            providePonderLang(prov::add);
-        });
+        if (event.getMods().contains(MODID))
+            REG.addDataGenerator(ProviderType.LANG, prov -> {
+                prov.add("itemGroup.create.base", "Create: Security");
+                providePonderLang(prov::add);
+            });
     }
 
     public static void gatherData(GatherDataEvent event) {
