@@ -20,6 +20,8 @@ public class SecurityCreativeTabs {
                     .displayItems((p, o) -> {
                         o.accept(SecurityBlocks.SIGHT_SENSOR.get());
                         o.accept(SecurityItems.KEYCARD.get());
+                        o.accept(SecurityBlocks.FINIRANIUM_ORE.get());
+                        o.accept(SecurityItems.FINIRANIUM.get());
                     })
                     .build()
     );
