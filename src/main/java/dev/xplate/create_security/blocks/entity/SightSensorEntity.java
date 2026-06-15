@@ -16,6 +16,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.Containers;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,6 +26,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -78,12 +80,26 @@ public class SightSensorEntity extends SmartBlockEntity {
             // times by 2 because the dimensions 15x15x15 in the center only has range of 7.5x7.5x7.5
             AABB area = AABB.ofSize(getPos().getCenter(), size * 2, size * 2, size * 2);
             List<Entity> entities = level.getEntities(null, area);
-
             BlockState me = level.getBlockState(getPos());
             BlockPos thisPos = getPos();
-
+            Vec3 thisPosVec = thisPos.getCenter();
+            for (int i = 0; i < size; i++) {
+                
+            }            
+//TODO: make them able to see each other
             for (Entity ent : entities) {
                 if (ent instanceof LivingEntity entity) {
+                    if (entity.isDeadOrDying()) {
+                        for (int x = 0; x < 20; x++) {
+                            for (int y = 0; y < 20; y++) {
+                                for (int z = 0; z < 20; z++) {
+                                    BlockPos pos = new BlockPos(x, y, z);
+                                    BlockState block = level.getBlockState(pos);
+                                    if (!block.canBeReplaced() && block)
+                                }
+                            }
+                        }
+                    }
                     AtomicBoolean wearingHead = new AtomicBoolean(false);
                     if (entity instanceof Player) {
                         ItemStack headItem = ((Player) entity).getItemBySlot(EquipmentSlot.HEAD);
@@ -106,7 +122,7 @@ public class SightSensorEntity extends SmartBlockEntity {
                                 level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.5f, 0.4f);
                             }
 
-                            double dist = thisPos.getCenter().distanceTo(entity.position());
+                            double dist = thisPosVec.distanceTo(entity.position());
                             int power = getRedstonePowerFromDistance(thisPos, entity.position(), size);
 
                             level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWER, power).setValue(SightSensor.ACTIVE, true));
@@ -114,7 +130,7 @@ public class SightSensorEntity extends SmartBlockEntity {
                             double rand = -(level.random.nextFloat() * (dist / 1.5));
                             for (ServerPlayer player : level.players()) {
                                 Vec3 lookAngle = entity.getLookAngle();
-                                Vec3 test = thisPos.getCenter().add(lookAngle.multiply(rand, rand, rand));
+                                Vec3 test = thisPosVec.add(lookAngle.multiply(rand, rand, rand));
                                 level.sendParticles(player, ParticleTypes.DRAGON_BREATH, true, test.x(), test.y(), test.z(), 1, 0.1, 0.1, 0.1, 0.01);
                             }
                             //CSecurity.LOGGER.info("dist: {}", dist);

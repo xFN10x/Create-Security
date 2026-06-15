@@ -12,9 +12,11 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -55,6 +57,13 @@ public class SecurityBlocks {
                                         .apply(ApplyBonusCount.addOreBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE))))));
             })
             .defaultBlockstate()
+            .register();
+
+    public static final BlockEntry<Block> THE_BLOCK = REG
+            .block("the_block",Block::new)
+            .defaultBlockstate()
+            .lang("")
+            .loot((lt, t) -> lt.dropOther(t, Items.AIR))
             .register();
 
     public static void reg() {}
