@@ -7,6 +7,7 @@ import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xplate.create_security.blocks.FiniraniumOre;
 import dev.xplate.create_security.blocks.SightSensor;
+import dev.xplate.create_security.blocks.movement.SightSensorMovement;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.HolderLookup;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.Tags;
 
+import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static dev.xplate.create_security.CSecurity.REG;
 
 public class SecurityBlocks {
@@ -36,7 +38,9 @@ public class SecurityBlocks {
             .defaultLoot()
             .lang("Sight Sensor")
             .blockstate(new SightSensorGenerator()::generate)
+            .onRegister(movementBehaviour(new SightSensorMovement()))
             .register();
+
     public static final BlockEntry<FiniraniumOre> FINIRANIUM_ORE = REG
             .block("finiranium_ore", FiniraniumOre::new)
             .simpleItem()

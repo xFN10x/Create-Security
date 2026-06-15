@@ -31,6 +31,7 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
     public static BooleanProperty ACTIVE = BooleanProperty.create("active");
     public static IntegerProperty POWER = IntegerProperty.create("power", 0,15);
     public static BooleanProperty REVERSED = BooleanProperty.create("reversed");
+    public static BooleanProperty SECRET = BooleanProperty.create("secret");
 
     public SightSensor(Properties properties) {
         super(properties);
@@ -39,6 +40,7 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
                 .setValue(ACTIVE, false)
                 .setValue(POWER, 0)
                 .setValue(REVERSED, true)
+                .setValue(SECRET, false)
         );
     }
 
@@ -104,7 +106,7 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(FACING, ACTIVE, POWER, REVERSED);
+        builder.add(FACING, ACTIVE, POWER, REVERSED, SECRET);
     }
 
     @Override
