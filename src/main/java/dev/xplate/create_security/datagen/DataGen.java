@@ -2,6 +2,7 @@ package dev.xplate.create_security.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xplate.create_security.CSecurity;
+import dev.xplate.create_security.datagen.provider.GeneratedEntriesProvider;
 import dev.xplate.create_security.datagen.provider.RecipeProvider;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityCreativeTabs;
@@ -21,11 +22,12 @@ import static dev.xplate.create_security.CSecurity.REG;
 public class DataGen {
 
     public static void gatherHigherData(GatherDataEvent event) {
-        if (event.getMods().contains(MODID))
+        if (event.getMods().contains(MODID)) {
             REG.addDataGenerator(ProviderType.LANG, prov -> {
                 prov.add(SecurityCreativeTabs.CREATIVE_TAB.get(), "Create: Security");
                 providePonderLang(prov::add);
             });
+        }
     }
 
     public static void gatherData(GatherDataEvent event) {
@@ -33,6 +35,10 @@ public class DataGen {
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
+
+        GeneratedEntriesProvider generatedEntriesProvider = new GeneratedEntriesProvider(output, lookup);
+        lookup = generatedEntriesProvider.getRegistryProvider();
+        generator.addProvider(event.includeServer(), generatedEntriesProvider);
 
         generator.addProvider(event.includeServer(), new RecipeProvider(output, lookup));
     }

@@ -55,7 +55,6 @@ public class SecurityBlocks {
                                 lt.applyExplosionDecay(b, LootItem.lootTableItem(SecurityItems.FINIRANIUM.get())
                                         .apply(ApplyBonusCount.addOreBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE))))));
             })
-
             .tag(BlockTags.NEEDS_DIAMOND_TOOL)
             .tag(Tags.Blocks.ORES)
             .tag(Tags.Blocks.END_STONES)

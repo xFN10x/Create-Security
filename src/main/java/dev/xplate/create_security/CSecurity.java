@@ -4,10 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import dev.xplate.create_security.datagen.DataGen;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
-import dev.xplate.create_security.reg.SecurityBlockEntities;
-import dev.xplate.create_security.reg.SecurityBlocks;
-import dev.xplate.create_security.reg.SecurityCreativeTabs;
-import dev.xplate.create_security.reg.SecurityItems;
+import dev.xplate.create_security.reg.*;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -35,19 +32,18 @@ public class CSecurity {
     public final static CreateRegistrate REG = CreateRegistrate.create(MODID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
 
     public CSecurity(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
-        NeoForge.EVENT_BUS.register(this);
-        REG.registerEventListeners(modEventBus);
-
-        SecurityItems.reg();
-        SecurityBlocks.reg();
-        SecurityBlockEntities.reg();
-        SecurityCreativeTabs.reg(modEventBus);
-
         modEventBus.addListener(EventPriority.HIGHEST, DataGen::gatherHigherData);
         modEventBus.addListener(EventPriority.NORMAL, DataGen::gatherData);
         modEventBus.addListener(this::commonSetup);
 
+        NeoForge.EVENT_BUS.register(this);
+        REG.registerEventListeners(modEventBus);
+
+        //SecurityFeatures.reg();
+        SecurityItems.reg();
+        SecurityBlocks.reg();
+        SecurityBlockEntities.reg();
+        SecurityCreativeTabs.reg(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
