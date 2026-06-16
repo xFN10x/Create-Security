@@ -1,0 +1,3332 @@
+{
+  "variants": {
+    "active=false,facing=down,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=down,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 180
+    },
+    "active=false,facing=east,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=north,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=north,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90
+    },
+    "active=false,facing=south,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=up,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=up,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor"
+    },
+    "active=false,facing=west,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=down,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=down,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 180
+    },
+    "active=true,facing=east,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=north,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=north,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90
+    },
+    "active=true,facing=south,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=up,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=up,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active"
+    },
+    "active=true,facing=west,power=0,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=0,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=0,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=0,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=1,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=1,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=1,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=1,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=10,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=10,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=10,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=10,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=11,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=11,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=11,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=11,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=12,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=12,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=12,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=12,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=13,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=13,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=13,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=13,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=14,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=14,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=14,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=14,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=15,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=15,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=15,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=15,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=2,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=2,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=2,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=2,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=3,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=3,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=3,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=3,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=4,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=4,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=4,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=4,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=5,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=5,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=5,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=5,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=6,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=6,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=6,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=6,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=7,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=7,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=7,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=7,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=8,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=8,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=8,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=8,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=9,reversed=false,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=9,reversed=false,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=9,reversed=true,secret=false": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,power=9,reversed=true,secret=true": {
+      "model": "create_security:block/sight_sensor_active",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

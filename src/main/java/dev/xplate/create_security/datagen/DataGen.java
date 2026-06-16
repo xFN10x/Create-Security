@@ -1,7 +1,6 @@
 package dev.xplate.create_security.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
-import dev.xplate.create_security.CSecurity;
 import dev.xplate.create_security.datagen.provider.GeneratedEntriesProvider;
 import dev.xplate.create_security.datagen.provider.RecipeProvider;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;

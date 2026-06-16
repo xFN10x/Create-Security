@@ -6,8 +6,6 @@ import dev.xplate.create_security.datagen.DataGen;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.*;
 import net.createmod.ponder.foundation.PonderIndex;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.api.distmarker.Dist;
@@ -21,8 +19,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 @Mod(CSecurity.MODID)
@@ -39,7 +35,7 @@ public class CSecurity {
         NeoForge.EVENT_BUS.register(this);
         REG.registerEventListeners(modEventBus);
 
-        //SecurityFeatures.reg();
+        SecurityFeatures.reg(modEventBus);
         SecurityItems.reg();
         SecurityBlocks.reg();
         SecurityBlockEntities.reg();

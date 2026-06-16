@@ -14,12 +14,14 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
+import static dev.xplate.create_security.CSecurity.MODID;
+
 public class GeneratedEntriesProvider extends DatapackBuiltinEntriesProvider {
     public GeneratedEntriesProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, new RegistrySetBuilder()
                         .add(Registries.CONFIGURED_FEATURE, SecurityFeatures::configured)
                         .add(Registries.PLACED_FEATURE, SecurityFeatures::placed)
-                        .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, SecurityBiomeMods::bootstrap)
-                , Set.of(Create.ID));
+                        .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, SecurityBiomeMods::bootstrap),
+                Set.of(MODID));
     }
 }

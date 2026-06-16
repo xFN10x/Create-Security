@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "a": {
+      "item": "create:andesite_casing"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "aoe",
+    "rrr"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_security:sight_sensor"
+  }
+}
