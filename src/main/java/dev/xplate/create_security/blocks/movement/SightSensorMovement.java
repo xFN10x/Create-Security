@@ -3,10 +3,6 @@ package dev.xplate.create_security.blocks.movement;
 import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.xplate.create_security.blocks.SightSensor;
-import dev.xplate.create_security.blocks.entity.SightSensorEntity;
-import dev.xplate.create_security.reg.SecurityBlocks;
-import net.createmod.catnip.outliner.Outliner;
-import net.createmod.ponder.api.scene.VectorUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,22 +15,17 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static dev.xplate.create_security.CSecurity.LOGGER;
 import static dev.xplate.create_security.blocks.entity.SightSensorEntity.getRedstonePowerFromDistance;
 
 public class SightSensorMovement implements MovementBehaviour {
