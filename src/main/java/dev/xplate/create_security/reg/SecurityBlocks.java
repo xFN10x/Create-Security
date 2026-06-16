@@ -2,10 +2,12 @@ package dev.xplate.create_security.reg;
 
 import com.simibubi.create.AllBlocks;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import dev.xplate.create_security.blocks.FiniraniumOre;
+import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
 import dev.xplate.create_security.blocks.SightSensor;
+import dev.xplate.create_security.blocks.base.GradientNamedBlock;
 import dev.xplate.create_security.blocks.movement.SightSensorMovement;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
+import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
@@ -33,9 +35,10 @@ public class SecurityBlocks {
             .onRegister(movementBehaviour(new SightSensorMovement()))
             .register();
 
-    public static final BlockEntry<FiniraniumOre> FINIRANIUM_ORE = REG
-            .block("finiranium_ore", FiniraniumOre::new)
-            .simpleItem()
+    public static final BlockEntry<FiniraniumRelatedBlock> FINIRANIUM_ORE = REG
+            .block("finiranium_ore", FiniraniumRelatedBlock::new)
+            .item(FiniraniumRelatedBlockItem::new)
+            .build()
             .initialProperties(() -> Blocks.ANCIENT_DEBRIS)
             .properties(p -> p
                     .strength(2f)

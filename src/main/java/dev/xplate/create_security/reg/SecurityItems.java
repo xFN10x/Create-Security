@@ -2,6 +2,7 @@ package dev.xplate.create_security.reg;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xplate.create_security.CSecurity;
+import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.items.KeycardItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.components.ChatComponent;
@@ -20,10 +21,10 @@ public class SecurityItems {
             .defaultModel()
             .register();
 
-    public static final ItemEntry<Item> FINIRANIUM = REG
-            .item("finiranium", Item::new)
+    public static final ItemEntry<FiniraniumRelatedItem> FINIRANIUM = REG
+            .item("finiranium", FiniraniumRelatedItem::new)
             .properties(p -> p.fireResistant().rarity(Rarity.EPIC))
-            .lang("&#54DAF4fgegvewg")
+            .lang("Finiranium")
             .burnTime((20 * 60 * 30))
             .defaultModel()
             .register();

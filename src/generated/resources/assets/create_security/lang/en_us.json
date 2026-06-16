@@ -7,7 +7,7 @@
   "create_security.ponder.basic_sight_sensor.text_2": "It outputs a redstone signal depending on how far the entity is.",
   "create_security.ponder.basic_sight_sensor.text_3": "Right-click the back with a wrench to reverse the signal.",
   "create_security.ponder.basic_sight_sensor.text_4": "If you are holding a wrench, you can also change the range of the sight sensor.",
-  "item.create_security.finiranium": "&#54DAF4fgegvewg",
+  "item.create_security.finiranium": "Finiranium",
   "item.create_security.keycard": "Keycard",
   "itemGroup.create_security": "Create: Security"
 }
