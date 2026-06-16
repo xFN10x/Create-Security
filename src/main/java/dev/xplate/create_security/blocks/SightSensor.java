@@ -66,6 +66,10 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
 
     @Override
     protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return getShape(state);
+    }
+
+    public static VoxelShape getShape(BlockState state) {
         return switch (state.getValue(FACING)) {
             case DOWN -> Block.box(0,9,0,16,16,16);
             case UP -> Block.box(0,0,0,16,7,16);

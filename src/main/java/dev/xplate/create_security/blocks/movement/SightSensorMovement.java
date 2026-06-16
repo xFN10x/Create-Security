@@ -5,6 +5,7 @@ import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.xplate.create_security.blocks.SightSensor;
 import dev.xplate.create_security.blocks.entity.SightSensorEntity;
 import dev.xplate.create_security.reg.SecurityBlocks;
+import net.createmod.catnip.outliner.Outliner;
 import net.createmod.ponder.api.scene.VectorUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -118,9 +119,7 @@ public class SightSensorMovement implements MovementBehaviour {
                     Vec3 end = start.add(look.scale(size));
 
                     AABB sensorBox =
-                            new AABB(thisRealPos.subtract(0.5, 0.5, 0.5),
-                                    thisRealPos.add(0.5, 0.5, 0.5));
-
+                            SightSensor.getShape(me).toAabbs().getFirst().move(-0.5,-0.5,-0.5).move(thisRealPos);
                     Optional<Vec3> hit =
                             sensorBox.clip(start, end);
                     Direction facing = Direction.getNearest(context.rotation.apply(Vec3.atLowerCornerOf(me.getValue(SightSensor.FACING).getNormal()).normalize()));
@@ -129,6 +128,7 @@ public class SightSensorMovement implements MovementBehaviour {
 
                     if (hit.isPresent() && facing.equals(entityFacing.getOpposite())) {
                         seeing = true;
+                        //Outliner.getInstance().showAABB("hb", sensorBox);
                         seeingAt = entity.getEyePosition();
                         lookAngle = entity.getLookAngle();
                     }
