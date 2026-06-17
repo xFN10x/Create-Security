@@ -24,6 +24,7 @@ public class GuiMixins {
     @Inject(method = "renderFood", at = @At(
             value = "INVOKE",
             shift = At.Shift.BEFORE,
+            by = 1,
             target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"
     ))
     public void renderFood(GuiGraphics guiGraphics, Player player, int y, int x, CallbackInfo ci, @Local(ordinal = 0) LocalRef<ResourceLocation> res0, @Local(ordinal = 1) LocalRef<ResourceLocation> res1, @Local(ordinal = 2) LocalRef<ResourceLocation> res2) {

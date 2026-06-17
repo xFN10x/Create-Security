@@ -4,7 +4,6 @@ import com.simibubi.create.AllBlocks;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
 import dev.xplate.create_security.blocks.SightSensor;
-import dev.xplate.create_security.blocks.base.GradientNamedBlock;
 import dev.xplate.create_security.blocks.movement.SightSensorMovement;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
 import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;

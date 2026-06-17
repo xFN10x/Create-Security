@@ -1,13 +1,19 @@
 package dev.xplate.create_security.blocks;
 
-import dev.xplate.create_security.blocks.base.GradientNamedBlock;
+import dev.xplate.create_security.misc.Utils;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.level.block.Block;
 
 import java.awt.*;
 
-public class FiniraniumRelatedBlock extends GradientNamedBlock {
+public class FiniraniumRelatedBlock extends Block {
 
-    public static final ColourGradient finiraniumGrad = new ColourGradient(Color.decode("#DE63E7"), Color.decode("#FF00E5"));
     public FiniraniumRelatedBlock(Properties properties) {
-        super(properties, finiraniumGrad);
+        super(properties);
+    }
+
+    @Override
+    public MutableComponent getName() {
+        return Utils.createGradiant(Utils.FiniraniumGrad, this);
     }
 }
