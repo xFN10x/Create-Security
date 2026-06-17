@@ -1,0 +1,13 @@
+{
+  "entries":[
+    {
+      "enum": "net/minecraft/client/gui/Gui$HeartType",
+      "name": "CREATE_SECURITY_END_SICK",
+      "constructor" : "(Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;)V",
+      "parameters" : {
+        "class" : "dev/xplate/create_security/SecurityEnumProxies",
+        "field": "EndSicknessHeartType"
+      }
+    }
+  ]
+}

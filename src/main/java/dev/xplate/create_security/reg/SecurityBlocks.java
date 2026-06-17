@@ -16,6 +16,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -41,10 +42,11 @@ public class SecurityBlocks {
             .build()
             .initialProperties(() -> Blocks.ANCIENT_DEBRIS)
             .properties(p -> p
-                    .strength(2f)
+                    .strength(50.0F, 3000.0F)
                     .emissiveRendering(
                             (b1, b2, b3) -> true)
                     .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
             )
             .tag(BlockTags.MINEABLE_WITH_PICKAXE)
             .lang("Finiranium Ore")

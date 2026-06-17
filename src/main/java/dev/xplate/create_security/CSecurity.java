@@ -7,6 +7,7 @@ import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.*;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
@@ -18,6 +19,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.PlayerHeartTypeEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
@@ -26,6 +28,10 @@ public class CSecurity {
     public static final String MODID = "create_security";
     public static final Logger LOGGER = LogUtils.getLogger();
     public final static CreateRegistrate REG = CreateRegistrate.create(MODID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
+
+    public static ResourceLocation res(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
 
     public CSecurity(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(EventPriority.HIGHEST, DataGen::gatherHigherData);
@@ -36,6 +42,7 @@ public class CSecurity {
         REG.registerEventListeners(modEventBus);
 
         SecurityFeatures.reg(modEventBus);
+        SecurityEffects.reg(modEventBus);
         SecurityItems.reg();
         SecurityBlocks.reg();
         SecurityBlockEntities.reg();
@@ -43,6 +50,13 @@ public class CSecurity {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+    }
+
+    @SubscribeEvent
+    public void onGetPlayerHeartType(PlayerHeartTypeEvent event) {
+        if (event.getEntity().hasEffect(SecurityEffects.END_SICKNESS)) {
+            event.setType(SecurityEnumProxies.EndSicknessHeartType.getValue());
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
