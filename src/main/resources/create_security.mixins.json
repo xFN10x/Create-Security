@@ -1,11 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "dev.xplate.create_security.mixin",
+  "package": "dev.xplate.create_security.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "client": [
+    "GuiMixins"
   ],
   "injectors": {
     "defaultRequire": 1

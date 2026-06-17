@@ -5,6 +5,7 @@ import dev.xplate.create_security.datagen.provider.GeneratedEntriesProvider;
 import dev.xplate.create_security.datagen.provider.RecipeProvider;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityCreativeTabs;
+import dev.xplate.create_security.reg.SecurityEffects;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -24,6 +25,7 @@ public class DataGen {
         if (event.getMods().contains(MODID)) {
             REG.addDataGenerator(ProviderType.LANG, prov -> {
                 prov.add(SecurityCreativeTabs.CREATIVE_TAB.get(), "Create: Security");
+                prov.add(SecurityEffects.END_SICKNESS.get(), "End Sickness");
                 providePonderLang(prov::add);
             });
         }
