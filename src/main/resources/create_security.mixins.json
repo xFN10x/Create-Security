@@ -6,7 +6,9 @@
   "mixins": [
   ],
   "client": [
-    "GuiMixins"
+    "GuiMixins",
+    "rendering.GameRendererMixins",
+    "rendering.LevelRendererMixins"
   ],
   "injectors": {
     "defaultRequire": 1
