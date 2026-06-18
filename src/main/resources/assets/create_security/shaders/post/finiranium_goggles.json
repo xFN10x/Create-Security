@@ -1,6 +1,7 @@
 {
   "targets": [
-    "swap"
+    "swap",
+    "entity"
   ],
   "passes": [
     {
@@ -10,15 +11,27 @@
       "uniforms": [
         {
           "name": "RedMatrix",
-          "values": [ 0.4, 0.4, 0.4 ]
+          "values": [
+            0.4,
+            0.4,
+            0.4
+          ]
         },
         {
           "name": "GreenMatrix",
-          "values": [ 0.1, 0.1, 0.1 ]
+          "values": [
+            0.1,
+            0.1,
+            0.1
+          ]
         },
         {
           "name": "BlueMatrix",
-          "values": [ 0.4, 0.4, 0.4 ]
+          "values": [
+            0.4,
+            0.4,
+            0.4
+          ]
         }
       ]
     },
@@ -29,11 +42,15 @@
       "uniforms": [
         {
           "name": "Resolution",
-          "values": [ 24.0 ]
+          "values": [
+            24.0
+          ]
         },
         {
           "name": "MosaicSize",
-          "values": [ 8.0 ]
+          "values": [
+            2.0
+          ]
         }
       ]
     }

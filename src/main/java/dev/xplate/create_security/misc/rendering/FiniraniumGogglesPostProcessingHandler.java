@@ -3,6 +3,7 @@ package dev.xplate.create_security.misc.rendering;
 import com.mojang.blaze3d.platform.Window;
 import dev.xplate.create_security.reg.SecurityEffects;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.PostChain;
 import net.minecraft.resources.ResourceLocation;
 
