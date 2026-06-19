@@ -2,6 +2,7 @@ package dev.xplate.create_security.items;
 
 import com.simibubi.create.content.equipment.wrench.WrenchItemRenderer;
 import com.simibubi.create.foundation.item.render.SimpleCustomRenderer;
+import dev.xplate.create_security.items.renderers.FiniGogglesRenderer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -34,6 +35,6 @@ public class FiniGoggles extends FiniraniumRelatedItem implements Equipable {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(SimpleCustomRenderer.create(this, new WrenchItemRenderer()));
+        consumer.accept(SimpleCustomRenderer.create(this, new FiniGogglesRenderer()));
     }
 }
