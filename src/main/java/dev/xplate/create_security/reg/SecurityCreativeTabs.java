@@ -22,6 +22,7 @@ public class SecurityCreativeTabs {
                         o.accept(SecurityItems.KEYCARD.get());
                         o.accept(SecurityBlocks.FINIRANIUM_ORE.get());
                         o.accept(SecurityItems.FINIRANIUM.get());
+                        o.accept(SecurityItems.FINI_GOGGLES.get());
                     })
                     .build()
     );
