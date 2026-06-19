@@ -1,7 +1,6 @@
 package dev.xplate.create_security.items.renderers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.simibubi.create.Create;
 import com.simibubi.create.foundation.item.render.CustomRenderedItemModel;
 import com.simibubi.create.foundation.item.render.CustomRenderedItemModelRenderer;
 import com.simibubi.create.foundation.item.render.PartialItemModelRenderer;

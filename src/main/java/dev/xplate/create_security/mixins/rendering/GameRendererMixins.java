@@ -16,7 +16,7 @@ public class GameRendererMixins {
     @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;getMainRenderTarget()Lcom/mojang/blaze3d/pipeline/RenderTarget;", shift = At.Shift.BEFORE))
     public void renderFiniraniumGogglesEffect(DeltaTracker deltaTracker, boolean renderLevel, CallbackInfo ci) {
         if (CSecurityClient.googlesEffectHandler.shouldRenderFiniraniumGoggles()) {
-            //CSecurityClient.googlesEffectHandler.postFilter.process(deltaTracker.getRealtimeDeltaTicks());
+            CSecurityClient.googlesEffectHandler.postFilter.process(deltaTracker.getRealtimeDeltaTicks());
         }
     }
 }
