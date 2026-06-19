@@ -34,15 +34,15 @@ public class LevelRendererMixins {
     @Shadow
     private RenderBuffers renderBuffers;
 
-    @Inject(method = "onResourceManagerReload", at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/LevelRenderer;initOutline()V",
-            shift = At.Shift.AFTER))
-    public void setupEntityRendering(ResourceManager resourceManager, CallbackInfo ci) {
-        if (CSecurityClient.googlesEffectHandler != null) {
-            entityTarget = CSecurityClient.googlesEffectHandler.postFilter.getTempTarget("entity");
-        }
-    }
+//    @Inject(method = "onResourceManagerReload", at = @At(
+//            value = "INVOKE",
+//            target = "Lnet/minecraft/client/renderer/LevelRenderer;initOutline()V",
+//            shift = At.Shift.AFTER))
+//    public void setupEntityRendering(ResourceManager resourceManager, CallbackInfo ci) {
+//        if (CSecurityClient.googlesEffectHandler != null) {
+//            entityTarget = CSecurityClient.googlesEffectHandler.postFilter.getTempTarget("entity");
+//        }
+//    }
 
     @Shadow
     private void renderEntity(
