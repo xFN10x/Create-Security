@@ -12,25 +12,58 @@
         {
           "name": "RedMatrix",
           "values": [
-            0.4,
-            0.4,
-            0.4
+            0.8,
+            0.2,
+            0.2
           ]
         },
         {
           "name": "GreenMatrix",
           "values": [
             0.1,
-            0.1,
-            0.1
+            0.9,
+            0.8
           ]
         },
+
         {
           "name": "BlueMatrix",
           "values": [
-            0.4,
-            0.4,
-            0.4
+            0.2,
+            0.2,
+            0.8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "color_convolve",
+      "intarget": "entity",
+      "outtarget": "entity",
+      "uniforms": [
+        {
+          "name": "RedMatrix",
+          "values": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "GreenMatrix",
+          "values": [
+            1,
+            1,
+            1
+          ]
+        },
+
+        {
+          "name": "BlueMatrix",
+          "values": [
+            0,
+            0,
+            0
           ]
         }
       ]

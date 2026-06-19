@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.*;
 import net.createmod.catnip.impl.client.render.ColoringVertexConsumer;
 import net.createmod.catnip.outliner.Outline;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.FastColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -52,6 +53,7 @@ public class FiniraniumGogglesEntityBufferSource implements MultiBufferSource {
         @Override
         public VertexConsumer setColor(int r, int g, int b, int a) {
             delegate.setColor(red, green, blue, alpha);
+            delegate.setOverlay(OverlayTexture.pack(OverlayTexture.u(1.0F), 1));
             return this;
         }
 

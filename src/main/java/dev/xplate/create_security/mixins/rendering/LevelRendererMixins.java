@@ -56,9 +56,11 @@ public class LevelRendererMixins {
             shift = At.Shift.AFTER))
     public void renderEntities(DeltaTracker deltaTracker, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f frustumMatrix, Matrix4f projectionMatrix, CallbackInfo ci,
                                @Local() Entity entity, @Local(ordinal = 0) double camx, @Local(ordinal = 1) double camy, @Local(ordinal = 2) double camz, @Local PoseStack posestack, @Local TickRateManager tickratemanager, @Local LocalRef<MultiBufferSource.BufferSource> multibuffersource$buffersource) {
-        FiniraniumGogglesEntityBufferSource outlinebuffersource = new FiniraniumGogglesEntityBufferSource(multibuffersource$buffersource.get());
-        float parttick = deltaTracker.getGameTimeDeltaPartialTick(!tickratemanager.isEntityFrozen(entity));
-        this.renderEntity(entity, camx, camy, camz, parttick, posestack, outlinebuffersource);
+        if (CSecurityClient.googlesEffectHandler != null && CSecurityClient.googlesEffectHandler.shouldRenderFiniraniumGoggles()) {
+            FiniraniumGogglesEntityBufferSource outlinebuffersource = new FiniraniumGogglesEntityBufferSource(multibuffersource$buffersource.get());
+            float parttick = deltaTracker.getGameTimeDeltaPartialTick(!tickratemanager.isEntityFrozen(entity));
+            this.renderEntity(entity, camx, camy, camz, parttick, posestack, outlinebuffersource);
+        }
     }
 
     @Inject(method = "resize", at = @At("TAIL"))

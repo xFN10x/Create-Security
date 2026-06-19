@@ -8,6 +8,7 @@
   "client": [
     "GuiMixins",
     "rendering.GameRendererMixins",
+    "rendering.OverlayTextureMixins",
     "rendering.LevelRendererMixins"
   ],
   "injectors": {

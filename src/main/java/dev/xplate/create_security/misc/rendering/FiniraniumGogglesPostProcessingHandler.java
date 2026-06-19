@@ -13,6 +13,7 @@ import static dev.xplate.create_security.CSecurity.res;
 
 public class FiniraniumGogglesPostProcessingHandler {
 
+    //TODO: to make entities visible, change entity.isvisabletoplayer
     public boolean shouldRenderFiniraniumGoggles() {
         Minecraft mc = Minecraft.getInstance();
         return mc.player.hasEffect(SecurityEffects.END_SICKNESS);
