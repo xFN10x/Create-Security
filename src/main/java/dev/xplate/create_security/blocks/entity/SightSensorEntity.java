@@ -81,7 +81,7 @@ public class SightSensorEntity extends SmartBlockEntity {
 
             boolean seeing = false;
             Vec3 seeingAt = Vec3.ZERO;
-            Vec3 lookAngle = Vec3.ZERO;
+            Vec3 lookAngle = Vec3.atLowerCornerOf(me.getValue(SightSensor.FACING).getOpposite().getNormal());
 
             for (int i = 1; i < size; i++) {
                 BlockPos pos = thisPos.offset(

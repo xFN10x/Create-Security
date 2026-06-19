@@ -39,7 +39,7 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
                 .setValue(FACING, Direction.UP)
                 .setValue(ACTIVE, false)
                 .setValue(POWER, 0)
-                .setValue(REVERSED, true)
+                .setValue(REVERSED, false)
                 .setValue(SECRET, false)
         );
     }
