@@ -30,6 +30,7 @@ public class DataGen {
                 prov.add("chat.end_sick.warning2", "Your head feels like it's banging...");
                 prov.add("chat.end_sick.warning3", "You really need to leave the area...");
                 prov.add("chat.end_sick.warning4", "You can feel your hearts draining...");
+                prov.add("chat.invisiblePlayer", "This player was invisible when this message was sent.");
                 providePonderLang(prov::add);
             });
         }

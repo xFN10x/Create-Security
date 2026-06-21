@@ -67,7 +67,7 @@ public class CSecurityClient {
         LocalPlayer plr = mc.player;
         if (plr == null) return;
         long sickness = plr.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER);
-        plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
+        //plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
         if (sickness >= 10000 && lastCheck < 10000) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning1")));
 

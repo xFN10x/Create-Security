@@ -15,5 +15,6 @@
   "item.create_security.fini_goggles": "Fini-Goggles",
   "item.create_security.finiranium": "Finiranium",
   "item.create_security.keycard": "Keycard",
-  "itemGroup.create_security": "Create: Security"
+  "itemGroup.create_security": "Create: Security",
+  "chat.invisblePlayer": "\"This player was invisible when this message was sent.\""
 }
