@@ -3,8 +3,10 @@ package dev.xplate.create_security.blocks.movement;
 import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.xplate.create_security.blocks.SightSensor;
+import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,9 +20,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.common.Tags;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,9 +34,12 @@ import static dev.xplate.create_security.blocks.entity.SightSensorEntity.getReds
 
 public class SightSensorMovement implements MovementBehaviour {
 
+    public static NonNullList<AABB> AABBS = NonNullList.create();
+
+    protected AABB sensorBox;
+
     @Override
     public void tick(MovementContext context) {
-        MovementBehaviour.super.tick(context);
         Level lev = context.world;
         if (lev == null || lev.isClientSide) return;
         ServerLevel level = (ServerLevel) lev;
@@ -44,20 +51,20 @@ public class SightSensorMovement implements MovementBehaviour {
         List<Entity> entities = level.getEntities(null, area);
         BlockState me = context.state;
         Vec3 thisPosVec = thisPos.getCenter();
+        Direction facing = Direction.getNearest(context.rotation.apply(Vec3.atLowerCornerOf(me.getValue(SightSensor.FACING).getNormal()).normalize()));
+
+        sensorBox =
+                SightSensor.getShape(me).toAabbs().getFirst().move(-0.5,-0.5,-0.5).move(thisRealPos);
+        if (!AABBS.contains(sensorBox))
+            AABBS .add(sensorBox);
 
         boolean seeing = false;
         Vec3 seeingAt = Vec3.ZERO;
         Vec3 lookAngle = Vec3.ZERO;
+        Outliner.getInstance().showAABB("hb", sensorBox);
 
 
-//        for (int i = 1; i < size; i++) {
-//            BlockState block = level.getBlockState(pos);
-//            if (block.is(SecurityBlocks.SIGHT_SENSOR) && block.getValue(SightSensor.FACING).equals(me.getValue(SightSensor.FACING).getOpposite())) {
-//                seeing = true;
-//                seeingAt = pos.getCenter();
-//                break;
-//            } else if (block.isSolid()) break;
-//        }
+        //BlockHitResult clip = AABB.clip(AABBS, thisPosVec, thisPosVec.add(Vec3.atLowerCornerOf(facing.getNormal()).scale(size)), BlockPos.ZERO);
 
         //raycast from the sensor instead of from the entities
         if (!seeing)
@@ -109,17 +116,12 @@ public class SightSensorMovement implements MovementBehaviour {
                     Vec3 start = entity.getEyePosition();
                     Vec3 end = start.add(look.scale(size));
 
-                    AABB sensorBox =
-                            SightSensor.getShape(me).toAabbs().getFirst().move(-0.5,-0.5,-0.5).move(thisRealPos);
                     Optional<Vec3> hit =
                             sensorBox.clip(start, end);
-                    Direction facing = Direction.getNearest(context.rotation.apply(Vec3.atLowerCornerOf(me.getValue(SightSensor.FACING).getNormal()).normalize()));
                     Direction entityFacing = Direction.getNearest(entity.getLookAngle());
-
 
                     if (hit.isPresent() && facing.equals(entityFacing.getOpposite())) {
                         seeing = true;
-                        //Outliner.getInstance().showAABB("hb", sensorBox);
                         seeingAt = entity.getEyePosition();
                         lookAngle = entity.getLookAngle();
                     }

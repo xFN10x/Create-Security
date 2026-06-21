@@ -1,24 +1,30 @@
 package dev.xplate.create_security;
 
-import com.mojang.blaze3d.systems.RenderSystem;
+import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.misc.rendering.FiniraniumGogglesPostProcessingHandler;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityEffects;
+import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerHeartTypeEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 
 import java.io.IOException;
 
 import static dev.xplate.create_security.CSecurity.LOGGER;
 
+@EventBusSubscriber(Dist.CLIENT)
 @Mod(value = CSecurity.MODID, dist = Dist.CLIENT)
 public class CSecurityClient {
     public static FiniraniumGogglesPostProcessingHandler googlesEffectHandler;
@@ -48,6 +54,34 @@ public class CSecurityClient {
                 LOGGER.error("Failed to make goggles processing handler!", e);
             }
         });
+    }
+
+    private static int tickCounter = 0;
+    private static Long lastCheck = 0L;
+
+    @SubscribeEvent
+    public static void onClientLevelTick(LevelTickEvent.Pre event) {
+        Minecraft mc = Minecraft.getInstance();
+        tickCounter++;
+        if (tickCounter % 20 != 0) return;
+        LocalPlayer plr = mc.player;
+        if (plr == null) return;
+        long sickness = plr.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER);
+        plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
+        if (sickness >= 10000 && lastCheck < 10000) {
+            plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning1")));
+
+        } else if (sickness >= 20000 && lastCheck < 20000) {
+            plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning2")));
+
+        } else if (sickness >= 30000 && lastCheck < 30000) {
+            plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning3")));
+
+        } else if (sickness >= 40000 && lastCheck < 40000) {
+            plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning4")));
+
+        }
+        lastCheck = sickness;
     }
 
 }

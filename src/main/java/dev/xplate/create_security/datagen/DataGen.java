@@ -26,6 +26,10 @@ public class DataGen {
             REG.addDataGenerator(ProviderType.LANG, prov -> {
                 prov.add(SecurityCreativeTabs.CREATIVE_TAB.get(), "Create: Security");
                 prov.add(SecurityEffects.END_SICKNESS.get(), "End Sickness");
+                prov.add("chat.end_sick.warning1", "You start to feel weird...");
+                prov.add("chat.end_sick.warning2", "Your head feels like it's banging...");
+                prov.add("chat.end_sick.warning3", "You really need to leave the area...");
+                prov.add("chat.end_sick.warning4", "You can feel your hearts draining...");
                 providePonderLang(prov::add);
             });
         }
