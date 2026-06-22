@@ -33,6 +33,11 @@ public class FiniGoggles extends FiniraniumRelatedItem implements Equipable {
     }
 
     @Override
+    public long sickAmount() {
+        return 1;
+    }
+
+    @Override
     @OnlyIn(Dist.CLIENT)
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(SimpleCustomRenderer.create(this, new FiniGogglesRenderer()));

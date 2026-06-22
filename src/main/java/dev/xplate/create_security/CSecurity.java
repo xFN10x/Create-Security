@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
 import dev.xplate.create_security.datagen.DataGen;
+import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.reg.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
@@ -13,7 +14,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.npc.InventoryCarrier;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.EventPriority;
@@ -89,15 +93,33 @@ public class CSecurity {
                             BlockState bs = slev.getBlockState(bp);
                             FiniraniumRelatedBlock block = (FiniraniumRelatedBlock) bs.getBlock();
                             sick.set(le.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER));
-                            le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, sick.get() + (block.sickAmount() * everyXTick));
+                            sick.set(sick.get() + (block.sickAmount() * everyXTick));
                             didAnything.set(true);
-                            if (sick.get() > 40000) {
-                                int sickLevel = Math.toIntExact((sick.get() - 40000) / 20000);
-                                le.addEffect(new MobEffectInstance(SecurityEffects.END_SICKNESS, 20 * (60 * 5), sickLevel));
-                            }
                         });
+                        if (le instanceof InventoryCarrier inventoryCarrier) {
+                            for (ItemStack item : inventoryCarrier.getInventory().getItems()) {
+                                if (item.getItem() instanceof FiniraniumRelatedItem it) {
+                                    sick.set(sick.get() + (it.sickAmount() * everyXTick / 2) * item.getCount() / 2);
+                                }
+                            }
+                        }
+//we have to add another check here because mojang decided players are special
+                        if (le instanceof Player plr) {
+                            for (ItemStack item : plr.getInventory().items) {
+                                if (item.getItem() instanceof FiniraniumRelatedItem it) {
+                                    sick.set(sick.get() + (it.sickAmount() * everyXTick) * item.getCount());
+                                }
+                            }
+                        }
+
+                        if (sick.get() > 40000) {
+                            int sickLevel = Math.toIntExact((sick.get() - 40000) / 20000);
+                            le.addEffect(new MobEffectInstance(SecurityEffects.END_SICKNESS, 20 * (60 * 2), sickLevel));
+                        }
                         if (!didAnything.get())
                             le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, Math.max(sick.get() - (decreaseAmount * everyXTick), 0));
+                        else
+                            le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, sick.get());
                     }
                 });
         });
