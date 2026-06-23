@@ -77,7 +77,6 @@ public class SightSensorScenes {
 
         scene.idleSeconds(1);
 
-
         scene.rotateCameraY(45);
         scene.idleSeconds(1);
         scene.addKeyframe();

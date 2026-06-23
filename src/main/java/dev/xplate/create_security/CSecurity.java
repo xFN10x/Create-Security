@@ -88,11 +88,11 @@ public class CSecurity {
 
                         final AtomicBoolean didAnything = new AtomicBoolean(false);
                         final AtomicReference<Long> sick = new AtomicReference<>(le.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER));
+                        sick.set(le.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER));
 
                         finiraniumBlocks.forEach(bp -> {
                             BlockState bs = slev.getBlockState(bp);
                             FiniraniumRelatedBlock block = (FiniraniumRelatedBlock) bs.getBlock();
-                            sick.set(le.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER));
                             sick.set(sick.get() + (block.sickAmount() * everyXTick));
                             didAnything.set(true);
                         });

@@ -1,6 +1,7 @@
 package dev.xplate.create_security.reg;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllTags;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
 import dev.xplate.create_security.blocks.SightSensor;
@@ -69,6 +70,26 @@ public class SecurityBlocks {
             .defaultBlockstate()
             .lang("")
             .loot((lt, t) -> lt.dropOther(t, Items.AIR))
+            .register();
+
+    public static final BlockEntry<FiniraniumRelatedBlock> FINIRANIUM_BLOCK = REG
+            .block("finiranium_block", p -> new FiniraniumRelatedBlock(p, 50))
+            .item(FiniraniumRelatedBlockItem::new)
+            .build()
+            .initialProperties(() -> Blocks.NETHERITE_BLOCK)
+            .properties(p -> p
+                    .strength(80.0F, 1200.0F)
+                    .emissiveRendering(
+                            (b1, b2, b3) -> true)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)
+            )
+            .tag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .lang("Finiranium Block")
+            .defaultLoot()
+            .tag(BlockTags.NEEDS_DIAMOND_TOOL)
+            .tag(BlockTags.INFINIBURN_END)
+            .defaultBlockstate()
             .register();
 
     public static void reg() {
