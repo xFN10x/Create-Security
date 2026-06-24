@@ -38,8 +38,8 @@ public class SecurityLiquids {
                             .tickRate(50)
                             .slopeFindDistance(2)
                             .explosionResistance(500f))
-                    //.source(BaseFlowingFluid.Source::new) // TODO: remove when Registrate fixes FluidBuilder
-                    .block( (f,p) -> new FiniraniumRelatedFluidBlock(f,p,40))
+                    .source(BaseFlowingFluid.Source::new) // TODO: remove when Registrate fixes FluidBuilder
+                    .block( (f,p) -> new FiniraniumRelatedFluidBlock(f,p,10))
                     .properties(p -> p.mapColor(MapColor.COLOR_MAGENTA))
                     .build()
                     .bucket(FiniraniumRelatedBucketItem::new)
@@ -64,5 +64,9 @@ public class SecurityLiquids {
 
     private static void registerFluidDispenseBehavior(BucketItem bucket) {
         DispenserBlock.registerBehavior(bucket, DISPENSE_FLUID);
+    }
+
+    public static void reg() {
+
     }
 }

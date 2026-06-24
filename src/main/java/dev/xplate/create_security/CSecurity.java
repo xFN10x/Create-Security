@@ -3,8 +3,11 @@ package dev.xplate.create_security;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
+import dev.xplate.create_security.blocks.FiniraniumRelatedFluidBlock;
 import dev.xplate.create_security.datagen.DataGen;
+import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
+import dev.xplate.create_security.misc.IEndSickining;
 import dev.xplate.create_security.reg.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
@@ -59,7 +62,7 @@ public class CSecurity {
         SecurityBlockEntities.reg();
         SecurityCreativeTabs.reg(modEventBus);
         SecurityEntityAttachmentTypes.reg(modEventBus);
-
+        SecurityLiquids.reg();
     }
 
     private static int tickCounter = 0;
@@ -84,7 +87,7 @@ public class CSecurity {
                         BlockPos secondCorner = entityPos.below(8).east(8).south(8);
 
                         Stream<BlockPos> stream = BlockPos.betweenClosedStream(firstCorner, secondCorner);
-                        Stream<BlockPos> finiraniumBlocks = stream.filter((bp) -> slev.getBlockState(bp).getBlock() instanceof FiniraniumRelatedBlock);
+                        Stream<BlockPos> finiraniumBlocks = stream.filter((bp) -> (slev.getBlockState(bp).getBlock() instanceof IEndSickining));
 
                         final AtomicBoolean didAnything = new AtomicBoolean(false);
                         final AtomicReference<Long> sick = new AtomicReference<>(le.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER));
@@ -92,13 +95,13 @@ public class CSecurity {
 
                         finiraniumBlocks.forEach(bp -> {
                             BlockState bs = slev.getBlockState(bp);
-                            FiniraniumRelatedBlock block = (FiniraniumRelatedBlock) bs.getBlock();
+                            IEndSickining block = (IEndSickining) bs.getBlock();
                             sick.set(sick.get() + (block.sickAmount() * everyXTick));
                             didAnything.set(true);
                         });
                         if (le instanceof InventoryCarrier inventoryCarrier) {
                             for (ItemStack item : inventoryCarrier.getInventory().getItems()) {
-                                if (item.getItem() instanceof FiniraniumRelatedItem it) {
+                                if (item.getItem() instanceof IEndSickining it) {
                                     sick.set(sick.get() + (it.sickAmount() * everyXTick / 2) * item.getCount() / 2);
                                 }
                             }

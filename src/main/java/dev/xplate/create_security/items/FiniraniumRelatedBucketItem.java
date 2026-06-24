@@ -1,5 +1,6 @@
 package dev.xplate.create_security.items;
 
+import dev.xplate.create_security.misc.IEndSickining;
 import dev.xplate.create_security.misc.Utils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BucketItem;
@@ -8,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
 
 
-public class FiniraniumRelatedBucketItem extends BucketItem {
+public class FiniraniumRelatedBucketItem extends BucketItem implements IEndSickining {
 
     private final long sickAmount;
 
@@ -26,6 +27,6 @@ public class FiniraniumRelatedBucketItem extends BucketItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return Utils.createGradiant(Utils.FiniraniumGrad, this);
+        return getGradName(this);
     }
 }

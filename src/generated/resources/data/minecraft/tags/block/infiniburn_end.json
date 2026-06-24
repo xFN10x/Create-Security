@@ -1,5 +1,6 @@
 {
   "values": [
-    "create_security:finiranium_ore"
+    "create_security:finiranium_ore",
+    "create_security:finiranium_block"
   ]
 }

@@ -1,20 +1,25 @@
 {
+  "block.create_security.finiranium_block": "Finiranium Block",
   "block.create_security.finiranium_ore": "Finiranium Ore",
+  "block.create_security.liquid_finranium": "Liquid Finranium",
   "block.create_security.sight_sensor": "Sight Sensor",
   "block.create_security.the_block": "",
-  "chat.end_sick.warning1": "You start to feel werid...",
+  "chat.end_sick.command": "%s has %s end sickness build-up.",
+  "chat.end_sick.warning1": "You start to feel weird...",
   "chat.end_sick.warning2": "Your head feels like it's banging...",
   "chat.end_sick.warning3": "You really need to leave the area...",
   "chat.end_sick.warning4": "You can feel your hearts draining...",
+  "chat.invisiblePlayer": "This player was invisible when this message was sent.",
   "create_security.ponder.basic_sight_sensor.header": "The Sight Sensor",
   "create_security.ponder.basic_sight_sensor.text_1": "The Sight Sensor can be used to detect when entities are looking at it.",
   "create_security.ponder.basic_sight_sensor.text_2": "It outputs a redstone signal depending on how far the entity is.",
   "create_security.ponder.basic_sight_sensor.text_3": "Right-click the back with a wrench to reverse the signal.",
   "create_security.ponder.basic_sight_sensor.text_4": "If you are holding a wrench, you can also change the range of the sight sensor.",
   "effect.create_security.end_sickness": "End Sickness",
+  "fluid.create_security.liquid_finranium": "Liquid Finiranium",
   "item.create_security.fini_goggles": "Fini-Goggles",
   "item.create_security.finiranium": "Finiranium",
   "item.create_security.keycard": "Keycard",
-  "itemGroup.create_security": "Create: Security",
-  "chat.invisblePlayer": "\"This player was invisible when this message was sent.\""
+  "item.create_security.liquid_finranium_bucket": "Liquid Finranium Bucket",
+  "itemGroup.create_security": "Create: Security"
 }

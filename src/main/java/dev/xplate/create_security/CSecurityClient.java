@@ -1,13 +1,21 @@
 package dev.xplate.create_security;
 
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.tree.LiteralCommandNode;
+import com.simibubi.create.infrastructure.command.AllCommands;
+import dev.xplate.create_security.misc.SecurityCommands;
 import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.misc.rendering.FiniraniumGogglesPostProcessingHandler;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityEffects;
 import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
+import net.createmod.catnip.command.CatnipCommands;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -16,6 +24,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerHeartTypeEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
@@ -56,6 +65,18 @@ public class CSecurityClient {
         });
     }
 
+    @SubscribeEvent
+    public static void registerClientCommands(RegisterClientCommandsEvent event) {
+        LiteralArgumentBuilder<CommandSourceStack> rootCommands = Commands.literal("csecurity")
+                .then(SecurityCommands.getEndSicknessBuildup());
+
+        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
+        LiteralCommandNode<CommandSourceStack> root = dispatcher.register(rootCommands);
+        CatnipCommands.buildRedirect("security", root);
+        CatnipCommands.buildRedirect("stealth", root);
+        CatnipCommands.buildRedirect("cs", root);
+    }
+
     private static int tickCounter = 0;
     private static Long lastCheck = 0L;
 
@@ -67,7 +88,7 @@ public class CSecurityClient {
         LocalPlayer plr = mc.player;
         if (plr == null) return;
         long sickness = plr.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER);
-        plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
+        //plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
         if (sickness >= 10000 && lastCheck < 10000) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning1")));
 

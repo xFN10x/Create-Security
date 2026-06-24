@@ -24,8 +24,9 @@ public class DataGen {
     public static void gatherHigherData(GatherDataEvent event) {
         if (event.getMods().contains(MODID)) {
             REG.addDataGenerator(ProviderType.LANG, prov -> {
-                prov.add(SecurityCreativeTabs.CREATIVE_TAB.get(), "Create: Security");
+                prov.add(SecurityCreativeTabs.CREATIVE_TAB.get(), "Stealth & Security");
                 prov.add(SecurityEffects.END_SICKNESS.get(), "End Sickness");
+                prov.add("chat.end_sick.command", "%s has %s end sickness build-up.");
                 prov.add("chat.end_sick.warning1", "You start to feel weird...");
                 prov.add("chat.end_sick.warning2", "Your head feels like it's banging...");
                 prov.add("chat.end_sick.warning3", "You really need to leave the area...");

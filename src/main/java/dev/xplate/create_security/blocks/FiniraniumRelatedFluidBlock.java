@@ -1,12 +1,13 @@
 package dev.xplate.create_security.blocks;
 
+import dev.xplate.create_security.misc.IEndSickining;
 import dev.xplate.create_security.misc.Utils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.material.FlowingFluid;
 
-public class FiniraniumRelatedFluidBlock extends LiquidBlock {
+public class FiniraniumRelatedFluidBlock extends LiquidBlock implements IEndSickining {
 
     private final long sickAmount;
 
@@ -29,6 +30,6 @@ public class FiniraniumRelatedFluidBlock extends LiquidBlock {
 
     @Override
     public MutableComponent getName() {
-        return Utils.createGradiant(Utils.FiniraniumGrad, this);
+        return getGradName(this);
     }
 }
