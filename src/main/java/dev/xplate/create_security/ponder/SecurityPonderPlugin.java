@@ -2,17 +2,20 @@ package dev.xplate.create_security.ponder;
 
 import com.tterrag.registrate.util.entry.ItemProviderEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.xplate.create_security.ponder.scenes.FiniraniumScenes;
 import dev.xplate.create_security.ponder.scenes.SightSensorScenes;
 import dev.xplate.create_security.reg.SecurityBlocks;
+import dev.xplate.create_security.reg.SecurityItems;
 import net.createmod.ponder.api.registration.PonderPlugin;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 import static dev.xplate.create_security.CSecurity.MODID;
 
 public class SecurityPonderPlugin implements PonderPlugin {
     @Override
-    public String getModId() {
+    public @NotNull String getModId() {
         return MODID;
     }
 
@@ -23,5 +26,11 @@ public class SecurityPonderPlugin implements PonderPlugin {
 
         HELPER.forComponents(SecurityBlocks.SIGHT_SENSOR)
                 .addStoryBoard("sight_sensor/basic", SightSensorScenes::basic);
+        HELPER.forComponents(
+                        SecurityBlocks.FINIRANIUM_BLOCK,
+                        SecurityBlocks.FINIRANIUM_ORE,
+                        SecurityItems.FINIRANIUM
+                )
+                .addStoryBoard("finiranium/end_sick", FiniraniumScenes::endSickness);
     }
 }
