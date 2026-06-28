@@ -1,7 +1,7 @@
 {
   "block.create_security.finiranium_block": "Finiranium Block",
   "block.create_security.finiranium_ore": "Finiranium Ore",
-  "block.create_security.liquid_finranium": "Liquid Finranium",
+  "block.create_security.liquid_finiranium": "Liquid Finiranium",
   "block.create_security.sight_sensor": "Sight Sensor",
   "block.create_security.the_block": "",
   "chat.end_sick.command": "%s has %s end sickness build-up.",
@@ -15,11 +15,16 @@
   "create_security.ponder.basic_sight_sensor.text_2": "It outputs a redstone signal depending on how far the entity is.",
   "create_security.ponder.basic_sight_sensor.text_3": "Right-click the back with a wrench to reverse the signal.",
   "create_security.ponder.basic_sight_sensor.text_4": "If you are holding a wrench, you can also change the range of the sight sensor.",
+  "create_security.ponder.finiranium_end_sickness.header": "Finiranium: End Sickness",
+  "create_security.ponder.finiranium_end_sickness.text_1": "Finiranium is a powerful mineral from the end; It can be found in End Midlands.",
+  "create_security.ponder.finiranium_end_sickness.text_2": "However, it is not safe to be around.",
+  "create_security.ponder.finiranium_end_sickness.text_3": "Being around Finiranium products can build up End Sickness.",
+  "create_security.ponder.finiranium_end_sickness.text_4": "End Sickness slowly drains your health as you remain around finiranium, so heed the warnings in the chat. ",
   "effect.create_security.end_sickness": "End Sickness",
-  "fluid.create_security.liquid_finranium": "Liquid Finiranium",
+  "fluid.create_security.liquid_finiranium": "Liquid Finiranium",
   "item.create_security.fini_goggles": "Fini-Goggles",
   "item.create_security.finiranium": "Finiranium",
   "item.create_security.keycard": "Keycard",
-  "item.create_security.liquid_finranium_bucket": "Liquid Finranium Bucket",
-  "itemGroup.create_security": "Create: Security"
+  "item.create_security.liquid_finiranium_bucket": "Liquid Finiranium Bucket",
+  "itemGroup.create_security": "Stealth & Security"
 }

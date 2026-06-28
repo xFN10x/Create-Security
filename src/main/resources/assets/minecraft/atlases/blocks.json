@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "create_security:fluid/liquid_finiranium_flow"
+    },
+    {
+      "type": "single",
+      "resource": "create_security:fluid/liquid_finiranium_still"
+    }
+  ]
+}
