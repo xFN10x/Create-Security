@@ -1,7 +1,7 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
-	"parent": "lazer_diode",
+	"render_type": "minecraft:cutout_mipped",
 	"texture_size": [64, 64],
 	"textures": {
 		"main": "create_security:block/lazer_diode/main",

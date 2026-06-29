@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenchable {
@@ -64,11 +65,6 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
         return InteractionResult.SUCCESS;
     }
 
-    @Override
-    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return getShape(state);
-    }
-
     public static VoxelShape getShape(BlockState state) {
         return switch (state.getValue(FACING)) {
             case DOWN -> Block.box(0,9,0,16,16,16);
@@ -92,13 +88,8 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
     }
 
     @Override
-    protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return getCollisionShape(state, level, pos, context);
-    }
-
-    @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return getVisualShape(state,level,pos,context);
+    protected @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return getShape(state);
     }
 
     @Override

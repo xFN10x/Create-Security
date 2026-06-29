@@ -1,11 +1,12 @@
 package dev.xplate.create_security.reg;
 
 import com.simibubi.create.AllBlocks;
-import com.simibubi.create.AllTags;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
+import dev.xplate.create_security.blocks.LazerDiode;
 import dev.xplate.create_security.blocks.SightSensor;
 import dev.xplate.create_security.blocks.movement.SightSensorMovement;
+import dev.xplate.create_security.datagen.blockstate.LazerDiodeGenerator;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
 import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;
 import net.minecraft.core.HolderLookup;
@@ -34,6 +35,16 @@ public class SecurityBlocks {
             .lang("Sight Sensor")
             .blockstate(new SightSensorGenerator()::generate)
             .onRegister(movementBehaviour(new SightSensorMovement()))
+            .register();
+
+    public static final BlockEntry<LazerDiode> LAZER_DIODE = REG.block("lazer_diode", LazerDiode::new)
+            .initialProperties(AllBlocks.ANDESITE_CASING::get)
+            .properties(BlockBehaviour.Properties::noOcclusion)
+            .simpleItem()
+            .defaultLoot()
+            .lang("Lazer Diode")
+            .blockstate(new LazerDiodeGenerator()::generate)
+             //.onRegister(movementBehaviour(new SightSensorMovement()))
             .register();
 
     public static final BlockEntry<FiniraniumRelatedBlock> FINIRANIUM_ORE = REG

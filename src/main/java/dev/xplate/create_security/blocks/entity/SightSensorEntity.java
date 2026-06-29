@@ -33,6 +33,8 @@ import net.neoforged.neoforge.common.Tags;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import static dev.xplate.create_security.CSecurity.REG;
+
 public class SightSensorEntity extends SmartBlockEntity {
 
     public SightSensorScrollValueBehavior scrollVal;
@@ -43,7 +45,7 @@ public class SightSensorEntity extends SmartBlockEntity {
 
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
-        scrollVal = new SightSensorScrollValueBehavior(Component.translatable("blocks.sight_sensor.distance"), this, new CenteredSideValueBoxTransform());
+        scrollVal = new SightSensorScrollValueBehavior(REG.addRawLang("blocks.sight_sensor.distance", "Detection Distance"), this, new CenteredSideValueBoxTransform());
         scrollVal.requiresWrench();
         scrollVal.between(1, 50);
         scrollVal.setValue(15);
