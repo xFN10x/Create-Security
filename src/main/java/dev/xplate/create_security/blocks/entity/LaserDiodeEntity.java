@@ -3,7 +3,6 @@ package dev.xplate.create_security.blocks.entity;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import dev.xplate.create_security.blocks.LazerDiode;
 import dev.xplate.create_security.reg.SecurityBlocks;
-import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -30,7 +29,10 @@ public class LaserDiodeEntity extends KineticBlockEntity {
     }
 
     public float getMaxLength() {
-        return getPossibleMaxLength() * Mth.abs(getSpeed() / 256);
+        if (getBlockState().getValue(LazerDiode.RECEIVER))
+            return getPossibleMaxLength();
+        else
+            return getPossibleMaxLength() * Mth.abs(getSpeed() / 256);
     }
 
     public boolean isHittingAnything() {
@@ -38,18 +40,33 @@ public class LaserDiodeEntity extends KineticBlockEntity {
     }
 
     public int getPossibleMaxLength() {
-        return 256 / 4;
+
+        if (getBlockState().getValue(LazerDiode.RECEIVER))
+            return 256;
+        else
+            return 256 / 4;
     }
 
     @Override
     public void tick() {
         if (level == null) return;
-        Tuple<Float, Boolean> calc = calcLength(getLazerStart(), getDir().getNormal(), level, (int) getMaxLength());
+        Tuple<Float, HitResult> calc = calcLength(getLazerStart(), getDir().getNormal(), level, (int) getMaxLength());
         hitLength = calc.getA();
-        hitting = calc.getB();
+        HitResult hitRes = calc.getB();
+        hitting = hitRes.getType() != HitResult.Type.MISS;
+
+        if (getBlockState().getValue(LazerDiode.RECEIVER) && hitRes instanceof BlockHitResult bhr) {
+                BlockPos bp = bhr.getBlockPos();
+                BlockState state = level.getBlockState(bp);
+                if (state.is(SecurityBlocks.LAZER_DIODE) && !state.getValue(LazerDiode.RECEIVER)) {
+                    switchToBlockState(level, getBlockPos(), getBlockState().setValue(LazerDiode.POWER, 15));
+                    return;
+                }
+        }
+        switchToBlockState(level, getBlockPos(), getBlockState().setValue(LazerDiode.POWER, 0));
     }
 
-    public static Tuple<Float, Boolean> calcLength(Vec3 start, Vec3i dirNorm, Level level, int maxLength) {
+    public static Tuple<Float, HitResult> calcLength(Vec3 start, Vec3i dirNorm, Level level, int maxLength) {
         Vec3 end = start.add(
                 Vec3.atLowerCornerOf(
                         dirNorm.multiply(maxLength)));
@@ -63,23 +80,28 @@ public class LaserDiodeEntity extends KineticBlockEntity {
 
         BlockPos hitBP = hitBlockResult.getBlockPos();
         BlockState hitBlock = level.getBlockState(hitBP);
-        boolean hitRec = hitBlock.is(SecurityBlocks.LAZER_DIODE) && hitBlock.getValue(LazerDiode.RECEIVER);
+        boolean hitOwn = hitBlock.is(SecurityBlocks.LAZER_DIODE);
         Vec3 hitLoc = hitBlockResult.getLocation();
-        float blockHitLength = (float) start.vectorTo(hitLoc).length() + (hitRec ? 0.5f : 0);
+        float blockHitLength = (float) start.vectorTo(hitLoc).length() + (hitOwn ? 0.7f : 0.5f);
+        if (hitBlockResult.getType() == HitResult.Type.MISS) {
+            return new Tuple<>(blockHitLength, hitBlockResult);
+        }
 
-        AABB checkAABB = new AABB(start, end).inflate(0.1f);
+        AABB checkAABB = new AABB(start, end).inflate(0.05f);
         //Outliner.getInstance().showAABB(start.hashCode(), checkAABB);
         EntityHitResult entityHitResult = ProjectileUtil.getEntityHitResult(level, null, start, end, checkAABB, e -> !e.isSpectator());
-        if (hitBlockResult.getType() == HitResult.Type.MISS && entityHitResult == null) {
-            return new Tuple<>(blockHitLength, false);
-        } else if (hitBlockResult.getType() != HitResult.Type.MISS && entityHitResult == null) {
-            return new Tuple<>(blockHitLength, true);
-        }
-        Vec3 entityPos = entityHitResult.getEntity().getBoundingBox().getCenter();
-        float entityHitLength = (float) start.vectorTo(entityPos).length();
-        boolean entityCloser = entityHitLength < blockHitLength;
 
-        return new Tuple<>(!entityCloser ? blockHitLength : entityHitLength, true);
+        boolean entityCloser = false;
+        float entityHitLength = 0;
+        if (entityHitResult != null) {
+            Vec3 entityPos = entityHitResult.getEntity().getBoundingBox().getCenter();
+            entityHitLength = (float) start.vectorTo(entityPos).length() + 0.5f;
+            entityCloser = entityHitLength < blockHitLength;
+        }
+
+
+
+        return new Tuple<>(!entityCloser ? blockHitLength : entityHitLength, entityCloser ? entityHitResult : hitBlockResult);
     }
 
     public Vec3 getLazerStart() {

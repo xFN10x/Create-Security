@@ -38,7 +38,18 @@ public class LazerDiode extends KineticBlock implements IBE<LaserDiodeEntity>, I
         registerDefaultState(defaultBlockState()
                 .setValue(FACING, Direction.UP)
                 .setValue(RECEIVER, false)
+                .setValue(POWER, 0)
         );
+    }
+
+    @Override
+    public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, @Nullable Direction direction) {
+        return state.getValue(RECEIVER) && state.getValue(FACING) == direction;
+    }
+
+    @Override
+    protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+        return direction == state.getValue(FACING) ? state.getValue(POWER) : 0;
     }
 
     @Override
@@ -57,6 +68,7 @@ public class LazerDiode extends KineticBlock implements IBE<LaserDiodeEntity>, I
         super.createBlockStateDefinition(builder);
         builder.add(FACING);
         builder.add(RECEIVER);
+        builder.add(POWER);
     }
 
     @Override
