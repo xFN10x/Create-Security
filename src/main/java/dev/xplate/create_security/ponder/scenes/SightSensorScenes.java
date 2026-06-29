@@ -55,7 +55,7 @@ public class SightSensorScenes {
         ElementLink<ParrotElement> birb = scene.special().createBirb(birdPos, FlappyFacePOIParrot::new);
         scene.special().movePointOfInterest(sightSensor);
 
-        scene.world().modifyBlock(sightSensor, s -> s.setValue(SightSensor.ACTIVE, true), false);
+        scene.world().modifyBlock(sightSensor, s -> s.setValue(SightSensor.POWERED, true), false);
         Vec3 ssVec = sightSensor.getCenter();
         scene.effects().emitParticles(ssVec, (world, x, y, z) -> {
             Vec3 pos = ssVec.lerp(birdPos.add(0, 0.5, 0), world.random.nextDouble());

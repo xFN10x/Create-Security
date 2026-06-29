@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class SightSensorGenerator extends PanelShapedBSGen{
     @Override
     public <T extends Block> String getModelPath(DataGenContext<Block, T> ctx, RegistrateBlockstateProvider prov, BlockState state) {
-        Boolean active = state.getValue(SightSensor.ACTIVE);
+        Boolean active = state.getValue(SightSensor.POWERED);
         return "block/sight_sensor" + (active ? "_active" : "");
     }
 }

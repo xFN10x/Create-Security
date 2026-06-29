@@ -29,8 +29,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenchable {
     public static DirectionProperty FACING = BlockStateProperties.FACING;
-    public static BooleanProperty ACTIVE = BooleanProperty.create("active");
-    public static IntegerProperty POWER = IntegerProperty.create("power", 0,15);
+    public static BooleanProperty POWERED = BlockStateProperties.POWERED;
+    public static IntegerProperty POWER = BlockStateProperties.POWER;
     public static BooleanProperty REVERSED = BooleanProperty.create("reversed");
     public static BooleanProperty SECRET = BooleanProperty.create("secret");
 
@@ -38,7 +38,7 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
         super(properties);
         registerDefaultState(defaultBlockState()
                 .setValue(FACING, Direction.UP)
-                .setValue(ACTIVE, false)
+                .setValue(POWERED, false)
                 .setValue(POWER, 0)
                 .setValue(REVERSED, false)
                 .setValue(SECRET, false)
@@ -101,7 +101,7 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(FACING, ACTIVE, POWER, REVERSED, SECRET);
+        builder.add(FACING, POWERED, POWER, REVERSED, SECRET);
     }
 
     @Override

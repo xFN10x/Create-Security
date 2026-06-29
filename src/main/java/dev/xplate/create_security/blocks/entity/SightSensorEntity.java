@@ -163,11 +163,11 @@ public class SightSensorEntity extends SmartBlockEntity {
                 double dist = thisPosVec.distanceTo(seeingAt);
                 int power = getRedstonePowerFromDistance(thisPos, seeingAt, size);
 
-                if (!me.getValue(SightSensor.ACTIVE)) {
+                if (!me.getValue(SightSensor.POWERED)) {
                     level.playSound(null, thisPos, SoundEvents.VAULT_ACTIVATE, SoundSource.BLOCKS, 0.5f, 0.4f);
                     level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.5f, 0.4f);
                 }
-                level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWER, power).setValue(SightSensor.ACTIVE, true));
+                level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWER, power).setValue(SightSensor.POWERED, true));
 
                 double rand = -(level.random.nextFloat() * (dist / 1.5));
                 for (ServerPlayer player : level.players()) {
@@ -177,8 +177,8 @@ public class SightSensorEntity extends SmartBlockEntity {
                 return;
             }
 
-            if (me.getValue(SightSensor.ACTIVE)) {
-                level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.ACTIVE, false).setValue(SightSensor.POWER, 0));
+            if (me.getValue(SightSensor.POWERED)) {
+                level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWERED, false).setValue(SightSensor.POWER, 0));
                 level.playSound(null, thisPos, SoundEvents.VAULT_DEACTIVATE, SoundSource.BLOCKS, 0.2f, 0.4f);
                 level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_CLOSE, SoundSource.BLOCKS, 0.2f, 0.4f);
             }

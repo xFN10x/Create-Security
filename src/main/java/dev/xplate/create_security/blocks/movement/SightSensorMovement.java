@@ -20,11 +20,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.common.Tags;
-import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -151,11 +149,11 @@ public class SightSensorMovement implements MovementBehaviour {
             double dist = thisPosVec.distanceTo(seeingAt);
             int power = getRedstonePowerFromDistance(thisPos, seeingAt, size);
 
-            if (!me.getValue(SightSensor.ACTIVE)) {
+            if (!me.getValue(SightSensor.POWERED)) {
                 level.playSound(null, thisPos, SoundEvents.VAULT_ACTIVATE, SoundSource.BLOCKS, 0.5f, 0.4f);
                 level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_OPEN, SoundSource.BLOCKS, 0.5f, 0.4f);
             }
-            context.state = me.setValue(SightSensor.ACTIVE, true);
+            context.state = me.setValue(SightSensor.POWERED, true);
             //level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.POWER, power).setValue(SightSensor.ACTIVE, true));
 
             double rand = -(level.random.nextFloat() * (dist / 1.5));
@@ -166,8 +164,8 @@ public class SightSensorMovement implements MovementBehaviour {
             return;
         }
 
-        if (me.getValue(SightSensor.ACTIVE)) {
-            context.state = me.setValue(SightSensor.ACTIVE, false);
+        if (me.getValue(SightSensor.POWERED)) {
+            context.state = me.setValue(SightSensor.POWERED, false);
             //level.setBlockAndUpdate(thisPos, me.setValue(SightSensor.ACTIVE, false).setValue(SightSensor.POWER, 0));
             level.playSound(null, thisPos, SoundEvents.VAULT_DEACTIVATE, SoundSource.BLOCKS, 0.2f, 0.4f);
             level.playSound(null, thisPos, SoundEvents.ENDER_CHEST_CLOSE, SoundSource.BLOCKS, 0.2f, 0.4f);
