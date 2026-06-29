@@ -4,7 +4,7 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.base.KineticBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.block.IBE;
-import dev.xplate.create_security.blocks.entity.LazerDiodeEntity;
+import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.reg.SecurityBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,7 +26,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class LazerDiode extends KineticBlock implements IBE<LazerDiodeEntity>, IWrenchable {
+public class LazerDiode extends KineticBlock implements IBE<LaserDiodeEntity>, IWrenchable {
 
     public static DirectionProperty FACING = BlockStateProperties.FACING;
     public static BooleanProperty RECEIVER = BooleanProperty.create("receiver");
@@ -73,8 +73,8 @@ public class LazerDiode extends KineticBlock implements IBE<LazerDiodeEntity>, I
     }
 
     @Override
-    public Class<LazerDiodeEntity> getBlockEntityClass() {
-        return LazerDiodeEntity.class;
+    public Class<LaserDiodeEntity> getBlockEntityClass() {
+        return LaserDiodeEntity.class;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class LazerDiode extends KineticBlock implements IBE<LazerDiodeEntity>, I
     }
 
     @Override
-    public BlockEntityType<? extends LazerDiodeEntity> getBlockEntityType() {
+    public BlockEntityType<? extends LaserDiodeEntity> getBlockEntityType() {
         return SecurityBlockEntities.LAZER_DIODE_ENTITY.get();
     }
 
