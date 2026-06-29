@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +27,8 @@ public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LazerDiodeEnt
     public LazerDiodeRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
     }
+
+    private float currentLength = 0;
 
     @Override
     protected void renderSafe(LazerDiodeEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
@@ -45,6 +48,7 @@ public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LazerDiodeEnt
             standardKineticRotationTransform(shaftHalf, be, light).renderInto(ms, vb);
         else
             return;
+        if (!be.isSpeedRequirementFulfilled()) return;
         ms.pushPose();
 
         VertexConsumer buf = buffer.getBuffer(SecurityRenderTypes.LAZER);
@@ -53,13 +57,16 @@ public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LazerDiodeEnt
         float half = (float) 7 /16;
         float onePixel = 1f / 16f;
         float twoPixel = onePixel * 2;
-        float speed = be.getSpeed();
-        float length = speed / 4;
+        float speed = Mth.abs(be.getSpeed());
+        float length = Mth.lerp(0.01f + speed/512f, currentLength, speed/4);
+        currentLength = length;
         int r = 255;
         int a = 255;
+
         ms.translate(0.5, 0.5, 0.5);
         ms.mulPose(state.getValue(LazerDiode.FACING).getRotation());
         ms.translate(-0.5, -0.5, -0.5);
+
         {
             buf.addVertex(pose, half, length, half)
                     .setNormal(0, 1, 0)

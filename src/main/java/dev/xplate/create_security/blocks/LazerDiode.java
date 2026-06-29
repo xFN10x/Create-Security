@@ -59,7 +59,7 @@ public class LazerDiode extends KineticBlock implements IBE<LazerDiodeEntity>, I
 
     @Override
     public SpeedLevel getMinimumRequiredSpeedLevel() {
-        return SpeedLevel.MEDIUM;
+        return SpeedLevel.FAST;
     }
 
     @Override
