@@ -4,7 +4,7 @@ import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRende
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.blocks.entity.SightSensorEntity;
-import dev.xplate.create_security.blocks.entity.renders.LazerDiodeRenderer;
+import dev.xplate.create_security.blocks.entity.renders.LaserDiodeRenderer;
 
 import static dev.xplate.create_security.CSecurity.REG;
 
@@ -17,8 +17,8 @@ public class SecurityBlockEntities {
 
     public static final BlockEntityEntry<LaserDiodeEntity> LAZER_DIODE_ENTITY = REG
             .blockEntity("lazer_diode_tile", LaserDiodeEntity::new)
-            .validBlocks(SecurityBlocks.LAZER_DIODE)
-            .renderer(() -> LazerDiodeRenderer::new)
+            .validBlocks(SecurityBlocks.LASER_DIODE)
+            .renderer(() -> LaserDiodeRenderer::new)
             .register();
 
     public static void reg() {}

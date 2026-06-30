@@ -27,13 +27,13 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class LazerDiode extends KineticBlock implements IBE<LaserDiodeEntity>, IWrenchable {
+public class LaserDiode extends KineticBlock implements IBE<LaserDiodeEntity>, IWrenchable {
 
     public static DirectionProperty FACING = BlockStateProperties.FACING;
     public static IntegerProperty POWER = BlockStateProperties.POWER;
     public static BooleanProperty RECEIVER = BooleanProperty.create("receiver");
 
-    public LazerDiode(Properties properties) {
+    public LaserDiode(Properties properties) {
         super(properties);
         registerDefaultState(defaultBlockState()
                 .setValue(FACING, Direction.UP)
@@ -43,12 +43,12 @@ public class LazerDiode extends KineticBlock implements IBE<LaserDiodeEntity>, I
     }
 
     @Override
-    public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, @Nullable Direction direction) {
+    public boolean canConnectRedstone(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @Nullable Direction direction) {
         return state.getValue(RECEIVER) && state.getValue(FACING) == direction;
     }
 
     @Override
-    protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+    protected int getSignal(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
         return direction == state.getValue(FACING) ? state.getValue(POWER) : 0;
     }
 

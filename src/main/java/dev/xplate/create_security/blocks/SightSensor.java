@@ -67,12 +67,12 @@ public class SightSensor extends Block implements IBE<SightSensorEntity>, IWrenc
 
     public static VoxelShape getShape(BlockState state) {
         return switch (state.getValue(FACING)) {
-            case DOWN -> Block.box(0,9,0,16,16,16);
-            case UP -> Block.box(0,0,0,16,7,16);
-            case NORTH -> Block.box(0,0,9,16,16,16);
-            case SOUTH -> Block.box(0,0,0,16,16,7);
-            case WEST -> Block.box(9,0,0,16,16,16);
-            case EAST -> Block.box(0,0,0,7,16,16);
+            case DOWN -> Block.box(0, 9, 0, 16, 16, 16);
+            case UP -> Block.box(0, 0, 0, 16, 7, 16);
+            case NORTH -> Block.box(0, 0, 9, 16, 16, 16);
+            case SOUTH -> Block.box(0, 0, 0, 16, 16, 7);
+            case WEST -> Block.box(9, 0, 0, 16, 16, 16);
+            case EAST -> Block.box(0, 0, 0, 7, 16, 16);
         };
     }
 

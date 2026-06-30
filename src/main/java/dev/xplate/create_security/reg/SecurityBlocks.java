@@ -3,10 +3,10 @@ package dev.xplate.create_security.reg;
 import com.simibubi.create.AllBlocks;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
-import dev.xplate.create_security.blocks.LazerDiode;
+import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.SightSensor;
 import dev.xplate.create_security.blocks.movement.SightSensorMovement;
-import dev.xplate.create_security.datagen.blockstate.LazerDiodeGenerator;
+import dev.xplate.create_security.datagen.blockstate.LaserDiodeGenerator;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
 import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;
 import net.minecraft.core.HolderLookup;
@@ -37,13 +37,13 @@ public class SecurityBlocks {
             .onRegister(movementBehaviour(new SightSensorMovement()))
             .register();
 
-    public static final BlockEntry<LazerDiode> LAZER_DIODE = REG.block("lazer_diode", LazerDiode::new)
+    public static final BlockEntry<LaserDiode> LASER_DIODE = REG.block("laser_diode", LaserDiode::new)
             .initialProperties(AllBlocks.ANDESITE_CASING::get)
             .properties(BlockBehaviour.Properties::noOcclusion)
             .simpleItem()
             .defaultLoot()
-            .lang("Lazer Diode")
-            .blockstate(new LazerDiodeGenerator()::generate)
+            .lang("Laser Diode")
+            .blockstate(new LaserDiodeGenerator()::generate)
              //.onRegister(movementBehaviour(new SightSensorMovement()))
             .register();
 

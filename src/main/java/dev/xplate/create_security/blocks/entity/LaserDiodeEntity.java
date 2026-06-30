@@ -1,7 +1,7 @@
 package dev.xplate.create_security.blocks.entity;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
-import dev.xplate.create_security.blocks.LazerDiode;
+import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.reg.SecurityBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,18 +18,19 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 
 public class LaserDiodeEntity extends KineticBlockEntity {
     private boolean hitting = false;
+    private boolean hittingRec = false;
     private float hitLength = 0;
 
     public LaserDiodeEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
         super(typeIn, pos, state);
     }
 
-    public boolean lazerActive() {
+    public boolean laserActive() {
         return isSpeedRequirementFulfilled();
     }
 
     public float getMaxLength() {
-        if (getBlockState().getValue(LazerDiode.RECEIVER))
+        if (getBlockState().getValue(LaserDiode.RECEIVER))
             return getPossibleMaxLength();
         else
             return getPossibleMaxLength() * Mth.abs(getSpeed() / 256);
@@ -38,10 +39,13 @@ public class LaserDiodeEntity extends KineticBlockEntity {
     public boolean isHittingAnything() {
         return hitting;
     }
+    public boolean isHittingReceiver() {
+        return hittingRec;
+    }
 
     public int getPossibleMaxLength() {
 
-        if (getBlockState().getValue(LazerDiode.RECEIVER))
+        if (getBlockState().getValue(LaserDiode.RECEIVER))
             return 256;
         else
             return 256 / 4;
@@ -55,15 +59,21 @@ public class LaserDiodeEntity extends KineticBlockEntity {
         HitResult hitRes = calc.getB();
         hitting = hitRes.getType() != HitResult.Type.MISS;
 
-        if (getBlockState().getValue(LazerDiode.RECEIVER) && hitRes instanceof BlockHitResult bhr) {
+        if (hitRes instanceof BlockHitResult bhr) {
                 BlockPos bp = bhr.getBlockPos();
                 BlockState state = level.getBlockState(bp);
-                if (state.is(SecurityBlocks.LAZER_DIODE) && !state.getValue(LazerDiode.RECEIVER)) {
-                    switchToBlockState(level, getBlockPos(), getBlockState().setValue(LazerDiode.POWER, 15));
-                    return;
+                if (state.is(SecurityBlocks.LASER_DIODE)) {
+                    if (getBlockState().getValue(LaserDiode.RECEIVER) && !state.getValue(LaserDiode.RECEIVER)) {
+                        switchToBlockState(level, getBlockPos(), getBlockState().setValue(LaserDiode.POWER, 15));
+                        return;
+                    } else if (!getBlockState().getValue(LaserDiode.RECEIVER) && state.getValue(LaserDiode.RECEIVER)) {
+                        hittingRec = true;
+                        return;
+                    }
                 }
         }
-        switchToBlockState(level, getBlockPos(), getBlockState().setValue(LazerDiode.POWER, 0));
+        hittingRec = false;
+        switchToBlockState(level, getBlockPos(), getBlockState().setValue(LaserDiode.POWER, 0));
     }
 
     public static Tuple<Float, HitResult> calcLength(Vec3 start, Vec3i dirNorm, Level level, int maxLength) {
@@ -80,7 +90,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
 
         BlockPos hitBP = hitBlockResult.getBlockPos();
         BlockState hitBlock = level.getBlockState(hitBP);
-        boolean hitOwn = hitBlock.is(SecurityBlocks.LAZER_DIODE);
+        boolean hitOwn = hitBlock.is(SecurityBlocks.LASER_DIODE);
         Vec3 hitLoc = hitBlockResult.getLocation();
         float blockHitLength = (float) start.vectorTo(hitLoc).length() + (hitOwn ? 0.7f : 0.5f);
         if (hitBlockResult.getType() == HitResult.Type.MISS) {
@@ -99,8 +109,6 @@ public class LaserDiodeEntity extends KineticBlockEntity {
             entityCloser = entityHitLength < blockHitLength;
         }
 
-
-
         return new Tuple<>(!entityCloser ? blockHitLength : entityHitLength, entityCloser ? entityHitResult : hitBlockResult);
     }
 
@@ -109,7 +117,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
     }
 
     public Direction getDir() {
-        return getBlockState().getValue(LazerDiode.FACING);
+        return getBlockState().getValue(LaserDiode.FACING);
     }
 
     public float getLength() {

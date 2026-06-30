@@ -8,7 +8,7 @@ import static net.minecraft.client.renderer.RenderStateShard.*;
 
 public class SecurityRenderTypes {
 
-    public static final RenderType LAZER = RenderType.create(
+    public static final RenderType LASER = RenderType.create(
             "lazer",
             DefaultVertexFormat.BLOCK,
             VertexFormat.Mode.QUADS,

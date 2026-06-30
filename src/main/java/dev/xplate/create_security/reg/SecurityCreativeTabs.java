@@ -19,7 +19,7 @@ public class SecurityCreativeTabs {
                     .icon(SecurityBlocks.SIGHT_SENSOR::asStack)
                     .displayItems((p, o) -> {
                         o.accept(SecurityBlocks.SIGHT_SENSOR.get());
-                        o.accept(SecurityBlocks.LAZER_DIODE.get());
+                        o.accept(SecurityBlocks.LASER_DIODE.get());
                         o.accept(SecurityItems.KEYCARD.get());
                         o.accept(SecurityBlocks.FINIRANIUM_ORE.get());
                         o.accept(SecurityItems.FINIRANIUM.get());

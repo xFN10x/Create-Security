@@ -3,7 +3,7 @@ package dev.xplate.create_security.blocks.entity.renders;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
-import dev.xplate.create_security.blocks.LazerDiode;
+import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.misc.rendering.SecurityRenderTypes;
 import dev.xplate.create_security.reg.SecurityPartialModels;
@@ -22,8 +22,8 @@ import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix4f;
 
-public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEntity> {
-    public LazerDiodeRenderer(BlockEntityRendererProvider.Context context) {
+public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEntity> {
+    public LaserDiodeRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
     }
 
@@ -35,7 +35,7 @@ public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         Level level = be.getLevel();
         BlockState state = be.getBlockState();
         Direction direction = state
-                .getValue(LazerDiode.FACING);
+                .getValue(LaserDiode.FACING);
         VertexConsumer vb = buffer.getBuffer(RenderType.cutoutMipped());
 
         SuperByteBuffer shaftHalf =
@@ -44,31 +44,31 @@ public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
                         state,
                         direction.getOpposite()
                 );
-        if (!state.getValue(LazerDiode.RECEIVER))
+        if (!state.getValue(LaserDiode.RECEIVER))
             standardKineticRotationTransform(shaftHalf, be, light).renderInto(ms, vb);
         else
             return;
-        if (!be.lazerActive()) return;
+        if (!be.laserActive()) return;
         ms.pushPose();
 
-        VertexConsumer buf = buffer.getBuffer(SecurityRenderTypes.LAZER);
+        VertexConsumer buf = buffer.getBuffer(SecurityRenderTypes.LASER);
         Matrix4f pose = ms.last().pose();
         //create laser
-        float half = (float) 7 /16;
+        float half = (float) 7 / 16;
         float onePixel = 1f / 16f;
         float twoPixel = onePixel * 2;
         float speed = Mth.abs(be.getSpeed());
         float targetLength = be.getLength();
         float maxLength = be.getMaxLength();
-        float length = targetLength < currentLength ? targetLength : Mth.lerp(0.01f + speed/512f, currentLength, targetLength);
+        float length = targetLength < currentLength ? targetLength : Mth.lerp(0.01f + speed / 512f, currentLength, targetLength);
         currentLength = length;
         int r = 255;
         int a = 255;
         int endA = 0;
-        int endR = (int) (((1- (length / maxLength)) * r) + Mth.randomBetween(level.getRandom(), 0f,10f));
+        int endR = (int) (((1 - (length / maxLength)) * r) + Mth.randomBetween(level.getRandom(), 0f, 10f));
 
         ms.translate(0.5, 0.5, 0.5);
-        ms.mulPose(state.getValue(LazerDiode.FACING).getRotation());
+        ms.mulPose(state.getValue(LaserDiode.FACING).getRotation());
         ms.translate(-0.5, -0.5, -0.5);
 
         {
@@ -178,6 +178,32 @@ public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
                     .setLight(LightTexture.FULL_BRIGHT)
                     .setOverlay(OverlayTexture.NO_OVERLAY);
         }
+        if (be.isHittingReceiver()) {
+            buf.addVertex(pose, half + twoPixel, length - twoPixel, half + twoPixel)
+                    .setNormal(0, 0, 0)
+                    .setUv(0, 0)
+                    .setColor(r, 0, 0, a)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            buf.addVertex(pose, half + twoPixel, length - twoPixel, half)
+                    .setNormal(1, 0, 0)
+                    .setUv(0, 0)
+                    .setColor(r, 0, 0, a)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            buf.addVertex(pose, half + twoPixel, length - twoPixel, half)
+                    .setNormal(1, 1, 0)
+                    .setUv(0, 0)
+                    .setColor(endR, 0, 0, endA)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            buf.addVertex(pose, half, length - twoPixel, half + twoPixel)
+                    .setNormal(0, 1, 0)
+                    .setUv(0, 0)
+                    .setColor(endR, 0, 0, endA)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+        }
 
         ms.popPose();
     }
@@ -186,6 +212,7 @@ public class LazerDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
     public boolean shouldRenderOffScreen(LaserDiodeEntity blockEntity) {
         return true;
     }
+
     @Override
     public int getViewDistance() {
         return 300;
