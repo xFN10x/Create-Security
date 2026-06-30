@@ -73,7 +73,7 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         Vec3 actualDir = be.getDir();
         Vec3 start = be.getLaserStart();
         Tuple<Float, HitResult> res = LaserDiodeEntity.calcLength(start, actualDir, level, (int) maxLength);
-        float targetLength = res.getA();
+        float targetLength = Math.min(res.getA(), maxLength);
         float length = targetLength < currentLength ? targetLength : Mth.lerp(0.01f + speed / 512f, currentLength, targetLength);
         currentLength = length;
         int r = 255;
