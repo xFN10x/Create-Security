@@ -68,9 +68,6 @@ public class LaserDiodeEntity extends KineticBlockEntity {
         boolean hitOwn = hitBlock.is(SecurityBlocks.LASER_DIODE);
         Vec3 hitLoc = hitBlockResult.getLocation();
         float blockHitLength = (float) start.vectorTo(hitLoc).length() + (hitOwn ? 0.7f : 0.5f);
-        if (hitBlockResult.getType() == HitResult.Type.MISS) {
-            return new Tuple<>(blockHitLength, hitBlockResult);
-        }
 
         AABB checkAABB = new AABB(start, end).inflate(0.05f);
         //Outliner.getInstance().showAABB(start.hashCode(), checkAABB);
