@@ -1,11 +1,13 @@
 package dev.xplate.create_security.blocks.entity;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
+import com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType;
+import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.reg.SecurityBlocks;
+import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
@@ -16,70 +18,42 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.CollisionContext;
 
+import java.util.List;
+import java.util.function.UnaryOperator;
+
 public class LaserDiodeEntity extends KineticBlockEntity {
-    private boolean hitting = false;
-    private boolean hittingRec = false;
-    private float hitLength = 0;
+
+    LaserDiodeBehaviour behaviour;
 
     public LaserDiodeEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
         super(typeIn, pos, state);
     }
 
-    public boolean laserActive() {
-        return isSpeedRequirementFulfilled();
+    @Override
+    public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
+        super.addBehaviours(behaviours);
+        behaviour = new LaserDiodeBehaviour(this);
+        behaviours.add(behaviour);
     }
 
     public float getMaxLength() {
-        if (getBlockState().getValue(LaserDiode.RECEIVER))
+        if (getBlockState().getValue(LaserDiode.RECEIVER) || behaviour.isOnContraption())
             return getPossibleMaxLength();
         else
             return getPossibleMaxLength() * Mth.abs(getSpeed() / 256);
     }
 
-    public boolean isHittingAnything() {
-        return hitting;
-    }
-    public boolean isHittingReceiver() {
-        return hittingRec;
-    }
 
     public int getPossibleMaxLength() {
-
         if (getBlockState().getValue(LaserDiode.RECEIVER))
             return 256;
         else
             return 256 / 4;
     }
 
-    @Override
-    public void tick() {
-        if (level == null) return;
-        Tuple<Float, HitResult> calc = calcLength(getlaserStart(), getDir().getNormal(), level, (int) getMaxLength());
-        hitLength = calc.getA();
-        HitResult hitRes = calc.getB();
-        hitting = hitRes.getType() != HitResult.Type.MISS;
-
-        if (hitRes instanceof BlockHitResult bhr) {
-                BlockPos bp = bhr.getBlockPos();
-                BlockState state = level.getBlockState(bp);
-                if (state.is(SecurityBlocks.LASER_DIODE)) {
-                    if (getBlockState().getValue(LaserDiode.RECEIVER) && !state.getValue(LaserDiode.RECEIVER)) {
-                        switchToBlockState(level, getBlockPos(), getBlockState().setValue(LaserDiode.POWER, 15));
-                        return;
-                    } else if (!getBlockState().getValue(LaserDiode.RECEIVER) && state.getValue(LaserDiode.RECEIVER)) {
-                        hittingRec = true;
-                        return;
-                    }
-                }
-        }
-        hittingRec = false;
-        switchToBlockState(level, getBlockPos(), getBlockState().setValue(LaserDiode.POWER, 0));
-    }
-
-    public static Tuple<Float, HitResult> calcLength(Vec3 start, Vec3i dirNorm, Level level, int maxLength) {
+    public static Tuple<Float, HitResult> calcLength(Vec3 start, Vec3 dirNorm, Level level, int maxLength) {
         Vec3 end = start.add(
-                Vec3.atLowerCornerOf(
-                        dirNorm.multiply(maxLength)));
+                dirNorm.multiply(maxLength,maxLength,maxLength));
         BlockHitResult hitBlockResult = level.clip(new ClipContext(
                 start,
                 end,
@@ -87,6 +61,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
                 ClipContext.Fluid.WATER,
                 CollisionContext.empty()
         ));
+        //Outliner.getInstance().showLine(start.hashCode(), start, end);
 
         BlockPos hitBP = hitBlockResult.getBlockPos();
         BlockState hitBlock = level.getBlockState(hitBP);
@@ -112,15 +87,108 @@ public class LaserDiodeEntity extends KineticBlockEntity {
         return new Tuple<>(!entityCloser ? blockHitLength : entityHitLength, entityCloser ? entityHitResult : hitBlockResult);
     }
 
-    public Vec3 getlaserStart() {
-        return worldPosition.getCenter();
+    public Vec3 getLaserStart() {
+        Vec3 worldPos = worldPosition.getCenter();
+        if (behaviour.isOnContraption())
+            return behaviour.getContraptionOffset().add(worldPos).subtract(0.5, 0.5, 0.5);
+        else
+            return worldPos;
     }
 
-    public Direction getDir() {
-        return getBlockState().getValue(LaserDiode.FACING);
+    public Vec3 getDir() {
+        Vec3 dir = Vec3.atLowerCornerOf(getBlockState().getValue(LaserDiode.FACING).getNormal());
+        if (behaviour.isOnContraption())
+            return behaviour.getContrapDirOperator().apply(dir);
+        else {
+            return dir;
+        }
     }
 
-    public float getLength() {
-        return hitLength;
+
+    public class LaserDiodeBehaviour extends BlockEntityBehaviour {
+
+        private boolean hitting = false;
+        private boolean onContraption = true;
+
+        public UnaryOperator<Vec3> getContrapDirOperator() {
+            return contrapDirOperator;
+        }
+
+        public void setContrapDirOperator(UnaryOperator<Vec3> contrapDirOperator) {
+            this.contrapDirOperator = contrapDirOperator;
+        }
+
+        private UnaryOperator<Vec3> contrapDirOperator = v->v;
+
+        public Vec3 getContraptionOffset() {
+            return contraptionOffset;
+        }
+
+        private Vec3 contraptionOffset = Vec3.ZERO;
+        private boolean hittingRec = false;
+        private float hitLength = 0;
+
+        public boolean isHittingAnything() {
+            return hitting;
+        }
+
+        public boolean isHittingReceiver() {
+            return hittingRec;
+        }
+
+        public boolean laserActive() {
+            return isSpeedRequirementFulfilled() || isOnContraption();
+        }
+
+        public boolean isOnContraption() {
+            return onContraption;
+        }
+
+        public void setOnContraption(boolean onContraption, Vec3 contraptionOffset) {
+            this.onContraption = onContraption;
+            this.contraptionOffset = contraptionOffset;
+        }
+
+
+        public float getLength() {
+            return hitLength;
+        }
+
+        public static final BehaviourType<LaserDiodeBehaviour> TYPE = new BehaviourType<>();
+
+        public LaserDiodeBehaviour(SmartBlockEntity be) {
+            super(be);
+        }
+
+        @Override
+        public BehaviourType<?> getType() {
+            return TYPE;
+        }
+
+        @Override
+        public void tick() {
+            if (level == null) return;
+            setOnContraption(false, Vec3.ZERO);
+            Tuple<Float, HitResult> calc = calcLength(getLaserStart(), getDir(), level, (int) getMaxLength());
+            hitLength = calc.getA();
+            HitResult hitRes = calc.getB();
+            hitting = hitRes.getType() != HitResult.Type.MISS;
+
+            if (hitRes instanceof BlockHitResult bhr) {
+                BlockPos bp = bhr.getBlockPos();
+                BlockState state = level.getBlockState(bp);
+                if (state.is(SecurityBlocks.LASER_DIODE)) {
+                    if (getBlockState().getValue(LaserDiode.RECEIVER) && !state.getValue(LaserDiode.RECEIVER)) {
+                        switchToBlockState(level, getBlockPos(), getBlockState().setValue(LaserDiode.POWER, 15));
+                        return;
+                    } else if (!getBlockState().getValue(LaserDiode.RECEIVER) && state.getValue(LaserDiode.RECEIVER)) {
+                        hittingRec = true;
+                        return;
+                    }
+                }
+            }
+            hittingRec = false;
+            switchToBlockState(level, getBlockPos(), getBlockState().setValue(LaserDiode.POWER, 0));
+        }
     }
 }

@@ -2,13 +2,17 @@ package dev.xplate.create_security.blocks.entity.renders;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.simibubi.create.content.contraptions.ContraptionHandler;
+import com.simibubi.create.content.contraptions.render.ClientContraption;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
+import com.simibubi.create.foundation.virtualWorld.VirtualRenderWorld;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.misc.rendering.SecurityRenderTypes;
 import dev.xplate.create_security.reg.SecurityPartialModels;
 import net.createmod.catnip.render.CachedBuffers;
 import net.createmod.catnip.render.SuperByteBuffer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -16,9 +20,12 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix4f;
 
@@ -32,7 +39,8 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
     @Override
     protected void renderSafe(LaserDiodeEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
         //probably could have figured this out myself, but this is a snippet from power loader
-        Level level = be.getLevel();
+        Level level = Minecraft.getInstance().level;//be.getLevel();
+        LaserDiodeEntity.LaserDiodeBehaviour behaviour = be.getBehaviour(LaserDiodeEntity.LaserDiodeBehaviour.TYPE);
         BlockState state = be.getBlockState();
         Direction direction = state
                 .getValue(LaserDiode.FACING);
@@ -48,7 +56,7 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
             standardKineticRotationTransform(shaftHalf, be, light).renderInto(ms, vb);
         else
             return;
-        if (!be.laserActive()) return;
+        if (!behaviour.laserActive() || level == null) return;
         ms.pushPose();
 
         VertexConsumer buf = buffer.getBuffer(SecurityRenderTypes.LASER);
@@ -58,8 +66,14 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         float onePixel = 1f / 16f;
         float twoPixel = onePixel * 2;
         float speed = Mth.abs(be.getSpeed());
-        float targetLength = be.getLength();
+        if (behaviour.isOnContraption()) {
+            speed = 256;
+        }
         float maxLength = be.getMaxLength();
+        Vec3 actualDir = be.getDir();
+        Vec3 start = be.getLaserStart();
+        Tuple<Float, HitResult> res = LaserDiodeEntity.calcLength(start, actualDir, level, (int) maxLength);
+        float targetLength = res.getA();
         float length = targetLength < currentLength ? targetLength : Mth.lerp(0.01f + speed / 512f, currentLength, targetLength);
         currentLength = length;
         int r = 255;
@@ -178,7 +192,7 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
                     .setLight(LightTexture.FULL_BRIGHT)
                     .setOverlay(OverlayTexture.NO_OVERLAY);
         }
-        if (be.isHittingReceiver()) {
+        if (behaviour.isHittingReceiver()) {
             {
                 buf.addVertex(pose, half, length, half + twoPixel)
                         .setNormal(0, 0, 0)
