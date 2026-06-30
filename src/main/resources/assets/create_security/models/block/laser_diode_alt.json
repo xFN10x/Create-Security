@@ -66,11 +66,11 @@
 			}
 		},
 		{
-			"from": [2, 2.5, -1],
-			"to": [14, 2.5, 13],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [-2, -2, 9]},
+			"from": [2, 1.5, -1],
+			"to": [14, 1.5, 12],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [-2, -3, 9]},
 			"faces": {
-				"up": {"uv": [3, 9.5, 0, 6], "texture": "#main"}
+				"up": {"uv": [3, 9.5, 0, 6.25], "texture": "#main"}
 			}
 		},
 		{

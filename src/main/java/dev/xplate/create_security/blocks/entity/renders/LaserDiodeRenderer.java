@@ -179,30 +179,114 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
                     .setOverlay(OverlayTexture.NO_OVERLAY);
         }
         if (be.isHittingReceiver()) {
-            buf.addVertex(pose, half + twoPixel, length - twoPixel, half + twoPixel)
-                    .setNormal(0, 0, 0)
-                    .setUv(0, 0)
-                    .setColor(r, 0, 0, a)
-                    .setLight(LightTexture.FULL_BRIGHT)
-                    .setOverlay(OverlayTexture.NO_OVERLAY);
-            buf.addVertex(pose, half + twoPixel, length - twoPixel, half)
-                    .setNormal(1, 0, 0)
-                    .setUv(0, 0)
-                    .setColor(r, 0, 0, a)
-                    .setLight(LightTexture.FULL_BRIGHT)
-                    .setOverlay(OverlayTexture.NO_OVERLAY);
-            buf.addVertex(pose, half + twoPixel, length - twoPixel, half)
-                    .setNormal(1, 1, 0)
-                    .setUv(0, 0)
-                    .setColor(endR, 0, 0, endA)
-                    .setLight(LightTexture.FULL_BRIGHT)
-                    .setOverlay(OverlayTexture.NO_OVERLAY);
-            buf.addVertex(pose, half, length - twoPixel, half + twoPixel)
-                    .setNormal(0, 1, 0)
-                    .setUv(0, 0)
-                    .setColor(endR, 0, 0, endA)
-                    .setLight(LightTexture.FULL_BRIGHT)
-                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            {
+                buf.addVertex(pose, half, length, half + twoPixel)
+                        .setNormal(0, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half + twoPixel, length - twoPixel, half + twoPixel)
+                        .setNormal(1, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half + twoPixel, length - twoPixel, half - (twoPixel * 2))
+                        .setNormal(1, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half, length, half - (twoPixel * 2))
+                        .setNormal(0, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+            }
+
+            {
+                buf.addVertex(pose, half, length, half + twoPixel)
+                        .setNormal(0, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half, length, half - (twoPixel * 2))
+                        .setNormal(0, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half + twoPixel, length - twoPixel, half - (twoPixel * 2))
+                        .setNormal(1, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half + twoPixel, length - twoPixel, half + twoPixel)
+                        .setNormal(1, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+            }
+
+            {
+                buf.addVertex(pose, half + twoPixel, length, half + twoPixel)
+                        .setNormal(0, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half, length - twoPixel, half + twoPixel)
+                        .setNormal(1, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half, length - twoPixel, half - (twoPixel * 2))
+                        .setNormal(1, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half + twoPixel, length, half - (twoPixel * 2))
+                        .setNormal(0, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+            }
+
+            {
+                buf.addVertex(pose, half + twoPixel, length, half + twoPixel)
+                        .setNormal(0, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half + twoPixel, length, half - (twoPixel * 2))
+                        .setNormal(0, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half, length - twoPixel, half - (twoPixel * 2))
+                        .setNormal(1, 1, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, endA)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+                buf.addVertex(pose, half, length - twoPixel, half + twoPixel)
+                        .setNormal(1, 0, 0)
+                        .setUv(0, 0)
+                        .setColor(endR, 0, 0, a)
+                        .setLight(LightTexture.FULL_BRIGHT)
+                        .setOverlay(OverlayTexture.NO_OVERLAY);
+            }
+
         }
 
         ms.popPose();
