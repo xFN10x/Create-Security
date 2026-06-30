@@ -7,7 +7,7 @@
 		"0": "create:block/axis",
 		"1": "create:block/axis_top",
 		"particle": "create:block/axis",
-		"main": "create_security:block/lazer_diode/main"
+		"main": "create_security:block/laser_diode/main"
 	},
 	"elements": [
 		{

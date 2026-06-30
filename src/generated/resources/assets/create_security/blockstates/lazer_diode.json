@@ -1,54 +1,54 @@
 {
   "variants": {
     "facing=down,receiver=false": {
-      "model": "create_security:block/lazer_diode",
+      "model": "create_security:block/laser_diode",
       "x": 180
     },
     "facing=down,receiver=true": {
-      "model": "create_security:block/lazer_diode_alt",
+      "model": "create_security:block/laser_diode_alt",
       "x": 180
     },
     "facing=east,receiver=false": {
-      "model": "create_security:block/lazer_diode",
+      "model": "create_security:block/laser_diode",
       "x": 90,
       "y": 90
     },
     "facing=east,receiver=true": {
-      "model": "create_security:block/lazer_diode_alt",
+      "model": "create_security:block/laser_diode_alt",
       "x": 90,
       "y": 90
     },
     "facing=north,receiver=false": {
-      "model": "create_security:block/lazer_diode",
+      "model": "create_security:block/laser_diode",
       "x": 90
     },
     "facing=north,receiver=true": {
-      "model": "create_security:block/lazer_diode_alt",
+      "model": "create_security:block/laser_diode_alt",
       "x": 90
     },
     "facing=south,receiver=false": {
-      "model": "create_security:block/lazer_diode",
+      "model": "create_security:block/laser_diode",
       "x": 90,
       "y": 180
     },
     "facing=south,receiver=true": {
-      "model": "create_security:block/lazer_diode_alt",
+      "model": "create_security:block/laser_diode_alt",
       "x": 90,
       "y": 180
     },
     "facing=up,receiver=false": {
-      "model": "create_security:block/lazer_diode"
+      "model": "create_security:block/laser_diode"
     },
     "facing=up,receiver=true": {
-      "model": "create_security:block/lazer_diode_alt"
+      "model": "create_security:block/laser_diode_alt"
     },
     "facing=west,receiver=false": {
-      "model": "create_security:block/lazer_diode",
+      "model": "create_security:block/laser_diode",
       "x": 90,
       "y": 270
     },
     "facing=west,receiver=true": {
-      "model": "create_security:block/lazer_diode_alt",
+      "model": "create_security:block/laser_diode_alt",
       "x": 90,
       "y": 270
     }

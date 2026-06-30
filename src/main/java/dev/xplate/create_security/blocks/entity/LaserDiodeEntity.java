@@ -54,7 +54,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
     @Override
     public void tick() {
         if (level == null) return;
-        Tuple<Float, HitResult> calc = calcLength(getLazerStart(), getDir().getNormal(), level, (int) getMaxLength());
+        Tuple<Float, HitResult> calc = calcLength(getlaserStart(), getDir().getNormal(), level, (int) getMaxLength());
         hitLength = calc.getA();
         HitResult hitRes = calc.getB();
         hitting = hitRes.getType() != HitResult.Type.MISS;
@@ -112,7 +112,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
         return new Tuple<>(!entityCloser ? blockHitLength : entityHitLength, entityCloser ? entityHitResult : hitBlockResult);
     }
 
-    public Vec3 getLazerStart() {
+    public Vec3 getlaserStart() {
         return worldPosition.getCenter();
     }
 

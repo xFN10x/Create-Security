@@ -4,8 +4,8 @@
 	"render_type": "minecraft:cutout_mipped",
 	"texture_size": [64, 64],
 	"textures": {
-		"main": "create_security:block/lazer_diode/main",
-		"particle": "create_security:block/lazer_diode/particle"
+		"main": "create_security:block/laser_diode/main",
+		"particle": "create_security:block/laser_diode/particle"
 	},
 	"elements": [
 		{

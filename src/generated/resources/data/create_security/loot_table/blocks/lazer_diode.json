@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "create_security:lazer_diode"
+          "name": "create_security:laser_diode"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "create_security:blocks/lazer_diode"
+  "random_sequence": "create_security:blocks/laser_diode"
 }

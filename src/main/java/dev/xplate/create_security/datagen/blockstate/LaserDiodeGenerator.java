@@ -9,6 +9,6 @@ import net.minecraft.world.level.block.state.BlockState;
 public class LaserDiodeGenerator extends PanelShapedBSGen {
     @Override
     public <T extends Block> String getModelPath(DataGenContext<Block, T> ctx, RegistrateBlockstateProvider prov, BlockState state) {
-        return state.getValue(LaserDiode.RECEIVER) ? "block/lazer_diode_alt" : "block/lazer_diode";
+        return state.getValue(LaserDiode.RECEIVER) ? "block/laser_diode_alt" : "block/laser_diode";
     }
 }

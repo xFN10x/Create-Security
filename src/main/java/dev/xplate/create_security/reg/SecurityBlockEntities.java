@@ -15,8 +15,8 @@ public class SecurityBlockEntities {
             .renderer(() -> SmartBlockEntityRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<LaserDiodeEntity> LAZER_DIODE_ENTITY = REG
-            .blockEntity("lazer_diode_tile", LaserDiodeEntity::new)
+    public static final BlockEntityEntry<LaserDiodeEntity> laser_DIODE_ENTITY = REG
+            .blockEntity("laser_diode_tile", LaserDiodeEntity::new)
             .validBlocks(SecurityBlocks.LASER_DIODE)
             .renderer(() -> LaserDiodeRenderer::new)
             .register();
