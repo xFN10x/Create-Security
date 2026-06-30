@@ -22,6 +22,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
@@ -29,12 +30,14 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix4f;
 
+import java.util.HashMap;
+
 public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEntity> {
     public LaserDiodeRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
     }
 
-    private float currentLength = 0;
+    private HashMap<BlockEntity, Float> currentLength = new HashMap<>();
 
     @Override
     protected void renderSafe(LaserDiodeEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
@@ -74,8 +77,8 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         Vec3 start = be.getLaserStart();
         Tuple<Float, HitResult> res = LaserDiodeEntity.calcLength(start, actualDir, level, (int) maxLength);
         float targetLength = Math.min(res.getA(), maxLength);
-        float length = targetLength < currentLength ? targetLength : Mth.lerp(0.01f + speed / 512f, currentLength, targetLength);
-        currentLength = length;
+        float length = targetLength < currentLength.get(be) ? targetLength : Mth.lerp(0.01f + speed / 512f, currentLength.get(be), targetLength);
+        currentLength.put(be, length);
         int r = 255;
         int a = 255;
         int endA = 0;

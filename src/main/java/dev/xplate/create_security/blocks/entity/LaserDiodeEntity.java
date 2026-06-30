@@ -6,7 +6,6 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.reg.SecurityBlocks;
-import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Tuple;
@@ -53,7 +52,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
 
     public static Tuple<Float, HitResult> calcLength(Vec3 start, Vec3 dirNorm, Level level, int maxLength) {
         Vec3 end = start.add(
-                dirNorm.multiply(maxLength,maxLength,maxLength));
+                dirNorm.multiply(maxLength, maxLength, maxLength));
         BlockHitResult hitBlockResult = level.clip(new ClipContext(
                 start,
                 end,
@@ -70,7 +69,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
         float blockHitLength = (float) start.vectorTo(hitLoc).length() + (hitOwn ? 0.7f : 0.5f);
 
         AABB checkAABB = new AABB(start, end).inflate(0.05f);
-        //Outliner.getInstance().showAABB(start.hashCode(), checkAABB);
+        //Outliner.getInstance().showAABB(start.hashCode() + 34, checkAABB);
         EntityHitResult entityHitResult = ProjectileUtil.getEntityHitResult(level, null, start, end, checkAABB, e -> !e.isSpectator());
 
         boolean entityCloser = false;
@@ -87,7 +86,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
     public Vec3 getLaserStart() {
         Vec3 worldPos = worldPosition.getCenter();
         if (behaviour.isOnContraption())
-            return behaviour.getContraptionOffset().add(worldPos).subtract(0.5, 0.5, 0.5);
+            return behaviour.getContraptionOffset();
         else
             return worldPos;
     }
@@ -115,7 +114,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
             this.contrapDirOperator = contrapDirOperator;
         }
 
-        private UnaryOperator<Vec3> contrapDirOperator = v->v;
+        private UnaryOperator<Vec3> contrapDirOperator = v -> v;
 
         public Vec3 getContraptionOffset() {
             return contraptionOffset;
@@ -170,7 +169,6 @@ public class LaserDiodeEntity extends KineticBlockEntity {
             hitLength = calc.getA();
             HitResult hitRes = calc.getB();
             hitting = hitRes.getType() != HitResult.Type.MISS;
-
             if (hitRes instanceof BlockHitResult bhr) {
                 BlockPos bp = bhr.getBlockPos();
                 BlockState state = level.getBlockState(bp);
