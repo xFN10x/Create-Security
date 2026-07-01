@@ -5,11 +5,14 @@ import dev.xplate.create_security.CSecurity;
 import dev.xplate.create_security.items.FiniGoggles;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.items.KeycardItem;
+import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.components.ChatComponent;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static dev.xplate.create_security.CSecurity.REG;
 
@@ -33,9 +36,13 @@ public class SecurityItems {
 
     public static final ItemEntry<FiniGoggles> FINI_GOGGLES = REG
             .item("fini_goggles", FiniGoggles::new)
-            .properties(p -> p.fireResistant().stacksTo(1).durability(180))
+            .properties(p ->
+                    p.fireResistant()
+                    .stacksTo(1)
+                    .durability(180)
+                    .component(SecurityItemComponents.EYE_OFFSET, new EyeOffsetComponent(0)))
             .lang("Fini-Goggles")
-            .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("item/fini_goggles")))
+            .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("item/fini_goggles/fini_goggles")))
             .register();
 
     public static void reg() {}

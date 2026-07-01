@@ -4,9 +4,8 @@ import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
 
-public class LazerDiodeMovement implements MovementBehaviour {
+public class LaserDiodeMovement implements MovementBehaviour {
 
     @Override
     public void tick(MovementContext context) {

@@ -13,6 +13,9 @@ repositories {
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
     maven { url = "https://maven.blamejared.com" } // JEI, Vazkii's Mods
+    maven {
+        url = "https://api.modrinth.com/maven"
+    }
 }
 
 base {
@@ -123,6 +126,7 @@ dependencies {
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
 
     localImplementation("mezz.jei:jei-$minecraft_version-neoforge:$jei_version")
+    localImplementation("maven.modrinth:XqqOkvZz:lnOeoKcQ")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

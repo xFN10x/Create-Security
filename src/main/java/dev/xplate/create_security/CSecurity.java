@@ -64,6 +64,9 @@ public class CSecurity {
         SecurityEntityAttachmentTypes.reg(modEventBus);
         SecurityLiquids.reg();
         SecurityPartialModels.reg();
+        SecurityItemComponents.reg(modEventBus);
+
+        CSecurityConfigs.register(modContainer);
     }
 
     private static int tickCounter = 0;

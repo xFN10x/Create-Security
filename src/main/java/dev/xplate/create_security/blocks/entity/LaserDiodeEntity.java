@@ -6,6 +6,7 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.reg.SecurityBlocks;
+import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Tuple;
@@ -68,7 +69,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
         Vec3 hitLoc = hitBlockResult.getLocation();
         float blockHitLength = (float) start.vectorTo(hitLoc).length() + (hitOwn ? 0.7f : 0.5f);
 
-        AABB checkAABB = new AABB(start, end).inflate(0.05f);
+        AABB checkAABB = new AABB(start, end).inflate(0.01f).move(new Vec3(0,0.01,0));
         //Outliner.getInstance().showAABB(start.hashCode() + 34, checkAABB);
         EntityHitResult entityHitResult = ProjectileUtil.getEntityHitResult(level, null, start, end, checkAABB, e -> !e.isSpectator());
 

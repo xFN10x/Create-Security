@@ -2,10 +2,8 @@ package dev.xplate.create_security.blocks.entity.renders;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.simibubi.create.content.contraptions.ContraptionHandler;
-import com.simibubi.create.content.contraptions.render.ClientContraption;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
-import com.simibubi.create.foundation.virtualWorld.VirtualRenderWorld;
+import dev.xplate.create_security.CSecurityConfigs;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.misc.rendering.SecurityRenderTypes;
@@ -37,7 +35,7 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         super(context);
     }
 
-    private HashMap<BlockEntity, Float> currentLength = new HashMap<>();
+    private final HashMap<BlockEntity, Float> currentLength = new HashMap<>();
 
     @Override
     protected void renderSafe(LaserDiodeEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
@@ -77,12 +75,15 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         Vec3 start = be.getLaserStart();
         Tuple<Float, HitResult> res = LaserDiodeEntity.calcLength(start, actualDir, level, (int) maxLength);
         float targetLength = Math.min(res.getA(), maxLength);
-        float length = targetLength < currentLength.get(be) ? targetLength : Mth.lerp(0.01f + speed / 512f, currentLength.get(be), targetLength);
+        Float curLengthOfBe = currentLength.getOrDefault(be, 0f);
+        float length = targetLength < curLengthOfBe ? targetLength : Mth.lerp(0.01f + speed / 512f, curLengthOfBe, targetLength);
         currentLength.put(be, length);
         int r = 255;
         int a = 255;
         int endA = 0;
-        int endR = (int) (((1 - (length / maxLength)) * r) + Mth.randomBetween(level.getRandom(), 0f, 10f));
+        int endR = (int) (((1 - (length / maxLength)) * r) +
+                (Mth.randomBetween(level.getRandom(), 0f, 10f)
+                        * CSecurityConfigs.client().laserFlickerStrength.getF()));
 
         ms.translate(0.5, 0.5, 0.5);
         ms.mulPose(state.getValue(LaserDiode.FACING).getRotation());

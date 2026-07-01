@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.simibubi.create.infrastructure.command.AllCommands;
+import dev.xplate.create_security.items.IScrollableItem;
 import dev.xplate.create_security.misc.SecurityCommands;
 import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.misc.rendering.FiniraniumGogglesPostProcessingHandler;
@@ -13,10 +14,15 @@ import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
 import net.createmod.catnip.command.CatnipCommands;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -25,6 +31,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
+import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerHeartTypeEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
@@ -103,6 +110,25 @@ public class CSecurityClient {
 
         }
         lastCheck = sickness;
+    }
+
+    @SubscribeEvent
+    public static void onScroll(ScreenEvent.MouseScrolled.Post event) {
+        Screen screen = event.getScreen();
+        if (screen instanceof AbstractContainerScreen<?> cs) {
+            Slot slot = cs.getSlotUnderMouse();
+            if (slot == null) return;
+            ItemStack is = slot.getItem();
+            Item item = is.getItem();
+            if (item instanceof IScrollableItem) {
+                double scroll = event.getScrollDeltaY();
+                if (scroll > 0) {
+                    ((IScrollableItem) item).onScrollUp(is);
+                } else if (scroll < 0) {
+                    ((IScrollableItem) item).onScrollDown(is);
+                }
+            }
+        }
     }
 
 }

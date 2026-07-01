@@ -5,7 +5,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.SightSensor;
-import dev.xplate.create_security.blocks.movement.LazerDiodeMovement;
+import dev.xplate.create_security.blocks.movement.LaserDiodeMovement;
 import dev.xplate.create_security.blocks.movement.SightSensorMovement;
 import dev.xplate.create_security.datagen.blockstate.LaserDiodeGenerator;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
@@ -45,7 +45,7 @@ public class SecurityBlocks {
             .defaultLoot()
             .lang("Laser Diode")
             .blockstate(new LaserDiodeGenerator()::generate)
-             .onRegister(movementBehaviour(new LazerDiodeMovement()))
+             .onRegister(movementBehaviour(new LaserDiodeMovement()))
             .register();
 
     public static final BlockEntry<FiniraniumRelatedBlock> FINIRANIUM_ORE = REG

@@ -9,6 +9,7 @@ import dev.xplate.create_security.reg.SecurityBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
@@ -93,7 +94,13 @@ public class LaserDiode extends KineticBlock implements IBE<LaserDiodeEntity>, I
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        Direction dir = context.getClickedFace();
+        Direction dir;
+        Player plr = context.getPlayer();
+        if (plr != null && plr.isCrouching()) {
+            dir = context.getClickedFace().getOpposite();
+        } else {
+            dir = context.getClickedFace();
+        }
         return defaultBlockState().setValue(FACING, dir);
     }
 
