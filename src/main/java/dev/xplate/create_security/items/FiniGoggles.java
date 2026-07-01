@@ -7,6 +7,7 @@ import dev.xplate.create_security.reg.SecurityCreativeTabs;
 import dev.xplate.create_security.reg.SecurityItemComponents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -25,11 +26,13 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import static dev.xplate.create_security.CSecurity.REG;
+import static dev.xplate.create_security.datagen.DataGen.eyeOffsetComp;
 
 public class FiniGoggles extends FiniraniumRelatedItem implements Equipable, IScrollableItem {
     public FiniGoggles(Properties properties) {
         super(properties);
     }
+
 
     @Override
     public @NotNull EquipmentSlot getEquipmentSlot() {
@@ -46,6 +49,7 @@ public class FiniGoggles extends FiniraniumRelatedItem implements Equipable, ISc
         return 1;
     }
 
+    @SuppressWarnings("removal")
     @Override
     @OnlyIn(Dist.CLIENT)
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
@@ -78,6 +82,6 @@ public class FiniGoggles extends FiniraniumRelatedItem implements Equipable, ISc
         if (!tab.contains(stack)) {
             tooltipComponents.add(creativeTabName.copy().withStyle(ChatFormatting.BLUE));
         }
-        tooltipComponents.add(REG.addRawLang("item.fini_goggles.eye_offset", "Eye Offset: ").append(String.valueOf(stack.get(SecurityItemComponents.EYE_OFFSET).offset())));
+        tooltipComponents.add(eyeOffsetComp.append(String.valueOf(stack.get(SecurityItemComponents.EYE_OFFSET).offset())));
     }
 }

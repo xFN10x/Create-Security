@@ -22,6 +22,11 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParam;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.common.Tags;
 
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
@@ -59,6 +64,7 @@ public class SecurityBlocks {
                             (b1, b2, b3) -> true)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)
+                    .lightLevel(bs -> 5)
             )
             .tag(BlockTags.MINEABLE_WITH_PICKAXE)
             .lang("Finiranium Ore")
@@ -67,7 +73,15 @@ public class SecurityBlocks {
                 lt.add(b,
                         lt.createSilkTouchDispatchTable(b,
                                 lt.applyExplosionDecay(b, LootItem.lootTableItem(SecurityItems.FINIRANIUM.get())
-                                        .apply(ApplyBonusCount.addOreBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE))))));
+                                        .apply(
+                                                ApplyBonusCount.addOreBonusCount(
+                                                        enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)
+                                                )
+                                        )
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                                )
+                        )
+                );
             })
             .tag(BlockTags.NEEDS_DIAMOND_TOOL)
             .tag(Tags.Blocks.ORES)
@@ -94,6 +108,7 @@ public class SecurityBlocks {
                     .emissiveRendering(
                             (b1, b2, b3) -> true)
                     .requiresCorrectToolForDrops()
+                    .lightLevel(bs -> 5)
                     .sound(SoundType.METAL)
             )
             .tag(BlockTags.MINEABLE_WITH_PICKAXE)

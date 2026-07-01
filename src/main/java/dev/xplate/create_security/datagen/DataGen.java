@@ -9,6 +9,7 @@ import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.network.chat.MutableComponent;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -19,6 +20,9 @@ import static dev.xplate.create_security.CSecurity.MODID;
 import static dev.xplate.create_security.CSecurity.REG;
 
 public class DataGen {
+
+    public static final MutableComponent eyeOffsetComp = REG.addRawLang("item.fini_goggles.eye_offset", "Eye Offset: ");
+public static final MutableComponent detectionDistanceComp = REG.addRawLang("blocks.sight_sensor.distance", "Detection Distance");
 
     public static void gatherHigherData(GatherDataEvent event) {
         if (event.getMods().contains(MODID)) {

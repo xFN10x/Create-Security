@@ -59,7 +59,7 @@ public class SightSensorMovement implements MovementBehaviour {
         boolean seeing = false;
         Vec3 seeingAt = Vec3.ZERO;
         Vec3 lookAngle = Vec3.ZERO;
-        Outliner.getInstance().showAABB("hb", sensorBox);
+        //Outliner.getInstance().showAABB("hb", sensorBox);
 
 
         //BlockHitResult clip = AABB.clip(AABBS, thisPosVec, thisPosVec.add(Vec3.atLowerCornerOf(facing.getNormal()).scale(size)), BlockPos.ZERO);
