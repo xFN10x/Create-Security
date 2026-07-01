@@ -1,8 +1,7 @@
 package dev.xplate.create_security.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
-import dev.xplate.create_security.datagen.provider.GeneratedEntriesProvider;
-import dev.xplate.create_security.datagen.provider.RecipeProvider;
+import dev.xplate.create_security.datagen.provider.*;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityCreativeTabs;
 import dev.xplate.create_security.reg.SecurityEffects;
@@ -45,9 +44,13 @@ public class DataGen {
 
         GeneratedEntriesProvider generatedEntriesProvider = new GeneratedEntriesProvider(output, lookup);
         lookup = generatedEntriesProvider.getRegistryProvider();
-        generator.addProvider(event.includeServer(), generatedEntriesProvider);
+        boolean incServer = event.includeServer();
+        generator.addProvider(incServer, generatedEntriesProvider);
 
-        generator.addProvider(event.includeServer(), new RecipeProvider(output, lookup));
+        generator.addProvider(incServer, new MixingRecipeProvider(output, lookup, MODID));
+        generator.addProvider(incServer, new CrushingRecipeProvider(output, lookup, MODID));
+        generator.addProvider(incServer, new CompactingRecipeProvider(output, lookup, MODID));
+        generator.addProvider(incServer, new RecipeProvider(output, lookup));
     }
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {

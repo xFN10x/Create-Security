@@ -34,6 +34,14 @@ public class SecurityItems {
             .defaultModel()
             .register();
 
+    public static final ItemEntry<FiniraniumRelatedItem> FINIRANIUM_DUST = REG
+            .item("finiranium_dust", p -> new FiniraniumRelatedItem(p, 20L))
+            .properties(p -> p.fireResistant().rarity(Rarity.EPIC))
+            .lang("Finiranium Dust")
+            .burnTime((20 * 60 * 40))
+            .defaultModel()
+            .register();
+
     public static final ItemEntry<FiniGoggles> FINI_GOGGLES = REG
             .item("fini_goggles", FiniGoggles::new)
             .properties(p ->

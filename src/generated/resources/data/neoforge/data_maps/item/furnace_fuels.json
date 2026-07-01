@@ -2,6 +2,9 @@
   "values": {
     "create_security:finiranium": {
       "burn_time": 36000
+    },
+    "create_security:finiranium_dust": {
+      "burn_time": 48000
     }
   }
 }

@@ -23,16 +23,35 @@ public class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
     @Override
     protected void buildRecipes(RecipeOutput output) {
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, SecurityBlocks.SIGHT_SENSOR)
-                .pattern("aoe")
-                .pattern("rrr")
+                .pattern(" g ")
+                .pattern("rer")
+                .pattern("aoa")
 
                 .define('a', AllBlocks.ANDESITE_CASING)
                 .define('o', Blocks.OBSIDIAN)
                 .define('e', Items.ENDER_EYE)
                 .define('r', Blocks.REDSTONE_WIRE)
+                .define('g', Blocks.GLASS)
 
                 .unlockedBy("has_self", has(SecurityBlocks.SIGHT_SENSOR))
                 .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
+
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, SecurityBlocks.LASER_DIODE,2)
+                .pattern("ggg")
+                .pattern("rmr")
+                .pattern("asa")
+
+                .define('g', Blocks.GLASS)
+                .define('r', Blocks.REDSTONE_WIRE)
+                .define('m', Blocks.AMETHYST_BLOCK)
+                .define('a', AllBlocks.ANDESITE_CASING)
+                .define('s', AllBlocks.SHAFT)
+
+                .unlockedBy("has_self", has(SecurityBlocks.LASER_DIODE))
+                .unlockedBy("has_amethystBlock", has(Blocks.AMETHYST_BLOCK))
+                .unlockedBy("has_amethystShard", has(Items.AMETHYST_SHARD))
 
                 .save(output);
 

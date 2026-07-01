@@ -1,0 +1,35 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create_security:fini_goggles"
+    }
+  ],
+  "processing_time": 100,
+  "results": [
+    {
+      "chance": 0.4,
+      "count": 2,
+      "id": "create_security:finiranium_dust"
+    },
+    {
+      "chance": 0.2,
+      "id": "create_security:finiranium_dust"
+    },
+    {
+      "chance": 0.2,
+      "id": "create_security:finiranium_dust"
+    },
+    {
+      "id": "minecraft:string"
+    },
+    {
+      "chance": 0.5,
+      "id": "minecraft:string"
+    },
+    {
+      "chance": 0.5,
+      "id": "minecraft:string"
+    }
+  ]
+}

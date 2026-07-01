@@ -1,0 +1,43 @@
+{
+  "type": "create:compacting",
+  "heat_requirement": "superheated",
+  "ingredients": [
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "item": "create_security:finiranium"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 100,
+      "fluid": "create_security:liquid_finiranium"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_security:finiranium_block"
+    }
+  ]
+}

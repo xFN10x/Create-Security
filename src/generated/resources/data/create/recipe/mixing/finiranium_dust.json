@@ -1,0 +1,16 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "superheated",
+  "ingredients": [
+    {
+      "item": "create_security:finiranium_dust"
+    }
+  ],
+  "processing_time": 200,
+  "results": [
+    {
+      "amount": 100,
+      "id": "create_security:liquid_finiranium"
+    }
+  ]
+}

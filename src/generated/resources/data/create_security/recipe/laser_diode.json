@@ -5,26 +5,26 @@
     "a": {
       "item": "create:andesite_casing"
     },
-    "e": {
-      "item": "minecraft:ender_eye"
-    },
     "g": {
       "item": "minecraft:glass"
     },
-    "o": {
-      "item": "minecraft:obsidian"
+    "m": {
+      "item": "minecraft:amethyst_block"
     },
     "r": {
       "item": "minecraft:redstone"
+    },
+    "s": {
+      "item": "create:shaft"
     }
   },
   "pattern": [
-    " g ",
-    "rer",
-    "aoa"
+    "ggg",
+    "rmr",
+    "asa"
   ],
   "result": {
-    "count": 1,
-    "id": "create_security:sight_sensor"
+    "count": 2,
+    "id": "create_security:laser_diode"
   }
 }

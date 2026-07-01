@@ -25,6 +25,7 @@
   "fluid.create_security.liquid_finiranium": "Liquid Finiranium",
   "item.create_security.fini_goggles": "Fini-Goggles",
   "item.create_security.finiranium": "Finiranium",
+  "item.create_security.finiranium_dust": "Finiranium Dust",
   "item.create_security.keycard": "Keycard",
   "item.create_security.liquid_finiranium_bucket": "Liquid Finiranium Bucket",
   "itemGroup.create_security": "Stealth & Security"

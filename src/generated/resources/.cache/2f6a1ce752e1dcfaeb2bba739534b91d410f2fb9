@@ -1,18 +1,19 @@
-// 1.21.1	2026-06-29T21:04:05.5566613	Registrate Provider for create_security [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2026-06-30T22:32:36.0794046	Registrate Provider for create_security [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 fb02574fa1e0dd793cb3baa90d1f1af9f22f3802 assets/create_security/blockstates/finiranium_block.json
 55944a5899719983a9e5da691a87c8d6f4edec14 assets/create_security/blockstates/finiranium_ore.json
 be7eab22b612207792d10ce0bc8bfe0108283baf assets/create_security/blockstates/laser_diode.json
 ac5077199f74c6ad390c2742588043bf6c2369e1 assets/create_security/blockstates/liquid_finiranium.json
 6d89eeda3923a408c8ce6551fe6821a708ef82b7 assets/create_security/blockstates/sight_sensor.json
 050b3b3a1aa85dd53848191c2f05d1a44c8134e7 assets/create_security/blockstates/the_block.json
-6ca77ae995d24e451f265c97b40a953d1dbb70ab assets/create_security/lang/en_ud.json
-6a1a9a0521e9022ff8e97d94a9b0b41a5eaa4f3f assets/create_security/lang/en_us.json
+97c487a695e1ec3db4a43e15a294bec553c5a538 assets/create_security/lang/en_ud.json
+16d85d20275429b5e8386c7b34900ae85eb1e2fb assets/create_security/lang/en_us.json
 5c4b54cf02e857edb6e55f20b33b93d2d0bb6c4f assets/create_security/models/block/finiranium_block.json
 085172cdd435afbc80865bce87bfa11a93dcefb4 assets/create_security/models/block/finiranium_ore.json
 5db87a61855d01205cf185a2c251d05a36652195 assets/create_security/models/block/liquid_finiranium.json
 e9c3f77cf3ba639de677cc4e36731b2c07d817b0 assets/create_security/models/block/the_block.json
 5b355f2e7c5a8d8d86795fc50bd284f3e953d7da assets/create_security/models/item/finiranium.json
 81506deb2303fab142bbaddf556a6fd2cac8488a assets/create_security/models/item/finiranium_block.json
+7f575c10cb713352c72f2df349c5226f6627d5f6 assets/create_security/models/item/finiranium_dust.json
 2beca3c4ddd5719d090e5f7a9b50ed2561ad0b80 assets/create_security/models/item/finiranium_ore.json
 9362477551a2263f0f03796233a9ea753776274e assets/create_security/models/item/keycard.json
 534ff671fa4ab45c2ab3153a7206b30a2a406482 assets/create_security/models/item/laser_diode.json
@@ -28,5 +29,5 @@ ef36f8b76c8d4e59d0e4822e16f312187c08db61 data/c/tags/block/ores.json
 c3bc23ee11217ef0b511dcfd5bdd83411063fff0 data/minecraft/tags/block/infiniburn_end.json
 c3bc23ee11217ef0b511dcfd5bdd83411063fff0 data/minecraft/tags/block/mineable/pickaxe.json
 c3bc23ee11217ef0b511dcfd5bdd83411063fff0 data/minecraft/tags/block/needs_diamond_tool.json
-992b972bdde9d96f0bf36490c24f1b6d76d7f311 data/neoforge/data_maps/item/furnace_fuels.json
+71c9940538e391687d72faf82b22317615bfcd7c data/neoforge/data_maps/item/furnace_fuels.json
 ef36f8b76c8d4e59d0e4822e16f312187c08db61 data/neoforge/tags/block/enderman_place_on_blacklist.json
