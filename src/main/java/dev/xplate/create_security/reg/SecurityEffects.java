@@ -7,7 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static dev.xplate.create_security.CSecurity.MODID;
+import static dev.xplate.create_security.CSSecurity.MODID;
 
 public class SecurityEffects {
     protected static final DeferredRegister<MobEffect> REG = DeferredRegister.create(Registries.MOB_EFFECT, MODID);

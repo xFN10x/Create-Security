@@ -6,7 +6,7 @@ import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.blocks.entity.SightSensorEntity;
 import dev.xplate.create_security.blocks.entity.renders.LaserDiodeRenderer;
 
-import static dev.xplate.create_security.CSecurity.REG;
+import static dev.xplate.create_security.CSSecurity.REG;
 
 public class SecurityBlockEntities {
     public static final BlockEntityEntry<SightSensorEntity> SIGHT_SENSOR_ENTITY = REG

@@ -1,7 +1,5 @@
 package dev.xplate.create_security.reg;
 
-import com.simibubi.create.Create;
-import com.simibubi.create.infrastructure.worldgen.AllPlacedFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
@@ -9,7 +7,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -18,7 +15,7 @@ import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-import static dev.xplate.create_security.CSecurity.MODID;
+import static dev.xplate.create_security.CSSecurity.MODID;
 
 public class SecurityBiomeMods {
 

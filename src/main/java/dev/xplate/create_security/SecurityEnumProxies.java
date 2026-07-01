@@ -1,10 +1,9 @@
 package dev.xplate.create_security;
 
 import net.minecraft.client.gui.Gui;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.fml.common.asm.enumextension.EnumProxy;
 
-import static dev.xplate.create_security.CSecurity.res;
+import static dev.xplate.create_security.CSSecurity.res;
 
 public class SecurityEnumProxies {
 

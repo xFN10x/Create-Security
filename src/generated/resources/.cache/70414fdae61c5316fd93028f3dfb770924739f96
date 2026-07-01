@@ -1,4 +1,6 @@
-// 1.21.1	2026-06-30T22:32:36.0767367	create_security's processing recipes: crushing
-ee987494ee2dd1aec89dc5c9dde4ead0a81c52fa data/create/recipe/crushing/end_stone.json
-0714004423eaf9e38082fff04a4c17de90f211ef data/create/recipe/crushing/finiranium.json
-ce2dc644c8b28bec96677c849427d125b28312f4 data/create/recipe/crushing/fini_goggles.json
+// 1.21.1	2026-07-01T20:11:30.2984222	create_security's processing recipes: crushing
+ee987494ee2dd1aec89dc5c9dde4ead0a81c52fa data/create_security/recipe/crushing/crush_end_stone.json
+02dfc6f90d7d5e9361cf913520a638c81255c91b data/create_security/recipe/crushing/crush_finiranium.json
+505f5ba39b04ee893ff4762e4803a52adf3efd5e data/create_security/recipe/crushing/crush_finiranium_block.json
+c206357ec8a766fee0d0499b8df3cb9ec7347852 data/create_security/recipe/crushing/finiranium_ore.json
+ce2dc644c8b28bec96677c849427d125b28312f4 data/create_security/recipe/crushing/why_the_hell_would_you_crush_finiranium_goggles.json

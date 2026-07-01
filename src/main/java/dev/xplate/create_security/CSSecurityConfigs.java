@@ -2,11 +2,10 @@ package dev.xplate.create_security;
 
 import com.simibubi.create.infrastructure.config.CCommon;
 import com.simibubi.create.infrastructure.config.CServer;
-import dev.xplate.create_security.config.CSClient;
+import dev.xplate.create_security.config.CSSecClient;
 import net.createmod.catnip.config.ConfigBase;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
@@ -16,15 +15,15 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class CSecurityConfigs {
+public class CSSecurityConfigs {
     //this is just the create configs file but i replaced the config types
     private static final Map<ModConfig.Type, ConfigBase> CONFIGS = new EnumMap<>(ModConfig.Type.class);
 
-    private static CSClient client;
+    private static CSSecClient client;
     private static CCommon common;
     private static CServer server;
 
-    public static CSClient client() {
+    public static CSSecClient client() {
         return client;
     }
 
@@ -54,7 +53,7 @@ public class CSecurityConfigs {
     }
 
     public static void register(ModContainer container) {
-        client = register(CSClient::new, ModConfig.Type.CLIENT);
+        client = register(CSSecClient::new, ModConfig.Type.CLIENT);
         //common = register(CCommon::new, ModConfig.Type.COMMON);
         //server = register(CServer::new, ModConfig.Type.SERVER);
 

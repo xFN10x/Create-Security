@@ -5,6 +5,7 @@
   "block.create_security.liquid_finiranium": "Liquid Finiranium",
   "block.create_security.sight_sensor": "Sight Sensor",
   "block.create_security.the_block": "",
+  "blocks.sight_sensor.distance": "Detection Distance",
   "chat.end_sick.command": "%s has %s end sickness build-up.",
   "chat.end_sick.warning1": "You start to feel weird...",
   "chat.end_sick.warning2": "Your head feels like it's banging...",
@@ -28,5 +29,6 @@
   "item.create_security.finiranium_dust": "Finiranium Dust",
   "item.create_security.keycard": "Keycard",
   "item.create_security.liquid_finiranium_bucket": "Liquid Finiranium Bucket",
+  "item.fini_goggles.eye_offset": "Eye Offset: ",
   "itemGroup.create_security": "Stealth & Security"
 }

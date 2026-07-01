@@ -1,6 +1,5 @@
 package dev.xplate.create_security.reg;
 
-import com.simibubi.create.infrastructure.worldgen.ConfigPlacementFilter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
-import static dev.xplate.create_security.CSecurity.MODID;
+import static dev.xplate.create_security.CSSecurity.MODID;
 
 public class SecurityFeatures {
 

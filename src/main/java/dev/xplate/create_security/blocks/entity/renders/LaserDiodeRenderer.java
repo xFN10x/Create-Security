@@ -3,7 +3,7 @@ package dev.xplate.create_security.blocks.entity.renders;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
-import dev.xplate.create_security.CSecurityConfigs;
+import dev.xplate.create_security.CSSecurityConfigs;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.misc.rendering.SecurityRenderTypes;
@@ -83,7 +83,7 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         int endA = 0;
         int endR = (int) (((1 - (length / maxLength)) * r) +
                 (Mth.randomBetween(level.getRandom(), 0f, 10f)
-                        * CSecurityConfigs.client().laserFlickerStrength.getF()));
+                        * CSSecurityConfigs.client().laserFlickerStrength.getF()));
 
         ms.translate(0.5, 0.5, 0.5);
         ms.mulPose(state.getValue(LaserDiode.FACING).getRotation());

@@ -5,6 +5,7 @@
   "block.create_security.liquid_finiranium": "ɯnıuɐɹıuıℲ pınbıꞀ",
   "block.create_security.sight_sensor": "ɹosuǝS ʇɥbıS",
   "block.create_security.the_block": "",
+  "blocks.sight_sensor.distance": "ǝɔuɐʇsıᗡ uoıʇɔǝʇǝᗡ",
   "chat.end_sick.command": "˙dn-pןınq ssǝuʞɔıs puǝ %s sɐɥ %s",
   "chat.end_sick.warning1": "˙˙˙pɹıǝʍ ןǝǝɟ oʇ ʇɹɐʇs noʎ",
   "chat.end_sick.warning2": "˙˙˙buıbuɐq s,ʇı ǝʞıן sןǝǝɟ pɐǝɥ ɹnoʎ",
@@ -28,5 +29,6 @@
   "item.create_security.finiranium_dust": "ʇsnᗡ ɯnıuɐɹıuıℲ",
   "item.create_security.keycard": "pɹɐɔʎǝʞ",
   "item.create_security.liquid_finiranium_bucket": "ʇǝʞɔnᗺ ɯnıuɐɹıuıℲ pınbıꞀ",
+  "item.fini_goggles.eye_offset": " :ʇǝsɟɟO ǝʎƎ",
   "itemGroup.create_security": "ʎʇıɹnɔǝS & ɥʇןɐǝʇS"
 }

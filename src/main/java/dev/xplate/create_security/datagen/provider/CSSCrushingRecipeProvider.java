@@ -1,10 +1,9 @@
 package dev.xplate.create_security.datagen.provider;
 
-import com.simibubi.create.Create;
 import com.simibubi.create.api.data.recipe.CrushingRecipeGen;
 import com.simibubi.create.content.kinetics.crusher.CrushingRecipe;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
-import dev.xplate.create_security.CSecurity;
+import dev.xplate.create_security.CSSecurity;
 import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityItems;
 import net.minecraft.core.HolderLookup;
@@ -17,8 +16,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
-public class CrushingRecipeProvider extends CrushingRecipeGen {
-    public CrushingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
+public class CSSCrushingRecipeProvider extends CrushingRecipeGen {
+    public CSSCrushingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
         super(output, registries, defaultNamespace);
 
         create("crush_finiranium", b ->
@@ -58,6 +57,6 @@ public class CrushingRecipeProvider extends CrushingRecipeGen {
 
     @Override
     protected GeneratedRecipe create(Supplier<ItemLike> singleIngredient, UnaryOperator<StandardProcessingRecipe.Builder<CrushingRecipe>> transform) {
-        return create(CSecurity.MODID, singleIngredient, transform);
+        return create(CSSecurity.MODID, singleIngredient, transform);
     }
 }

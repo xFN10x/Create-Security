@@ -16,10 +16,10 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
-import static dev.xplate.create_security.CSecurity.MODID;
-import static dev.xplate.create_security.CSecurity.REG;
+import static dev.xplate.create_security.CSSecurity.MODID;
+import static dev.xplate.create_security.CSSecurity.REG;
 
-public class DataGen {
+public class CSSDataGen {
 
     public static final MutableComponent eyeOffsetComp = REG.addRawLang("item.fini_goggles.eye_offset", "Eye Offset: ");
 public static final MutableComponent detectionDistanceComp = REG.addRawLang("blocks.sight_sensor.distance", "Detection Distance");
@@ -46,15 +46,15 @@ public static final MutableComponent detectionDistanceComp = REG.addRawLang("blo
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
 
-        GeneratedEntriesProvider generatedEntriesProvider = new GeneratedEntriesProvider(output, lookup);
+        CSSGeneratedEntriesProvider generatedEntriesProvider = new CSSGeneratedEntriesProvider(output, lookup);
         lookup = generatedEntriesProvider.getRegistryProvider();
         boolean incServer = event.includeServer();
         generator.addProvider(incServer, generatedEntriesProvider);
 
-        generator.addProvider(incServer, new MixingRecipeProvider(output, lookup, MODID));
-        generator.addProvider(incServer, new CrushingRecipeProvider(output, lookup, MODID));
-        generator.addProvider(incServer, new CompactingRecipeProvider(output, lookup, MODID));
-        generator.addProvider(incServer, new RecipeProvider(output, lookup));
+        generator.addProvider(incServer, new CSSMixingRecipeProvider(output, lookup, MODID));
+        generator.addProvider(incServer, new CSSCrushingRecipeProvider(output, lookup, MODID));
+        generator.addProvider(incServer, new CSSCompactingRecipeProvider(output, lookup, MODID));
+        generator.addProvider(incServer, new CSSRecipeProvider(output, lookup));
     }
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {

@@ -11,7 +11,7 @@ import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-import static dev.xplate.create_security.CSecurity.MODID;
+import static dev.xplate.create_security.CSSecurity.MODID;
 
 public class SecurityPonderPlugin implements PonderPlugin {
     @Override

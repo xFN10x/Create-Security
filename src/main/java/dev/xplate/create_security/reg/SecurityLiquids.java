@@ -1,8 +1,6 @@
 package dev.xplate.create_security.reg;
 
 import com.simibubi.create.AllFluids;
-import com.simibubi.create.AllTags;
-import com.simibubi.create.infrastructure.config.AllConfigs;
 import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
 import dev.xplate.create_security.blocks.FiniraniumRelatedFluidBlock;
@@ -22,15 +20,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.MapColor;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 import net.neoforged.neoforge.fluids.FluidStack;
 import org.joml.Vector3f;
 
 import java.util.function.Supplier;
 
-import static dev.xplate.create_security.CSecurity.REG;
-import static dev.xplate.create_security.CSecurity.res;
+import static dev.xplate.create_security.CSSecurity.REG;
 
 public class SecurityLiquids {
 

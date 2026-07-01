@@ -3,7 +3,6 @@ package dev.xplate.create_security;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
-import com.simibubi.create.infrastructure.command.AllCommands;
 import dev.xplate.create_security.items.IScrollableItem;
 import dev.xplate.create_security.misc.SecurityCommands;
 import dev.xplate.create_security.misc.Utils;
@@ -38,16 +37,16 @@ import net.neoforged.neoforge.event.tick.LevelTickEvent;
 
 import java.io.IOException;
 
-import static dev.xplate.create_security.CSecurity.LOGGER;
+import static dev.xplate.create_security.CSSecurity.LOGGER;
 
 @EventBusSubscriber(Dist.CLIENT)
-@Mod(value = CSecurity.MODID, dist = Dist.CLIENT)
-public class CSecurityClient {
+@Mod(value = CSSecurity.MODID, dist = Dist.CLIENT)
+public class CSSecurityClient {
     public static FiniraniumGogglesPostProcessingHandler googlesEffectHandler;
 
-    public CSecurityClient(IEventBus modEventBus, ModContainer modContainer) {
-        NeoForge.EVENT_BUS.addListener(CSecurityClient::onGetPlayerHeartType);
-        modEventBus.addListener(CSecurityClient::onClientSetup);
+    public CSSecurityClient(IEventBus modEventBus, ModContainer modContainer) {
+        NeoForge.EVENT_BUS.addListener(CSSecurityClient::onGetPlayerHeartType);
+        modEventBus.addListener(CSSecurityClient::onClientSetup);
     }
 
     @SubscribeEvent

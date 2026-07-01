@@ -15,8 +15,8 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
-public class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
-    public RecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+public class CSSRecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
+    public CSSRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
 

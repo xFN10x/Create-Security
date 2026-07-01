@@ -1,11 +1,10 @@
 package dev.xplate.create_security.datagen.provider;
 
-import com.simibubi.create.Create;
 import com.simibubi.create.api.data.recipe.MixingRecipeGen;
 import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
-import dev.xplate.create_security.CSecurity;
+import dev.xplate.create_security.CSSecurity;
 import dev.xplate.create_security.reg.SecurityItems;
 import dev.xplate.create_security.reg.SecurityLiquids;
 import net.minecraft.core.HolderLookup;
@@ -16,9 +15,9 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
-public class MixingRecipeProvider extends MixingRecipeGen {
+public class CSSMixingRecipeProvider extends MixingRecipeGen {
 
-    public MixingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
+    public CSSMixingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
         super(output, registries, defaultNamespace);
         create(() -> SecurityItems.FINIRANIUM_DUST, b ->
                 b.duration(20 * 10)
@@ -29,6 +28,6 @@ public class MixingRecipeProvider extends MixingRecipeGen {
 
     @Override
     protected GeneratedRecipe create(Supplier<ItemLike> singleIngredient, UnaryOperator<StandardProcessingRecipe.Builder<MixingRecipe>> transform) {
-        return create(CSecurity.MODID, singleIngredient, transform);
+        return create(CSSecurity.MODID, singleIngredient, transform);
     }
 }

@@ -1,0 +1,23 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create_security:finiranium_ore"
+    }
+  ],
+  "processing_time": 600,
+  "results": [
+    {
+      "count": 2,
+      "id": "create_security:finiranium"
+    },
+    {
+      "chance": 0.75,
+      "id": "create:experience_nugget"
+    },
+    {
+      "chance": 0.125,
+      "id": "minecraft:end_stone"
+    }
+  ]
+}

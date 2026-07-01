@@ -7,7 +7,6 @@ import dev.xplate.create_security.reg.SecurityCreativeTabs;
 import dev.xplate.create_security.reg.SecurityItemComponents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -25,8 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static dev.xplate.create_security.CSecurity.REG;
-import static dev.xplate.create_security.datagen.DataGen.eyeOffsetComp;
+import static dev.xplate.create_security.datagen.CSSDataGen.eyeOffsetComp;
 
 public class FiniGoggles extends FiniraniumRelatedItem implements Equipable, IScrollableItem {
     public FiniGoggles(Properties properties) {

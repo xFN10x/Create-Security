@@ -5,7 +5,7 @@ import com.simibubi.create.foundation.blockEntity.behaviour.*;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour;
 import com.simibubi.create.foundation.utility.CreateLang;
 import dev.xplate.create_security.blocks.SightSensor;
-import dev.xplate.create_security.datagen.DataGen;
+import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.reg.SecurityBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -34,8 +34,6 @@ import net.neoforged.neoforge.common.Tags;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static dev.xplate.create_security.CSecurity.REG;
-
 public class SightSensorEntity extends SmartBlockEntity {
 
     public SightSensorScrollValueBehavior scrollVal;
@@ -46,7 +44,7 @@ public class SightSensorEntity extends SmartBlockEntity {
 
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
-        scrollVal = new SightSensorScrollValueBehavior(DataGen.detectionDistanceComp, this, new CenteredSideValueBoxTransform((bs, dir) -> dir == bs.getValue(SightSensor.FACING).getOpposite()));
+        scrollVal = new SightSensorScrollValueBehavior(CSSDataGen.detectionDistanceComp, this, new CenteredSideValueBoxTransform((bs, dir) -> dir == bs.getValue(SightSensor.FACING).getOpposite()));
         scrollVal.requiresWrench();
         scrollVal.between(1, 50);
         scrollVal.setValue(15);

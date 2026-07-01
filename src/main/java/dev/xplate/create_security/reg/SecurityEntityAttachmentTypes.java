@@ -3,13 +3,12 @@ package dev.xplate.create_security.reg;
 import com.mojang.serialization.Codec;
 import dev.xplate.create_security.misc.EndSicknessSyncHandler;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.event.IModBusEvent;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-import static dev.xplate.create_security.CSecurity.MODID;
+import static dev.xplate.create_security.CSSecurity.MODID;
 
 public class SecurityEntityAttachmentTypes {
 

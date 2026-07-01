@@ -1,20 +1,13 @@
 package dev.xplate.create_security.reg;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
-import dev.xplate.create_security.CSecurity;
 import dev.xplate.create_security.items.FiniGoggles;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.items.KeycardItem;
 import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.components.ChatComponent;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static dev.xplate.create_security.CSecurity.REG;
+import static dev.xplate.create_security.CSSecurity.REG;
 
 public class SecurityItems {
 

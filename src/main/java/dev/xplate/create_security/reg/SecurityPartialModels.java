@@ -2,7 +2,7 @@ package dev.xplate.create_security.reg;
 
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 
-import static dev.xplate.create_security.CSecurity.res;
+import static dev.xplate.create_security.CSSecurity.res;
 
 public class SecurityPartialModels {
 

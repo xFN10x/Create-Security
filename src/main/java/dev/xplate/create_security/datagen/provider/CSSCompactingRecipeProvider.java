@@ -10,8 +10,8 @@ import net.minecraft.data.PackOutput;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CompactingRecipeProvider extends CompactingRecipeGen {
-    public CompactingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
+public class CSSCompactingRecipeProvider extends CompactingRecipeGen {
+    public CSSCompactingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
         super(output, registries, defaultNamespace);
 
         create("create_finiranium_block_from_finiranium", b ->

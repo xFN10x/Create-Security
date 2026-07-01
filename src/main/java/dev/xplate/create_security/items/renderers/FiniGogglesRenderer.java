@@ -4,18 +4,13 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.foundation.item.render.CustomRenderedItemModel;
 import com.simibubi.create.foundation.item.render.CustomRenderedItemModelRenderer;
 import com.simibubi.create.foundation.item.render.PartialItemModelRenderer;
-import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import dev.xplate.create_security.reg.SecurityItemComponents;
 import dev.xplate.create_security.reg.SecurityPartialModels;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.client.resources.model.SimpleBakedModel;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.client.model.BakedModelWrapper;
-
-import static dev.xplate.create_security.CSecurity.res;
 
 public class FiniGogglesRenderer extends CustomRenderedItemModelRenderer {
 

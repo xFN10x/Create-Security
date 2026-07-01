@@ -2,7 +2,7 @@ package dev.xplate.create_security.config;
 
 import net.createmod.catnip.config.ConfigBase;
 
-public class CSClient extends ConfigBase {
+public class CSSecClient extends ConfigBase {
 
     public final ConfigGroup client = group(0,
             "client",

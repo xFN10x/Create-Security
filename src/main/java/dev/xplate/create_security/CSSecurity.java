@@ -2,10 +2,7 @@ package dev.xplate.create_security;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
-import dev.xplate.create_security.blocks.FiniraniumRelatedFluidBlock;
-import dev.xplate.create_security.datagen.DataGen;
-import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;
+import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.misc.IEndSickining;
 import dev.xplate.create_security.reg.*;
@@ -38,8 +35,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
 @EventBusSubscriber()
-@Mod(CSecurity.MODID)
-public class CSecurity {
+@Mod(CSSecurity.MODID)
+public class CSSecurity {
     public static final String MODID = "create_security";
     public static final Logger LOGGER = LogUtils.getLogger();
     public final static CreateRegistrate REG = CreateRegistrate.create(MODID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
@@ -48,10 +45,10 @@ public class CSecurity {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }
 
-    public CSecurity(IEventBus modEventBus, ModContainer modContainer) {
-        modEventBus.addListener(EventPriority.HIGHEST, DataGen::gatherHigherData);
-        modEventBus.addListener(EventPriority.NORMAL, DataGen::gatherData);
-        modEventBus.addListener(CSecurity::onCommonSetup);
+    public CSSecurity(IEventBus modEventBus, ModContainer modContainer) {
+        modEventBus.addListener(EventPriority.HIGHEST, CSSDataGen::gatherHigherData);
+        modEventBus.addListener(EventPriority.NORMAL, CSSDataGen::gatherData);
+        modEventBus.addListener(CSSecurity::onCommonSetup);
         //NeoForge.EVENT_BUS.register(this);
         REG.registerEventListeners(modEventBus);
 
@@ -66,7 +63,7 @@ public class CSecurity {
         SecurityPartialModels.reg();
         SecurityItemComponents.reg(modEventBus);
 
-        CSecurityConfigs.register(modContainer);
+        CSSecurityConfigs.register(modContainer);
     }
 
     private static int tickCounter = 0;

@@ -1,7 +1,5 @@
 package dev.xplate.create_security.datagen.provider;
 
-import com.simibubi.create.Create;
-import com.simibubi.create.infrastructure.worldgen.AllBiomeModifiers;
 import dev.xplate.create_security.reg.SecurityBiomeMods;
 import dev.xplate.create_security.reg.SecurityFeatures;
 import net.minecraft.core.HolderLookup;
@@ -14,10 +12,10 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-import static dev.xplate.create_security.CSecurity.MODID;
+import static dev.xplate.create_security.CSSecurity.MODID;
 
-public class GeneratedEntriesProvider extends DatapackBuiltinEntriesProvider {
-    public GeneratedEntriesProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+public class CSSGeneratedEntriesProvider extends DatapackBuiltinEntriesProvider {
+    public CSSGeneratedEntriesProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, new RegistrySetBuilder()
                         .add(Registries.CONFIGURED_FEATURE, SecurityFeatures::configured)
                         .add(Registries.PLACED_FEATURE, SecurityFeatures::placed)

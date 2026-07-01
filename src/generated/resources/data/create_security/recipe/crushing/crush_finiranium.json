@@ -21,7 +21,7 @@
       "id": "create_security:finiranium_dust"
     },
     {
-      "chance": 0.3,
+      "chance": 0.15,
       "id": "create_security:finiranium"
     }
   ]

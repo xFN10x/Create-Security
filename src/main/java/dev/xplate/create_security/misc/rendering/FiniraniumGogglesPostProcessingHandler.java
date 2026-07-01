@@ -1,18 +1,15 @@
 package dev.xplate.create_security.misc.rendering;
 
 import com.mojang.blaze3d.platform.Window;
-import dev.xplate.create_security.reg.SecurityEffects;
 import dev.xplate.create_security.reg.SecurityItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.PostChain;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
 
 import java.io.IOException;
 
-import static dev.xplate.create_security.CSecurity.res;
+import static dev.xplate.create_security.CSSecurity.res;
 
 public class FiniraniumGogglesPostProcessingHandler {
 

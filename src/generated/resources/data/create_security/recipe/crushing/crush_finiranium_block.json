@@ -1,0 +1,23 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create_security:finiranium_block"
+    }
+  ],
+  "processing_time": 900,
+  "results": [
+    {
+      "count": 7,
+      "id": "create_security:finiranium"
+    },
+    {
+      "chance": 0.6,
+      "id": "create_security:finiranium"
+    },
+    {
+      "chance": 0.6,
+      "id": "create_security:finiranium"
+    }
+  ]
+}
