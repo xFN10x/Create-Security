@@ -29,7 +29,8 @@ public class SecurityPonderPlugin implements PonderPlugin {
         HELPER.forComponents(
                         SecurityBlocks.FINIRANIUM_BLOCK,
                         SecurityBlocks.FINIRANIUM_ORE,
-                        SecurityItems.FINIRANIUM
+                        SecurityItems.FINIRANIUM,
+                        SecurityItems.FINIRANIUM_DUST
                 )
                 .addStoryBoard("finiranium/end_sick", FiniraniumScenes::endSickness);
     }

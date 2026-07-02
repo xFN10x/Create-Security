@@ -27,13 +27,12 @@
   ],
   "sequence": [
     {
-      "type": "create:crushing",
+      "type": "create:pressing",
       "ingredients": [
         {
           "item": "create_security:incomplete_sturdier_sheet"
         }
       ],
-      "processing_time": 900,
       "results": [
         {
           "id": "create_security:incomplete_sturdier_sheet"
@@ -41,13 +40,51 @@
       ]
     },
     {
-      "type": "create:crushing",
+      "type": "create:pressing",
       "ingredients": [
         {
           "item": "create_security:incomplete_sturdier_sheet"
         }
       ],
-      "processing_time": 600,
+      "results": [
+        {
+          "id": "create_security:incomplete_sturdier_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create_security:incomplete_sturdier_sheet"
+        }
+      ],
+      "results": [
+        {
+          "id": "create_security:incomplete_sturdier_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create_security:incomplete_sturdier_sheet"
+        }
+      ],
+      "results": [
+        {
+          "id": "create_security:incomplete_sturdier_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create_security:incomplete_sturdier_sheet"
+        }
+      ],
       "results": [
         {
           "id": "create_security:incomplete_sturdier_sheet"
@@ -73,8 +110,7 @@
       ]
     },
     {
-      "type": "create:compacting",
-      "heat_requirement": "superheated",
+      "type": "create:deploying",
       "ingredients": [
         {
           "item": "create_security:incomplete_sturdier_sheet"

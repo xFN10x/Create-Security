@@ -80,6 +80,6 @@ public class FiniGoggles extends FiniraniumRelatedItem implements Equipable, ISc
         if (!tab.contains(stack)) {
             tooltipComponents.add(creativeTabName.copy().withStyle(ChatFormatting.BLUE));
         }
-        tooltipComponents.add(eyeOffsetComp.append(String.valueOf(stack.get(SecurityItemComponents.EYE_OFFSET).offset())));
+        tooltipComponents.add(eyeOffsetComp.copy().append(String.valueOf(stack.get(SecurityItemComponents.EYE_OFFSET).offset())));
     }
 }

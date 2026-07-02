@@ -44,7 +44,7 @@ public class SecurityItems {
                             .durability(180)
                             .component(SecurityItemComponents.EYE_OFFSET, new EyeOffsetComponent(0)))
             .lang("Fini-Goggles")
-            .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("item/fini_goggles/fini_goggles")))
+            .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("goggles/fini_goggles")))
             .register();
 
     public static final ItemEntry<FiniraniumRelatedItem> STURDIER_SHEET = REG
@@ -67,7 +67,7 @@ public class SecurityItems {
                     p.fireResistant()
                             .stacksTo(1))
             .lang("Empty Fini-Goggles")
-            .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("item/fini_goggles/fini_goggles_empty")))
+            .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("goggles/fini_goggles_empty")))
             .register();
 
     public static void reg() {}

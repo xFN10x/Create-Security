@@ -5,7 +5,10 @@ import com.simibubi.create.api.data.recipe.CrushingRecipeGen;
 import com.simibubi.create.api.data.recipe.SequencedAssemblyRecipeGen;
 import com.simibubi.create.content.fluids.transfer.FillingRecipe;
 import com.simibubi.create.content.kinetics.crusher.CrushingRecipe;
+import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import com.simibubi.create.content.kinetics.mixer.CompactingRecipe;
+import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
+import com.simibubi.create.content.kinetics.press.PressingRecipe;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
 import dev.xplate.create_security.reg.SecurityItems;
 import dev.xplate.create_security.reg.SecurityLiquids;
@@ -21,17 +24,19 @@ public class CSSSequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeG
         create("create_sturdier_sheet", b ->
                 b.require(AllItems.STURDY_SHEET)
                         .transitionTo(SecurityItems.INCOMPLETE_STURDIER_SHEET)
-                        .addOutput(SecurityItems.STURDIER_SHEET.get(), 70)
-                        .addOutput(AllItems.STURDY_SHEET.get(), 10)
-                        .addOutput(AllItems.POWDERED_OBSIDIAN.get(), 10)
-                        .addOutput(SecurityItems.FINIRANIUM_DUST.get(), 10)
-                        .addOutput(SecurityItems.FINIRANIUM.get(), 1)
+                        .addOutput(SecurityItems.STURDIER_SHEET.get(), 85)
+                        .addOutput(AllItems.STURDY_SHEET.get(), 5)
+                        .addOutput(AllItems.POWDERED_OBSIDIAN.get(), 5)
+                        .addOutput(SecurityItems.FINIRANIUM_DUST.get(), 3)
+                        .addOutput(SecurityItems.FINIRANIUM.get(), 2)
 
                         .loops(2)
-                        .addStep(CrushingRecipe::new,bu -> bu.duration(20 * 45))
-                        .addStep(CrushingRecipe::new,bu -> bu.duration(20 * 30))
+                        .addStep(PressingRecipe::new, bu -> bu)
+                        .addStep(PressingRecipe::new, bu -> bu)
+                        .addStep(PressingRecipe::new, bu -> bu)
+                        .addStep(PressingRecipe::new, bu -> bu)
                         .addStep(FillingRecipe::new, bu -> bu.require(SecurityLiquids.LIQUID_FINIRANIUM.get(), 600))
-                        .addStep(CompactingRecipe::new, bu -> bu.require(SecurityItems.FINIRANIUM).requiresHeat(HeatCondition.SUPERHEATED))
+                        .addStep(DeployerApplicationRecipe::new, bu -> bu.require(SecurityItems.FINIRANIUM))
         );
     }
 }
