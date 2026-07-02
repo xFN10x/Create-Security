@@ -17,5 +17,3 @@ An addon for create that adds stealth & survaliance to your Minecraft world!
 Create: Stealth & Security adds new redstone components, and game mechanics to let you make the best Minecraft prison possible.
 
 **Currently in alpha, I'm not planning to break any worlds, but beware!**
-
-fdv
