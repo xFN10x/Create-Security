@@ -20,6 +20,10 @@ public class CSSecServer extends ConfigBase {
             "endSicknessThreshold",
             "The Threshold of getting End Sickness.");
 
+    public final ConfigInt endSicknessLevelThreshold = i(50000, 5000,
+            "endSicknessLevelThreshold",
+            "The Threshold of End Sickness leveling up after the first threshold.");
+
     public final ConfigInt endSicknessTickRate = i(10, 1, 40,
             "endSicknessTickRate",
             "The Tick rate of which End Sickness build-up is checked.",
@@ -27,7 +31,7 @@ public class CSSecServer extends ConfigBase {
 
     public final ConfigInt endSicknessDecreaseRate = i(25, 0,
             "endSicknessDecreaseRate",
-            "The rate of which entities will lose End Sickness buildup when not around sickening blocks & items.", );
+            "The rate of which entities will lose End Sickness buildup when not around sickening blocks & items.");
 
     public final ConfigBool endSicknessCheckableByPlayers = b(false,
             "endSicknessCheckableByPlayers",

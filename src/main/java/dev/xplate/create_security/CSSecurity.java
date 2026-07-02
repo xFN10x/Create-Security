@@ -121,11 +121,11 @@ public class CSSecurity {
                             }
                         }
 //TODO: make the level configurable
-                        long sicknessThreshold = 40000;
-                        long sicknessLevelThreshold = 20000;
+                        long sicknessThreshold = serverConfig.endSicknessThreshold.get();
+                        long sicknessLevelThreshold = serverConfig.endSicknessLevelThreshold.get();
                         if (sick.get() > sicknessThreshold) {
                             int sickLevel = Math.toIntExact((sick.get() - sicknessThreshold) / sicknessLevelThreshold);
-                            le.addEffect(new MobEffectInstance(SecurityEffects.END_SICKNESS, 20 * (60 * 2), sickLevel));
+                            le.addEffect(new MobEffectInstance(SecurityEffects.END_SICKNESS, 20 * 15, sickLevel));
                         }
                         if (!didAnything.get())
                             le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, Math.max(sick.get() - (decreaseAmount * everyXTick), 0));

@@ -4,6 +4,7 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
+import dev.xplate.create_security.CSSecurityConfigs;
 import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSourceStack;
@@ -11,6 +12,8 @@ import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+
+import java.util.function.Predicate;
 
 import static dev.xplate.create_security.CSSecurity.REG;
 
@@ -21,9 +24,12 @@ public class SecurityCommands {
     }
 
     public static LiteralArgumentBuilder<CommandSourceStack> getEndSicknessBuildup() {
+        Predicate<CommandSourceStack> pred = css -> CSSecurityConfigs.server().endSicknessCheckableByPlayers.get() || css.hasPermission(2);
         return Commands.literal("getEndSicknessBuildup")
-                .then(arg("target", EntityArgument.entity()))
-                    .executes(getEndSicknessCommand(true))
+                .requires(pred)
+                .then(arg("target", EntityArgument.entity())
+                        .requires(pred)
+                        .executes(getEndSicknessCommand(true)))
                 .executes(getEndSicknessCommand(false));
     }
 
