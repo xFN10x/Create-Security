@@ -27,7 +27,7 @@ public class FiniGogglesRenderer extends CustomRenderedItemModelRenderer {
             default -> SecurityPartialModels.FINI_GOGGLES.get();
         };
 
-        bmodel.applyTransform(transformType, ms, false);
+        //bmodel.applyTransform(transformType, ms, false);
         renderer.render(bmodel, light);
         ms.pushPose();
         ms.translate(0,offset/16f,0);
