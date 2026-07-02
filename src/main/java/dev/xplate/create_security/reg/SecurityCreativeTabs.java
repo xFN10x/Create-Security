@@ -20,13 +20,20 @@ public class SecurityCreativeTabs {
                     .displayItems((p, o) -> {
                         o.accept(SecurityBlocks.SIGHT_SENSOR.get());
                         o.accept(SecurityBlocks.LASER_DIODE.get());
+
                         o.accept(SecurityItems.KEYCARD.get());
+
                         o.accept(SecurityBlocks.FINIRANIUM_ORE.get());
                         o.accept(SecurityItems.FINIRANIUM.get());
                         o.accept(SecurityItems.FINIRANIUM_DUST.get());
                         o.accept(SecurityBlocks.FINIRANIUM_BLOCK.get());
-                        o.accept(SecurityItems.FINI_GOGGLES.get());
                         o.accept(SecurityLiquids.LIQUID_FINIRANIUM.getBucket().get());
+
+                        o.accept(SecurityItems.STURDIER_SHEET.get());
+
+                        o.accept(SecurityItems.FINI_GOGGLES.get());
+                        o.accept(SecurityItems.EMPTY_FINI_GOGGLES.get());
+
                     })
                     .build()
     );

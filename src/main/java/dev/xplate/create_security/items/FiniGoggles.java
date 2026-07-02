@@ -28,7 +28,7 @@ import static dev.xplate.create_security.datagen.CSSDataGen.eyeOffsetComp;
 
 public class FiniGoggles extends FiniraniumRelatedItem implements Equipable, IScrollableItem {
     public FiniGoggles(Properties properties) {
-        super(properties);
+        super(properties, 1);
     }
 
 
