@@ -21,8 +21,8 @@ import static dev.xplate.create_security.CSSecurity.REG;
 
 public class CSSDataGen {
 
-    public static final MutableComponent eyeOffsetComp = REG.addRawLang("item.fini_goggles.eye_offset", "Eye Offset: ");
-public static final MutableComponent detectionDistanceComp = REG.addRawLang("blocks.sight_sensor.distance", "Detection Distance");
+    public static final MutableComponent eyeOffsetComp = REG.addRawLang("item.create_security.fini_goggles.eye_offset", "Eye Offset: ");
+public static final MutableComponent detectionDistanceComp = REG.addRawLang("blocks.create_security.sight_sensor.distance", "Detection Distance");
 
     public static void gatherHigherData(GatherDataEvent event) {
         if (event.getMods().contains(MODID)) {

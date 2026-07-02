@@ -80,6 +80,7 @@ public class CSSecurity {
         }
         tickCounter = 0;
         slevs.forEach(slev -> {
+            //you dont get end sickness in the nether
             if (slev.dimension() != Level.NETHER)
                 slev.getEntities().getAll().forEach(e -> {
                     if (!(e instanceof EnderMan || e instanceof EnderDragon) && e instanceof LivingEntity le) {
@@ -115,9 +116,11 @@ public class CSSecurity {
                                 }
                             }
                         }
-
-                        if (sick.get() > 40000) {
-                            int sickLevel = Math.toIntExact((sick.get() - 40000) / 20000);
+//TODO: make the level configurable
+                        long sicknessThreshold = 40000;
+                        long sicknessLevelThreshold = 20000;
+                        if (sick.get() > sicknessThreshold) {
+                            int sickLevel = Math.toIntExact((sick.get() - sicknessThreshold) / sicknessLevelThreshold);
                             le.addEffect(new MobEffectInstance(SecurityEffects.END_SICKNESS, 20 * (60 * 2), sickLevel));
                         }
                         if (!didAnything.get())

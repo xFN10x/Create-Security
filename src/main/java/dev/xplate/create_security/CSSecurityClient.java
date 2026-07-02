@@ -3,6 +3,7 @@ package dev.xplate.create_security;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import dev.xplate.create_security.config.enums.EndSicknessWarningLevel;
 import dev.xplate.create_security.items.IScrollableItem;
 import dev.xplate.create_security.misc.SecurityCommands;
 import dev.xplate.create_security.misc.Utils;
@@ -95,18 +96,24 @@ public class CSSecurityClient {
         if (plr == null) return;
         long sickness = plr.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER);
         //plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
-        if (sickness >= 10000 && lastCheck < 10000) {
-            plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning1")));
 
-        } else if (sickness >= 20000 && lastCheck < 20000) {
+        long sicknessThreshold = 40000;
+        long warningThreshold = sicknessThreshold/4;
+        EndSicknessWarningLevel configedWarningLevel = CSSecurityConfigs.client().endSicknessWarnings.get();
+        if (sickness >= warningThreshold && lastCheck < warningThreshold
+        && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.EVERY_OTHER)) {
+            plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning1")));
+        } else if (sickness >= (warningThreshold*2) && lastCheck < (warningThreshold*2)
+                && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.NORMAL)) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning2")));
 
-        } else if (sickness >= 30000 && lastCheck < 30000) {
+        } else if (sickness >= (warningThreshold*3) && lastCheck < (warningThreshold*3)
+                && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.LAST)) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning3")));
 
-        } else if (sickness >= 40000 && lastCheck < 40000) {
+        } else if (sickness >= (warningThreshold*4) && lastCheck < (warningThreshold*4)
+                && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.NONE)) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning4")));
-
         }
         lastCheck = sickness;
     }
