@@ -6,7 +6,7 @@ import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 import dev.xplate.create_security.CSSecurity;
 import dev.xplate.create_security.reg.SecurityItems;
-import dev.xplate.create_security.reg.SecurityLiquids;
+import dev.xplate.create_security.reg.SecurityFluids;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
@@ -22,7 +22,7 @@ public class CSSMixingRecipeProvider extends MixingRecipeGen {
         create(() -> SecurityItems.FINIRANIUM_DUST, b ->
                 b.duration(20 * 10)
                         .requiresHeat(HeatCondition.SUPERHEATED)
-                        .output(SecurityLiquids.LIQUID_FINIRANIUM.get(), 100)
+                        .output(SecurityFluids.LIQUID_FINIRANIUM.get(), 100)
         );
     }
 

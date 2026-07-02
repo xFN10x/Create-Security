@@ -59,7 +59,7 @@ public class CSSecurity {
         SecurityBlockEntities.reg();
         SecurityCreativeTabs.reg(modEventBus);
         SecurityEntityAttachmentTypes.reg(modEventBus);
-        SecurityLiquids.reg();
+        SecurityFluids.reg();
         SecurityPartialModels.reg();
         SecurityItemComponents.reg(modEventBus);
 

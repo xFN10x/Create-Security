@@ -4,7 +4,7 @@ import com.simibubi.create.api.data.recipe.CompactingRecipeGen;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
 import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityItems;
-import dev.xplate.create_security.reg.SecurityLiquids;
+import dev.xplate.create_security.reg.SecurityFluids;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 
@@ -19,7 +19,7 @@ public class CSSCompactingRecipeProvider extends CompactingRecipeGen {
                         .require(SecurityItems.FINIRANIUM).require(SecurityItems.FINIRANIUM).require(SecurityItems.FINIRANIUM)
                         .require(SecurityItems.FINIRANIUM).require(SecurityItems.FINIRANIUM).require(SecurityItems.FINIRANIUM)
                         .requiresHeat(HeatCondition.SUPERHEATED)
-                        .require(SecurityLiquids.LIQUID_FINIRANIUM.get(), 100)
+                        .require(SecurityFluids.LIQUID_FINIRANIUM.get(), 100)
                         .output(SecurityBlocks.FINIRANIUM_BLOCK)
         );
     }

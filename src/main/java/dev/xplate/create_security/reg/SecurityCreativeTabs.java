@@ -27,7 +27,7 @@ public class SecurityCreativeTabs {
                         o.accept(SecurityItems.FINIRANIUM.get());
                         o.accept(SecurityItems.FINIRANIUM_DUST.get());
                         o.accept(SecurityBlocks.FINIRANIUM_BLOCK.get());
-                        o.accept(SecurityLiquids.LIQUID_FINIRANIUM.getBucket().get());
+                        o.accept(SecurityFluids.LIQUID_FINIRANIUM.getBucket().get());
 
                         o.accept(SecurityItems.STURDIER_SHEET.get());
 

@@ -28,7 +28,7 @@ import java.util.function.Supplier;
 
 import static dev.xplate.create_security.CSSecurity.REG;
 
-public class SecurityLiquids {
+public class SecurityFluids {
 
     public static final FluidEntry<BaseFlowingFluid.Flowing> LIQUID_FINIRANIUM =
             REG.standardFluid("liquid_finiranium",
@@ -46,7 +46,7 @@ public class SecurityLiquids {
                     .properties(p -> p.mapColor(MapColor.COLOR_MAGENTA))
                     .build()
                     .bucket(FiniraniumRelatedBucketItem::new)
-                    .onRegister(SecurityLiquids::registerFluidDispenseBehavior)
+                    .onRegister(SecurityFluids::registerFluidDispenseBehavior)
                     .build()
                     .register();
 
