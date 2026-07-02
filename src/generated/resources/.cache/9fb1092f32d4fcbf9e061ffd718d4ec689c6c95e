@@ -1,7 +1,9 @@
-// 1.21.1	2026-06-30T22:32:36.0779752	Recipes
-52367fffe02b0be1003b5a41edc4e66adb793b60 data/create_security/advancement/recipes/misc/keycard.json
+// 1.21.1	2026-07-01T23:08:03.373146	Recipes
+66c5e15c3e817524d3f1dc643bde26ff13fd9d48 data/create_security/advancement/recipes/misc/keycard.json
 bfe20c449e2166bafa18e164605752f90ad1742e data/create_security/advancement/recipes/redstone/laser_diode.json
 332fa79dbe833dd8fe0ccfd766d54e996754b088 data/create_security/advancement/recipes/redstone/sight_sensor.json
+8e716637f174cb17f8e19b0d2601545e75af481b data/create_security/advancement/recipes/tools/empty_fini_goggles.json
+79165ef1f07cc3cd469166ca4de7752cfe9c6aab data/create_security/recipe/empty_fini_goggles.json
 5ec5dba776374fd4d7ff6f9395ded682333cf7a4 data/create_security/recipe/keycard.json
 a028deeebafe83be8220de9a338cc637f095be2e data/create_security/recipe/laser_diode.json
 35f507861439d8c1e0968019b39e5851c96fac9e data/create_security/recipe/sight_sensor.json

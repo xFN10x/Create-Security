@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "s": {
+      "item": "minecraft:string"
+    },
+    "t": {
+      "item": "create_security:sturdier_sheet"
+    }
+  },
+  "pattern": [
+    "sss",
+    "ttt",
+    "gtg"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_security:empty_fini_goggles"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:sturdy_sheet"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "chance": 70.0,
+      "id": "create_security:sturdier_sheet"
+    },
+    {
+      "chance": 10.0,
+      "id": "create:sturdy_sheet"
+    },
+    {
+      "chance": 10.0,
+      "id": "create:powdered_obsidian"
+    },
+    {
+      "chance": 10.0,
+      "id": "create_security:finiranium_dust"
+    },
+    {
+      "id": "create_security:finiranium"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:crushing",
+      "ingredients": [
+        {
+          "item": "create_security:incomplete_sturdier_sheet"
+        }
+      ],
+      "processing_time": 900,
+      "results": [
+        {
+          "id": "create_security:incomplete_sturdier_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:crushing",
+      "ingredients": [
+        {
+          "item": "create_security:incomplete_sturdier_sheet"
+        }
+      ],
+      "processing_time": 600,
+      "results": [
+        {
+          "id": "create_security:incomplete_sturdier_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_security:incomplete_sturdier_sheet"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 600,
+          "fluid": "create_security:liquid_finiranium"
+        }
+      ],
+      "results": [
+        {
+          "id": "create_security:incomplete_sturdier_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:compacting",
+      "heat_requirement": "superheated",
+      "ingredients": [
+        {
+          "item": "create_security:incomplete_sturdier_sheet"
+        },
+        {
+          "item": "create_security:finiranium"
+        }
+      ],
+      "results": [
+        {
+          "id": "create_security:incomplete_sturdier_sheet"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "create_security:incomplete_sturdier_sheet"
+  }
+}

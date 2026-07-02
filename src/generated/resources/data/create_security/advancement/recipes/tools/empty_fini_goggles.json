@@ -1,31 +1,31 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cardboard": {
-      "conditions": {
-        "items": [
-          {
-            "items": "create:cardboard"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_self": {
       "conditions": {
         "items": [
           {
-            "items": "create_security:keycard"
+            "items": "create_security:empty_fini_goggles"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sturdy": {
+    "has_self_filled": {
       "conditions": {
         "items": [
           {
-            "items": "create:sturdy_sheet"
+            "items": "create_security:fini_goggles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sheet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "create_security:sturdier_sheet"
           }
         ]
       },
@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "create_security:keycard"
+        "recipe": "create_security:empty_fini_goggles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -42,13 +42,13 @@
     [
       "has_the_recipe",
       "has_self",
-      "has_cardboard",
-      "has_sturdy"
+      "has_self_filled",
+      "has_sheet"
     ]
   ],
   "rewards": {
     "recipes": [
-      "create_security:keycard"
+      "create_security:empty_fini_goggles"
     ]
   }
 }

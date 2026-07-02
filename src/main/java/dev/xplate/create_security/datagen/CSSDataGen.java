@@ -54,6 +54,7 @@ public static final MutableComponent detectionDistanceComp = REG.addRawLang("blo
         generator.addProvider(incServer, new CSSMixingRecipeProvider(output, lookup, MODID));
         generator.addProvider(incServer, new CSSCrushingRecipeProvider(output, lookup, MODID));
         generator.addProvider(incServer, new CSSCompactingRecipeProvider(output, lookup, MODID));
+        generator.addProvider(incServer, new CSSSequencedAssemblyRecipeProvider(output, lookup, MODID));
         generator.addProvider(incServer, new CSSRecipeProvider(output, lookup));
     }
 

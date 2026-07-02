@@ -1,12 +1,12 @@
-// 1.21.1	2026-07-01T20:11:30.4201028	Registrate Provider for create_security [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2026-07-01T23:08:03.3741516	Registrate Provider for create_security [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 fb02574fa1e0dd793cb3baa90d1f1af9f22f3802 assets/create_security/blockstates/finiranium_block.json
 55944a5899719983a9e5da691a87c8d6f4edec14 assets/create_security/blockstates/finiranium_ore.json
 be7eab22b612207792d10ce0bc8bfe0108283baf assets/create_security/blockstates/laser_diode.json
 ac5077199f74c6ad390c2742588043bf6c2369e1 assets/create_security/blockstates/liquid_finiranium.json
 6d89eeda3923a408c8ce6551fe6821a708ef82b7 assets/create_security/blockstates/sight_sensor.json
 050b3b3a1aa85dd53848191c2f05d1a44c8134e7 assets/create_security/blockstates/the_block.json
-2982767d4bebdf5a05a60ef947c12096d5efde09 assets/create_security/lang/en_ud.json
-26b26046d55679d0685243eb9f8cc0c1c37e9c6f assets/create_security/lang/en_us.json
+90e82d9fe988dbf54aa01317a00de188b76f0318 assets/create_security/lang/en_ud.json
+74e92309e8bbb0e5c7521d8d6edc37a0d23a8ea9 assets/create_security/lang/en_us.json
 5c4b54cf02e857edb6e55f20b33b93d2d0bb6c4f assets/create_security/models/block/finiranium_block.json
 085172cdd435afbc80865bce87bfa11a93dcefb4 assets/create_security/models/block/finiranium_ore.json
 5db87a61855d01205cf185a2c251d05a36652195 assets/create_security/models/block/liquid_finiranium.json
@@ -15,10 +15,12 @@ e9c3f77cf3ba639de677cc4e36731b2c07d817b0 assets/create_security/models/block/the
 81506deb2303fab142bbaddf556a6fd2cac8488a assets/create_security/models/item/finiranium_block.json
 7f575c10cb713352c72f2df349c5226f6627d5f6 assets/create_security/models/item/finiranium_dust.json
 2beca3c4ddd5719d090e5f7a9b50ed2561ad0b80 assets/create_security/models/item/finiranium_ore.json
+3519d9de9f1e95dfc4fb7120dda6cc6316e816ff assets/create_security/models/item/incomplete_sturdier_sheet.json
 9362477551a2263f0f03796233a9ea753776274e assets/create_security/models/item/keycard.json
 534ff671fa4ab45c2ab3153a7206b30a2a406482 assets/create_security/models/item/laser_diode.json
 f440180457af627a1af062e0506e0b9cb241323c assets/create_security/models/item/liquid_finiranium_bucket.json
 a830d5f491a4e1fce108ce96427da58d95c3e194 assets/create_security/models/item/sight_sensor.json
+a2161f1058544b2d8a639770710a3b9bc01a52c9 assets/create_security/models/item/sturdier_sheet.json
 8f59393999b9df6c0b74a0b1fbcbe26ccc570543 data/create_security/loot_table/blocks/finiranium_block.json
 1d6ced06a387fab1aefd93d045a19c7440628efe data/create_security/loot_table/blocks/finiranium_ore.json
 ba40645ee78ff625327af0c079b537e0b5e4bfad data/create_security/loot_table/blocks/laser_diode.json

@@ -60,8 +60,24 @@ public class CSSRecipeProvider extends net.minecraft.data.recipes.RecipeProvider
                 .requires(AllItems.BRASS_NUGGET)
                 .requires(AllItems.CARDBOARD)
 
+                .unlockedBy("has_self", has(SecurityItems.KEYCARD))
                 .unlockedBy("has_cardboard", has(AllItems.CARDBOARD))
-                .unlockedBy("has_sturdy", has(AllItems.BRASS_NUGGET))
+                .unlockedBy("has_sturdy", has(AllItems.STURDY_SHEET))
+
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SecurityItems.EMPTY_FINI_GOGGLES)
+                .pattern("sss")
+                .pattern("ttt")
+                .pattern("gtg")
+
+                .define('s', Items.STRING)
+                .define('t', SecurityItems.STURDIER_SHEET)
+                .define('g', Items.GLASS)
+
+                .unlockedBy("has_self", has(SecurityItems.EMPTY_FINI_GOGGLES))
+                .unlockedBy("has_self_filled", has(SecurityItems.FINI_GOGGLES))
+                .unlockedBy("has_sheet", has(SecurityItems.STURDIER_SHEET))
 
                 .save(output);
     }

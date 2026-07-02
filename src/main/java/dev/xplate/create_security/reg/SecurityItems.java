@@ -55,12 +55,17 @@ public class SecurityItems {
             .defaultModel()
             .register();
 
+    public static final ItemEntry<Item> INCOMPLETE_STURDIER_SHEET = REG
+            .item("incomplete_sturdier_sheet", Item::new)
+            .lang("Incomplete Sturdier Sheet")
+            .defaultModel()
+            .register();
+
     public static final ItemEntry<Item> EMPTY_FINI_GOGGLES = REG
             .item("empty_fini_goggles", Item::new)
             .properties(p ->
                     p.fireResistant()
-                            .stacksTo(1)
-                            .durability(180))
+                            .stacksTo(1))
             .lang("Empty Fini-Goggles")
             .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("item/fini_goggles/fini_goggles_empty")))
             .register();
