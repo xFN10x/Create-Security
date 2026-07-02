@@ -2,6 +2,7 @@ package dev.xplate.create_security;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import dev.xplate.create_security.config.CSSecServer;
 import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.misc.IEndSickining;
@@ -72,9 +73,10 @@ public class CSSecurity {
     public static void onWorldTick(ServerTickEvent.Pre event) {
         Iterable<ServerLevel> slevs = event.getServer().getAllLevels();
         tickCounter++;
-        boolean endSicknessEnabled = true;
-        int everyXTick = 20;
-        int decreaseAmount = 10;
+        CSSecServer serverConfig = CSSecurityConfigs.server();
+        boolean endSicknessEnabled = serverConfig.endSicknessEnabled.get();
+        int everyXTick = serverConfig.endSicknessTickRate.get();
+        int decreaseAmount = serverConfig.endSicknessDecreaseRate.get();
         if (!endSicknessEnabled || tickCounter % everyXTick != 0) {
             return;
         }
@@ -101,18 +103,20 @@ public class CSSecurity {
                             sick.set(sick.get() + (block.sickAmount() * everyXTick));
                             didAnything.set(true);
                         });
-                        if (le instanceof InventoryCarrier inventoryCarrier) {
-                            for (ItemStack item : inventoryCarrier.getInventory().getItems()) {
-                                if (item.getItem() instanceof IEndSickining it) {
-                                    sick.set(sick.get() + (it.sickAmount() * everyXTick / 2) * item.getCount() / 2);
+                        if (serverConfig.endSicknessEnabledInInventory.get()) {
+                            if (le instanceof InventoryCarrier inventoryCarrier) {
+                                for (ItemStack item : inventoryCarrier.getInventory().getItems()) {
+                                    if (item.getItem() instanceof IEndSickining it) {
+                                        sick.set(sick.get() + (it.sickAmount() * everyXTick / 2) * (item.getCount() / 2));
+                                    }
                                 }
                             }
-                        }
 //we have to add another check here because mojang decided players are special
-                        if (le instanceof Player plr) {
-                            for (ItemStack item : plr.getInventory().items) {
-                                if (item.getItem() instanceof FiniraniumRelatedItem it) {
-                                    sick.set(sick.get() + (it.sickAmount() * everyXTick) * item.getCount());
+                            if (le instanceof Player plr) {
+                                for (ItemStack item : plr.getInventory().items) {
+                                    if (item.getItem() instanceof IEndSickining it) {
+                                        sick.set(sick.get() + (it.sickAmount() * everyXTick) * item.getCount());
+                                    }
                                 }
                             }
                         }

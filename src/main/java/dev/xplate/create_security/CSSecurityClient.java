@@ -97,7 +97,7 @@ public class CSSecurityClient {
         long sickness = plr.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER);
         //plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
 
-        long sicknessThreshold = 40000;
+        long sicknessThreshold = CSSecurityConfigs.server().endSicknessThreshold.get();
         long warningThreshold = sicknessThreshold/4;
         EndSicknessWarningLevel configedWarningLevel = CSSecurityConfigs.client().endSicknessWarnings.get();
         if (sickness >= warningThreshold && lastCheck < warningThreshold

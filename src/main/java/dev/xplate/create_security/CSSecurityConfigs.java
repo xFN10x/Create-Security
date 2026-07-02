@@ -3,6 +3,7 @@ package dev.xplate.create_security;
 import com.simibubi.create.infrastructure.config.CCommon;
 import com.simibubi.create.infrastructure.config.CServer;
 import dev.xplate.create_security.config.CSSecClient;
+import dev.xplate.create_security.config.CSSecServer;
 import net.createmod.catnip.config.ConfigBase;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -21,7 +22,7 @@ public class CSSecurityConfigs {
 
     private static CSSecClient client;
     private static CCommon common;
-    private static CServer server;
+    private static CSSecServer server;
 
     public static CSSecClient client() {
         return client;
@@ -31,7 +32,7 @@ public class CSSecurityConfigs {
         return common;
     }
 
-    public static CServer server() {
+    public static CSSecServer server() {
         return server;
     }
 
@@ -55,7 +56,7 @@ public class CSSecurityConfigs {
     public static void register(ModContainer container) {
         client = register(CSSecClient::new, ModConfig.Type.CLIENT);
         //common = register(CCommon::new, ModConfig.Type.COMMON);
-        //server = register(CServer::new, ModConfig.Type.SERVER);
+        server = register(CSSecServer::new, ModConfig.Type.SERVER);
 
         for (Map.Entry<ModConfig.Type, ConfigBase> pair : CONFIGS.entrySet())
             container.registerConfig(pair.getKey(), pair.getValue().specification);
