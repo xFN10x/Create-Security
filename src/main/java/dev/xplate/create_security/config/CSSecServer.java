@@ -16,11 +16,11 @@ public class CSSecServer extends ConfigBase {
             "endSicknessEnabledInInventory",
             "Determines if End Sickness can build-up from inventory items. (Affects all entities.)");
 
-    public final ConfigInt endSicknessThreshold = i(100000, 10000,
+    public final ConfigInt endSicknessThreshold = i(200000, 10000,
             "endSicknessThreshold",
             "The Threshold of getting End Sickness.");
 
-    public final ConfigInt endSicknessLevelThreshold = i(50000, 5000,
+    public final ConfigInt endSicknessLevelThreshold = i(300000, 5000,
             "endSicknessLevelThreshold",
             "The Threshold of End Sickness leveling up after the first threshold.");
 
