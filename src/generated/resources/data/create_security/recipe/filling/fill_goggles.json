@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "create_security:empty_fini_goggles"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 1000,
+      "fluid": "create_security:liquid_finiranium"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_security:fini_goggles"
+    }
+  ]
+}

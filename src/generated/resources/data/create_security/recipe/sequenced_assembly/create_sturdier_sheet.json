@@ -6,39 +6,27 @@
   "loops": 2,
   "results": [
     {
-      "chance": 70.0,
+      "chance": 85.0,
       "id": "create_security:sturdier_sheet"
     },
     {
-      "chance": 10.0,
+      "chance": 5.0,
       "id": "create:sturdy_sheet"
     },
     {
-      "chance": 10.0,
+      "chance": 5.0,
       "id": "create:powdered_obsidian"
     },
     {
-      "chance": 10.0,
+      "chance": 3.0,
       "id": "create_security:finiranium_dust"
     },
     {
+      "chance": 2.0,
       "id": "create_security:finiranium"
     }
   ],
   "sequence": [
-    {
-      "type": "create:pressing",
-      "ingredients": [
-        {
-          "item": "create_security:incomplete_sturdier_sheet"
-        }
-      ],
-      "results": [
-        {
-          "id": "create_security:incomplete_sturdier_sheet"
-        }
-      ]
-    },
     {
       "type": "create:pressing",
       "ingredients": [
