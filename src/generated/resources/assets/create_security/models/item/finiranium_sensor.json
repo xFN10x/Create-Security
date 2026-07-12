@@ -1,0 +1,68 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "create_security:item/finiranium_sensor_0",
+      "predicate": {
+        "create_security:finiranium_reading": 0.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_1",
+      "predicate": {
+        "create_security:finiranium_reading": 1.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_2",
+      "predicate": {
+        "create_security:finiranium_reading": 2.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_3",
+      "predicate": {
+        "create_security:finiranium_reading": 3.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_4",
+      "predicate": {
+        "create_security:finiranium_reading": 4.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_5",
+      "predicate": {
+        "create_security:finiranium_reading": 5.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_6",
+      "predicate": {
+        "create_security:finiranium_reading": 6.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_7",
+      "predicate": {
+        "create_security:finiranium_reading": 7.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_8",
+      "predicate": {
+        "create_security:finiranium_reading": 8.0
+      }
+    },
+    {
+      "model": "create_security:item/finiranium_sensor_9",
+      "predicate": {
+        "create_security:finiranium_reading": 9.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "create_security:item/finiranium_sensor_0"
+  }
+}

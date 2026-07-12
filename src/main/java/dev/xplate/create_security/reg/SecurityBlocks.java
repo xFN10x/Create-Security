@@ -51,7 +51,7 @@ public class SecurityBlocks {
             .register();
 
     public static final BlockEntry<FiniraniumRelatedBlock> FINIRANIUM_ORE = REG
-            .block("finiranium_ore", FiniraniumRelatedBlock::new)
+            .block("finiranium_ore", p -> new FiniraniumRelatedBlock(p, 25L))
             .item(FiniraniumRelatedBlockItem::new)
             .build()
             .initialProperties(() -> Blocks.ANCIENT_DEBRIS)

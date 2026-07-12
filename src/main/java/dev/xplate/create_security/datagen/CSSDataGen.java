@@ -14,6 +14,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 
 import static dev.xplate.create_security.CSSecurity.MODID;
@@ -35,6 +36,8 @@ public static final MutableComponent detectionDistanceComp = REG.addRawLang("blo
                 prov.add("chat.end_sick.warning3", "You really need to leave the area...");
                 prov.add("chat.end_sick.warning4", "You can feel your hearts draining...");
                 prov.add("chat.invisiblePlayer", "This player was invisible when this message was sent.");
+                prov.add("sound.create_security.finiranium_warning", "Finiranium Detector Beeps (Warning!)");
+                
                 providePonderLang(prov::add);
             });
         }
@@ -57,6 +60,8 @@ public static final MutableComponent detectionDistanceComp = REG.addRawLang("blo
         generator.addProvider(incServer, new CSSSequencedAssemblyRecipeProvider(output, lookup, MODID));
         generator.addProvider(incServer, new CSSFillingRecipeProvider(output, lookup, MODID));
         generator.addProvider(incServer, new CSSRecipeProvider(output, lookup));
+        
+        generator.addProvider(incServer, new CSSSoundDefinitionsProvider(output, existingFileHelper));
     }
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {

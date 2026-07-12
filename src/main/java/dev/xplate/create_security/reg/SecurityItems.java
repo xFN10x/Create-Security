@@ -1,16 +1,24 @@
 package dev.xplate.create_security.reg;
 
+import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
+import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xplate.create_security.items.FiniGoggles;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.items.KeycardItem;
 import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
+import dev.xplate.create_security.items.propfuncs.FiniraniumSensorPropertyFunction;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 
 import static dev.xplate.create_security.CSSecurity.REG;
+import static dev.xplate.create_security.CSSecurity.res;
 
 public class SecurityItems {
+    public final static ResourceLocation FINIRANIUM_READING_PROPERTY = res("finiranium_reading");
 
     public static final ItemEntry<KeycardItem> KEYCARD = REG
             .item("keycard", KeycardItem::new)
@@ -55,8 +63,8 @@ public class SecurityItems {
             .defaultModel()
             .register();
 
-    public static final ItemEntry<Item> INCOMPLETE_STURDIER_SHEET = REG
-            .item("incomplete_sturdier_sheet", Item::new)
+    public static final ItemEntry<SequencedAssemblyItem> INCOMPLETE_STURDIER_SHEET = REG
+            .item("incomplete_sturdier_sheet", SequencedAssemblyItem::new)
             .lang("Incomplete Sturdier Sheet")
             .defaultModel()
             .register();
@@ -68,6 +76,77 @@ public class SecurityItems {
                             .stacksTo(1))
             .lang("Empty Fini-Goggles")
             .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("item/empty_fini_goggles")))
+            .register();
+    
+    private static ModelFile getGenModelFromId(String texture, RegistrateItemModelProvider mod) {
+        return mod.getBuilder(texture)
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", res("item/" + texture));
+    }
+    
+    public static final ItemEntry<Item> FINIRANIUM_SENSOR = REG
+            .item("finiranium_sensor", Item::new)
+            .properties(p ->
+                    p.fireResistant()
+                            .stacksTo(1))
+            .lang("Finiranium Sensor")
+            .model((ctx, mod) -> mod.generated(ctx::getEntry, res("item/finiranium_sensor_0"))
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_0", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 0)
+                    .end()
+                    
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_1", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 1)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_2", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 2)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_3", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 3)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_4", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 4)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_5", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 5)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_6", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 6)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_7", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 7)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_8", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 8)
+                    .end()
+
+                    .override()
+                    .model(getGenModelFromId("finiranium_sensor_9", mod))
+                    .predicate(FINIRANIUM_READING_PROPERTY, 9)
+                    .end()
+            )
+            .onRegister(item -> {
+                ItemProperties.register(
+                        item, 
+                        FINIRANIUM_READING_PROPERTY, 
+                        new FiniraniumSensorPropertyFunction());
+            })
             .register();
 
     public static void reg() {}

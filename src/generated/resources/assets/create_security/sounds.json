@@ -1,0 +1,11 @@
+{
+  "finiranium_warning": {
+    "sounds": [
+      {
+        "attenuation_distance": 5,
+        "name": "create_security:warning"
+      }
+    ],
+    "subtitle": "sound.create_security.finiranium_warning"
+  }
+}
