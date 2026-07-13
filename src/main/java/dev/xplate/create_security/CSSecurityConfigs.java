@@ -1,7 +1,5 @@
 package dev.xplate.create_security;
 
-import com.simibubi.create.infrastructure.config.CCommon;
-import com.simibubi.create.infrastructure.config.CServer;
 import dev.xplate.create_security.config.CSSecClient;
 import dev.xplate.create_security.config.CSSecServer;
 import net.createmod.catnip.config.ConfigBase;
@@ -21,17 +19,12 @@ public class CSSecurityConfigs {
     private static final Map<ModConfig.Type, ConfigBase> CONFIGS = new EnumMap<>(ModConfig.Type.class);
 
     private static CSSecClient client;
-    private static CCommon common;
+    //private static CCommon common;
     private static CSSecServer server;
 
     public static CSSecClient client() {
         return client;
     }
-
-    public static CCommon common() {
-        return common;
-    }
-
     public static CSSecServer server() {
         return server;
     }

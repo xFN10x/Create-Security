@@ -10,6 +10,8 @@ import java.awt.*;
 
 @Mixin(OverlayTexture.class)
 public class OverlayTextureMixins {
+    
+    //NOTE: this is probably unsafe
     @ModifyConstant(method = "<init>", constant = @Constant(intValue = -1308622593))
     public int makeColour1Purple(int constant, @Local(ordinal = 0) int y) {
         return y <= 1 ? new Color(247, 116, 255, 208).getRGB() : constant;
