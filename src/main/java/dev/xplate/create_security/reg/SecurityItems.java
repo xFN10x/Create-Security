@@ -5,6 +5,7 @@ import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xplate.create_security.items.FiniGoggles;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
+import dev.xplate.create_security.items.FiniraniumSensor;
 import dev.xplate.create_security.items.KeycardItem;
 import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
 import dev.xplate.create_security.items.propfuncs.FiniraniumSensorPropertyFunction;
@@ -77,25 +78,26 @@ public class SecurityItems {
             .lang("Empty Fini-Goggles")
             .model((ctx, mod) -> mod.getExistingFile(mod.modLoc("item/empty_fini_goggles")))
             .register();
-    
+
     private static ModelFile getGenModelFromId(String texture, RegistrateItemModelProvider mod) {
         return mod.getBuilder(texture)
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", res("item/" + texture));
     }
-    
-    public static final ItemEntry<Item> FINIRANIUM_SENSOR = REG
-            .item("finiranium_sensor", Item::new)
+
+    public static final ItemEntry<FiniraniumSensor> FINIRANIUM_SENSOR = REG
+            .item("finiranium_sensor", FiniraniumSensor::new)
             .properties(p ->
-                    p.fireResistant()
-                            .stacksTo(1))
+                    p.fireResistant() 
+                            .stacksTo(1)
+                            .component(SecurityItemComponents.FINIRANIUM_LEVEL.get(), 0f))
             .lang("Finiranium Sensor")
             .model((ctx, mod) -> mod.generated(ctx::getEntry, res("item/finiranium_sensor_0"))
                     .override()
                     .model(getGenModelFromId("finiranium_sensor_0", mod))
                     .predicate(FINIRANIUM_READING_PROPERTY, 0)
                     .end()
-                    
+
                     .override()
                     .model(getGenModelFromId("finiranium_sensor_1", mod))
                     .predicate(FINIRANIUM_READING_PROPERTY, 1)
@@ -143,11 +145,12 @@ public class SecurityItems {
             )
             .onRegister(item -> {
                 ItemProperties.register(
-                        item, 
-                        FINIRANIUM_READING_PROPERTY, 
+                        item,
+                        FINIRANIUM_READING_PROPERTY,
                         new FiniraniumSensorPropertyFunction());
             })
             .register();
 
-    public static void reg() {}
+    public static void reg() {
+    }
 }

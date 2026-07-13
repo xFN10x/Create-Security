@@ -33,6 +33,8 @@ public class SecurityCreativeTabs {
 
                         o.accept(SecurityItems.FINI_GOGGLES.get());
                         o.accept(SecurityItems.EMPTY_FINI_GOGGLES.get());
+                        
+                        o.accept(SecurityItems.FINIRANIUM_SENSOR);
 
                     })
                     .build()

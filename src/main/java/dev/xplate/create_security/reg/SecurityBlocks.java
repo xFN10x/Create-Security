@@ -47,7 +47,7 @@ public class SecurityBlocks {
             .defaultLoot()
             .lang("Laser Diode")
             .blockstate(new LaserDiodeGenerator()::generate)
-             .onRegister(movementBehaviour(new LaserDiodeMovement()))
+            .onRegister(movementBehaviour(new LaserDiodeMovement()))
             .register();
 
     public static final BlockEntry<FiniraniumRelatedBlock> FINIRANIUM_ORE = REG
