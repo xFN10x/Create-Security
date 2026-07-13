@@ -37,6 +37,21 @@ public class CSSecServer extends ConfigBase {
             "endSicknessCheckableByPlayers",
             "Determines if non-OP players can check their own sickness build-up with commands.");
 
+    public final ConfigGroup extrasGroup = group(0,
+            "extras",
+            "Extra feature configurations");
+
+    public final ConfigBool obfuscateInvisiblePlayerNames = b(true,
+            "obfuscateInvisiblePlayerNames",
+            "Whether or not player's names are obfuscated when they are invisible.",
+            "This doesn't affect commands, or the tab menu, it only obfuscates names in the chat.",
+            "Obfuscated names look like: §kThisShouldAppearJumbled");
+    public final ConfigBool obfuscatedNamesRandomLength = b(true,
+            "obfuscatedNamesRandomLength",
+            "Whether or not to make obfuscated name lengths random.",
+            "If false, obfuscated names can be deduced by the length of the name.",
+            "The names length will only be randomized once, so people can still tell invisible players apart.");
+
     @Override
     public String getName() {
         return "server";
