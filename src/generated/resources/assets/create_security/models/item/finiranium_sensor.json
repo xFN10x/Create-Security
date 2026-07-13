@@ -64,12 +64,5 @@
   ],
   "textures": {
     "layer0": "create_security:item/finiranium_sensor_0"
-  },
-  "transform": {
-    "translation": [
-      0.0,
-      10.0,
-      0.0
-    ]
   }
 }

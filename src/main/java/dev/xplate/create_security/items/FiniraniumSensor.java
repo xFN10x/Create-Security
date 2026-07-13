@@ -6,6 +6,7 @@ import dev.xplate.create_security.reg.SecuritySoundEvents;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.worldgen.DimensionTypes;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -31,7 +32,7 @@ public class FiniraniumSensor extends Item {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (level.isClientSide() || !(entity instanceof LivingEntity le)) return;
         i++;
-        int blockRange = 24;
+        int blockRange = 16 + (level.dimension() == Level.END ? 8 : 0);
         // 0 will be no finiranium
         // 9 will be finiranium close 
         BlockPos entityPos = BlockPos.containing(le.getPosition(.5f));
@@ -39,7 +40,7 @@ public class FiniraniumSensor extends Item {
                         Vec3.ZERO,
                         blockRange,blockRange,blockRange)
                 .move(le.getPosition(1f));
-        Outliner.getInstance().showAABB(hashCode(), checkArea);
+        //Outliner.getInstance().showAABB(hashCode(), checkArea);
 
         Stream<BlockState> stream = level.getBlockStates(checkArea);
         Stream<BlockState> finiraniumBlocks = stream.filter((bp) -> (bp.getBlock() instanceof IEndSickining));
