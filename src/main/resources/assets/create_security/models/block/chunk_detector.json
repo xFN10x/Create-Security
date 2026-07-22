@@ -1,17 +1,19 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
+	"render_type": "minecraft:translucent",
 	"texture_size": [64, 64],
 	"textures": {
 		"ani": "create_security:block/animated_log",
-		"main": "create_security:block/chunk_detector/chunk_detector"
+		"main": "create_security:block/chunk_detector/chunk_detector",
+		"particle": "create_security:block/chunk_detector/particle"
 	},
 	"elements": [
 		{
 			"from": [2, 1, 2],
 			"to": [14, 1, 14],
 			"faces": {
-				"up": {"uv": [3, 6, 0, 3], "texture": "#main"},
+				"up": {"uv": [6, 3, 3, 0], "texture": "#main"},
 				"down": {"uv": [6, 0, 3, 3], "texture": "#main"}
 			}
 		},

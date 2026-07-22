@@ -1,4 +1,5 @@
 {
+  "block.create_security.chunk_detector": "Chunk Detector",
   "block.create_security.finiranium_block": "Finiranium Block",
   "block.create_security.finiranium_ore": "Finiranium Ore",
   "block.create_security.laser_diode": "Laser Diode",

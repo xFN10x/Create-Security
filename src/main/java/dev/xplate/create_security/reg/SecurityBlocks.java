@@ -2,11 +2,13 @@ package dev.xplate.create_security.reg;
 
 import com.simibubi.create.AllBlocks;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import dev.xplate.create_security.blocks.ChunkDetector;
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
 import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.SightSensor;
 import dev.xplate.create_security.blocks.movement.LaserDiodeMovement;
 import dev.xplate.create_security.blocks.movement.SightSensorMovement;
+import dev.xplate.create_security.datagen.blockstate.ChunkDetectorGenerator;
 import dev.xplate.create_security.datagen.blockstate.LaserDiodeGenerator;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
 import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;
@@ -28,6 +30,7 @@ import net.neoforged.neoforge.common.Tags;
 
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static dev.xplate.create_security.CSSecurity.REG;
+import static dev.xplate.create_security.CSSecurity.res;
 
 public class SecurityBlocks {
     public static final BlockEntry<SightSensor> SIGHT_SENSOR = REG.block("sight_sensor", SightSensor::new)
@@ -114,6 +117,15 @@ public class SecurityBlocks {
             .tag(BlockTags.NEEDS_DIAMOND_TOOL)
             .tag(BlockTags.INFINIBURN_END)
             .defaultBlockstate()
+            .register();
+
+    public static final BlockEntry<ChunkDetector> CHUNK_DETECTOR = REG.block("chunk_detector", ChunkDetector::new)
+            .initialProperties(AllBlocks.BRASS_CASING::get)
+            .properties(BlockBehaviour.Properties::noOcclusion)
+            .simpleItem()
+            .defaultLoot()
+            .lang("Chunk Detector")
+            .blockstate(new ChunkDetectorGenerator()::generate)
             .register();
 
     public static void reg() {

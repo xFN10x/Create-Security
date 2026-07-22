@@ -2,8 +2,10 @@ package dev.xplate.create_security.reg;
 
 import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
+import dev.xplate.create_security.blocks.entity.ChunkDetectorEntity;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.blocks.entity.SightSensorEntity;
+import dev.xplate.create_security.blocks.entity.renders.ChunkDetectorRenderer;
 import dev.xplate.create_security.blocks.entity.renders.LaserDiodeRenderer;
 
 import static dev.xplate.create_security.CSSecurity.REG;
@@ -15,10 +17,16 @@ public class SecurityBlockEntities {
             .renderer(() -> SmartBlockEntityRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<LaserDiodeEntity> laser_DIODE_ENTITY = REG
+    public static final BlockEntityEntry<LaserDiodeEntity> LASER_DIODE_ENTITY = REG
             .blockEntity("laser_diode_tile", LaserDiodeEntity::new)
             .validBlocks(SecurityBlocks.LASER_DIODE)
             .renderer(() -> LaserDiodeRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<ChunkDetectorEntity> CHUNK_DETECTOR_ENTITY= REG
+            .blockEntity("chunk_detector_tile", ChunkDetectorEntity::new)
+            .validBlocks(SecurityBlocks.CHUNK_DETECTOR)
+            .renderer(() -> ChunkDetectorRenderer::new)
             .register();
 
     public static void reg() {}

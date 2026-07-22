@@ -20,6 +20,7 @@ public class SecurityCreativeTabs {
                     .displayItems((p, o) -> {
                         o.accept(SecurityBlocks.SIGHT_SENSOR.get());
                         o.accept(SecurityBlocks.LASER_DIODE.get());
+                        o.accept(SecurityBlocks.CHUNK_DETECTOR.get());
 
                         o.accept(SecurityItems.KEYCARD.get());
 

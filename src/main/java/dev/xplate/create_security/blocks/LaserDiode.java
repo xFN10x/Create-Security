@@ -111,7 +111,7 @@ public class LaserDiode extends KineticBlock implements IBE<LaserDiodeEntity>, I
 
     @Override
     public BlockEntityType<? extends LaserDiodeEntity> getBlockEntityType() {
-        return SecurityBlockEntities.laser_DIODE_ENTITY.get();
+        return SecurityBlockEntities.LASER_DIODE_ENTITY.get();
     }
 
     public static VoxelShape getShape(BlockState state) {
