@@ -150,7 +150,7 @@ public class SecurityItems {
                         new FiniraniumSensorPropertyFunction());
             })
             .register();
-
+    
     public static void reg() {
     }
 }
