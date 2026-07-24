@@ -3,10 +3,7 @@ package dev.xplate.create_security.reg;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import dev.xplate.create_security.items.FiniGoggles;
-import dev.xplate.create_security.items.FiniraniumRelatedItem;
-import dev.xplate.create_security.items.FiniraniumSensor;
-import dev.xplate.create_security.items.KeycardItem;
+import dev.xplate.create_security.items.*;
 import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
 import dev.xplate.create_security.items.propfuncs.FiniraniumSensorPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -14,6 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+
+import java.util.ArrayList;
 
 import static dev.xplate.create_security.CSSecurity.REG;
 import static dev.xplate.create_security.CSSecurity.res;
@@ -88,7 +87,7 @@ public class SecurityItems {
     public static final ItemEntry<FiniraniumSensor> FINIRANIUM_SENSOR = REG
             .item("finiranium_sensor", FiniraniumSensor::new)
             .properties(p ->
-                    p.fireResistant() 
+                    p.fireResistant()
                             .stacksTo(1)
                             .component(SecurityItemComponents.FINIRANIUM_LEVEL.get(), 0f))
             .lang("Finiranium Sensor")
@@ -149,6 +148,15 @@ public class SecurityItems {
                         FINIRANIUM_READING_PROPERTY,
                         new FiniraniumSensorPropertyFunction());
             })
+            .register();
+    
+    public static final ItemEntry<LogItem> LOG = REG
+            .item("log", LogItem::new)
+            .properties(p ->
+                    p.stacksTo(1)
+                            .component(SecurityItemComponents.LOGS, new ArrayList<>()))
+            .lang("Log")
+            .defaultModel()
             .register();
     
     public static void reg() {

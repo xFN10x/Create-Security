@@ -34,6 +34,7 @@
   "item.create_security.incomplete_sturdier_sheet": "Incomplete Sturdier Sheet",
   "item.create_security.keycard": "Keycard",
   "item.create_security.liquid_finiranium_bucket": "Liquid Finiranium Bucket",
+  "item.create_security.log": "Log",
   "item.create_security.sturdier_sheet": "Sturdier Sheet",
   "itemGroup.create_security": "Stealth & Security",
   "sound.create_security.finiranium_warning": "Finiranium Detector Beeps (Warning!)"

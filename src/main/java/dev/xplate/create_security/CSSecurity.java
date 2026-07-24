@@ -64,7 +64,8 @@ public class CSSecurity {
         SecurityPartialModels.reg();
         SecurityItemComponents.reg(modEventBus);
         SecuritySoundEvents.reg(modEventBus);
-
+        SecurityMenus.reg();
+        
         CSSecurityConfigs.register(modContainer);
     }
 
