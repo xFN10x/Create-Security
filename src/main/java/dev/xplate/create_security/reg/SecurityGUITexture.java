@@ -12,8 +12,8 @@ import net.neoforged.api.distmarker.OnlyIn;
 import static dev.xplate.create_security.CSSecurity.res;
 
 public enum SecurityGUITexture implements ScreenElement, TextureSheetSegment {
-    //bgs
     BG_LOGMENU("log", 0, 68, 214, 188),
+    LOG_SCROLL("log", 248,0,8,143),
 
     ICON_BIG_ARROW("log", 0,26, 122,7),
     BUTTONBG_WIDE_NORMAL("log", 0,0, 193,13),

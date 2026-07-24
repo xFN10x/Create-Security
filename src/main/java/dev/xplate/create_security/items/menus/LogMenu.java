@@ -1,6 +1,5 @@
 package dev.xplate.create_security.items.menus;
 
-import com.simibubi.create.foundation.gui.menu.GhostItemMenu;
 import com.simibubi.create.foundation.gui.menu.HeldItemGhostItemMenu;
 import dev.xplate.create_security.misc.LogEntry;
 import dev.xplate.create_security.reg.SecurityItemComponents;
