@@ -44,7 +44,7 @@ public class SightSensorEntity extends SmartBlockEntity {
 
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
-        scrollVal = new SightSensorScrollValueBehavior(CSSDataGen.detectionDistanceComp, this, new CenteredSideValueBoxTransform((bs, dir) -> dir == bs.getValue(SightSensor.FACING).getOpposite()));
+        scrollVal = new SightSensorScrollValueBehavior(CSSDataGen.detectionDistanceComp.getB(), this, new CenteredSideValueBoxTransform((bs, dir) -> dir == bs.getValue(SightSensor.FACING).getOpposite()));
         scrollVal.requiresWrench();
         scrollVal.between(1, 50);
         scrollVal.setValue(15);

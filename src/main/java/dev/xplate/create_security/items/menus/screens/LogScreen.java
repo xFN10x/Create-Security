@@ -2,7 +2,6 @@ package dev.xplate.create_security.items.menus.screens;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.realmsclient.util.RealmsUtil;
-import com.simibubi.create.foundation.gui.AllGuiTextures;
 import com.simibubi.create.foundation.gui.menu.AbstractSimiContainerScreen;
 import com.simibubi.create.foundation.gui.widget.IconButton;
 import com.simibubi.create.foundation.gui.widget.ScreenOverlay;
@@ -41,10 +40,13 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
     private int scroll = maxScroll;
     private int goTo = 0;
     private int minScroll = 0;
+    private final int minScrollOffset = 8;
     private final ScreenOverlay scrollArea = new ScreenOverlay(100);
     private final static int entryHeight = 32;
     private final static int scrollViewHeight = 137;
+    private final static int scrollViewWidth = 156;
     private final ArrayList<LogEntryWidget> entries = new ArrayList<>();
+    private final String secret = CSSDataGen.getLogBottomText().getB().getString();
 
     public final AtomicInteger scrollAreaLeft = new AtomicInteger();
     public final AtomicInteger scrollAreaTop = new AtomicInteger();
@@ -79,11 +81,11 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 
         IconButton goToNewest = new IconButton(scrollAreaRight.get() + 4, scrollAreaBottom.get() - 18, SecurityGUITexture.ICON_DOWN_ARROW);
         goToNewest.withCallback(() -> goTo = -1);
-        goToNewest.setToolTip(CSSDataGen.goToNewestComp);
+        goToNewest.setToolTip(CSSDataGen.goToNewestComp.getB());
 
         IconButton goToOldest = new IconButton(scrollAreaRight.get() + 4, scrollAreaTop.get(), SecurityGUITexture.ICON_UP_ARROW);
         goToOldest.withCallback(() -> goTo = 1);
-        goToOldest.setToolTip(CSSDataGen.goToOldestComp);
+        goToOldest.setToolTip(CSSDataGen.goToOldestComp.getB());
 
         //addRenderableWidget(scrollInput);
         addRenderableWidget(goToOldest);
@@ -106,6 +108,13 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
     protected void renderLogEntries(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
         //guiGraphics.drawString(font, String.valueOf(scroll), 0, 0, Color.BLACK.getRGB());
         entries.forEach(widget -> widget.doRender(guiGraphics, mouseX, mouseY, partialTick));
+        int lastY = 0;
+        if (!entries.isEmpty()) {
+            lastY = entries.getLast().getY();
+        }
+        int secretHeight = lastY + entryHeight + 8;
+        int textWidth = font.width(secret);
+        guiGraphics.drawString(font, secret, (scrollViewWidth/2) - (textWidth/2), secretHeight, 0xAAFFFFFF);
     }
 
     @Override
@@ -121,7 +130,7 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 //        int invY = topPos + bg.getHeight() + 4;
 //        renderPlayerInventory(guiGraphics, invX, invY);
         scrollPosTop.set(18 + topPos + scroll);
-        minScroll = Math.min((scrollViewHeight - entries.size() * entryHeight) - 3, 0);
+        minScroll = Math.min((scrollViewHeight - entries.size() * entryHeight) - 3, 0) - minScrollOffset;
         if (goTo > 0) {
             scroll = maxScroll;
             goTo = 0;

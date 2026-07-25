@@ -2,12 +2,14 @@ package dev.xplate.create_security.items;
 
 import com.simibubi.create.foundation.recipe.ItemCopyingRecipe;
 import dev.xplate.create_security.blocks.base.LoggableKineticBlock;
+import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.menus.LogMenu;
 import dev.xplate.create_security.misc.LogEntry;
 import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityItemComponents;
 import dev.xplate.create_security.reg.SecurityMenus;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -27,6 +29,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.SupportsItemCopying {
@@ -47,7 +50,17 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-        tooltipComponents.add(Com)
+        List<LogEntry> entries = stack.get(SecurityItemComponents.LOGS);
+        tooltipComponents.add(Component.translatable(CSSDataGen.entriesComp.getA(), entries.size()));
+        ArrayList<Holder<Block>> unqiueBlocks = new ArrayList<>();
+        entries.stream().filter(entry -> {
+            Holder<Block> source = entry.blockSource();
+            if (!unqiueBlocks.contains(source)) {
+                unqiueBlocks.add(source);
+                return true;
+            }
+            return false;
+        });
     }
 
     @Override
