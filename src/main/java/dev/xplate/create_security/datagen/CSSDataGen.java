@@ -10,8 +10,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.util.RandomSource;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import oshi.util.tuples.Pair;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
@@ -21,10 +23,36 @@ import static dev.xplate.create_security.CSSecurity.REG;
 
 public class CSSDataGen {
 
-    public static final MutableComponent eyeOffsetComp = REG.addRawLang("item.create_security.fini_goggles.eye_offset", "Eye Offset: ");
-    public static final MutableComponent detectionDistanceComp = REG.addRawLang("blocks.create_security.sight_sensor.distance", "Detection Distance");
-    public static final MutableComponent goToNewestComp = REG.addRawLang("gui.create_security.tooltip.log.goToNewestButton", "Go to Newest");
-    public static final MutableComponent goToOldestComp = REG.addRawLang("gui.create_security.tooltip.log.goToOldestButton", "Go to Oldest");
+    public static final Pair<String, MutableComponent> eyeOffsetComp = rawLang("item.create_security.tooltip.fini_goggles.eye_offset", "Eye Offset: %s");
+    public static final Pair<String, MutableComponent> entriesComp = rawLang("item.create_security.tooltip.log.entries", "%s entries. ");
+    public static final Pair<String, MutableComponent> blocksLoggedComp = rawLang("item.create_security.tooltip.log.loggedBlocks", "Logged blocks; %s");
+    
+    public static final Pair<String, MutableComponent> detectionDistanceComp = rawLang("blocks.create_security.sight_sensor.distance", "Detection Distance");
+    public static final Pair<String, MutableComponent> goToNewestComp = rawLang("gui.create_security.tooltip.log.goToNewestButton", "Go to Newest");
+    public static final Pair<String, MutableComponent> goToOldestComp = rawLang("gui.create_security.tooltip.log.goToOldestButton", "Go to Oldest");
+
+    public static final Pair<String, MutableComponent> logBottomText1 = rawLang("gui.create_security.log.bottom1", "Welp, there isn't a man here.");
+    public static final Pair<String, MutableComponent> logBottomText2 = rawLang("gui.create_security.log.bottom2", "It appears you have reached an end.");
+    public static final Pair<String, MutableComponent> logBottomText3 = rawLang("gui.create_security.log.bottom3", "Nothin' new.");
+    public static final Pair<String, MutableComponent> logBottomText4 = rawLang("gui.create_security.log.bottom4", "This is the end... for now");
+    public static final Pair<String, MutableComponent> logBottomText5 = rawLang("gui.create_security.log.bottom5", "*Over.*");
+    public static final Pair<String, MutableComponent> logBottomText6 = rawLang("gui.create_security.log.bottom6", "You've reached the bottom!");
+
+    public static Pair<String, MutableComponent> rawLang(String key, String eng) {
+        return new Pair<>(key, REG.addRawLang(key,eng));
+    }
+    
+    public static Pair<String, MutableComponent> getLogBottomText() {
+        int log = RandomSource.create().nextIntBetweenInclusive(1, 6);
+        return switch (log) {
+            case 1 -> logBottomText1;
+            case 2 -> logBottomText2;
+            case 3 -> logBottomText3;
+            case 4 -> logBottomText4;
+            case 5 -> logBottomText5;
+            default -> logBottomText6;
+        };
+    }
 
     public static void gatherHigherData(GatherDataEvent event) {
         if (event.getMods().contains(MODID)) {

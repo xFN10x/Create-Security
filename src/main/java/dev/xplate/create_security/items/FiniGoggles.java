@@ -1,6 +1,8 @@
 package dev.xplate.create_security.items;
 
 import com.simibubi.create.foundation.item.render.SimpleCustomRenderer;
+import dev.xplate.create_security.CSSecurity;
+import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
 import dev.xplate.create_security.items.renderers.FiniGogglesRenderer;
 import dev.xplate.create_security.reg.SecurityCreativeTabs;
@@ -80,6 +82,6 @@ public class FiniGoggles extends FiniraniumRelatedItem implements Equipable, ISc
         if (!tab.contains(stack)) {
             tooltipComponents.add(creativeTabName.copy().withStyle(ChatFormatting.BLUE));
         }
-        tooltipComponents.add(eyeOffsetComp.copy().append(String.valueOf(stack.get(SecurityItemComponents.EYE_OFFSET).offset())));
+        tooltipComponents.add(Component.translatable(eyeOffsetComp.getA(), stack.get(SecurityItemComponents.EYE_OFFSET).offset()));
     }
 }
