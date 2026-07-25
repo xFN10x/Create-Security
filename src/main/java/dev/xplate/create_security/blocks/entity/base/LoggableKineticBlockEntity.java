@@ -9,6 +9,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +71,7 @@ public abstract class LoggableKineticBlockEntity extends KineticBlockEntity impl
 
     @Override
     public boolean isEmpty() {
-        return inventory.isEmpty();
+        return inventory.stream().allMatch(ItemStack::isEmpty);
     }
 
     @Override
@@ -79,10 +81,23 @@ public abstract class LoggableKineticBlockEntity extends KineticBlockEntity impl
 
     @Override
     public @NotNull ItemStack removeItem(int slot, int amount) {
+        return removeItem(slot, amount, null);
+    }
+
+    public @NotNull ItemStack removeItem(int slot, int amount, @Nullable ServerPlayer plr) {
         ItemStack itemstack = ContainerHelper.removeItem(inventory, slot, amount);
         if (!itemstack.isEmpty()) {
             setChanged();
         }
+        if (plr != null)
+            itemstack.get(SecurityItemComponents.LOGS).add(
+                    new LogEntry(
+                            "removed this log from a " + getBlockState().getBlock().getName().getString() + ".",
+                            LogEntry.LogTarget.of(plr),
+                            getBlockState().getBlockHolder(),
+                            LogEntry.LogTime.now((ServerLevel) plr.level())
+                    )
+            );
 
         return itemstack;
     }
@@ -94,8 +109,21 @@ public abstract class LoggableKineticBlockEntity extends KineticBlockEntity impl
 
     @Override
     public void setItem(int slot, ItemStack stack) {
+        setItem(slot, stack, null);
+    }
+
+    public void setItem(int slot, ItemStack stack, @Nullable ServerPlayer plr) {
         if (stack.is(SecurityItems.LOG.get())) {
             inventory.set(slot, stack);
+            if (plr != null)
+                stack.get(SecurityItemComponents.LOGS).add(
+                        new LogEntry(
+                                "added this log to a " + getBlockState().getBlock().getName().getString() + ".",
+                                LogEntry.LogTarget.of(plr),
+                                getBlockState().getBlockHolder(),
+                                LogEntry.LogTime.now((ServerLevel) plr.level())
+                        )
+                );
             setChanged();
         }
     }
