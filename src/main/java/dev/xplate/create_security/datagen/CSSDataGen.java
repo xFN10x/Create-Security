@@ -14,7 +14,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 
 import static dev.xplate.create_security.CSSecurity.MODID;
@@ -23,7 +22,9 @@ import static dev.xplate.create_security.CSSecurity.REG;
 public class CSSDataGen {
 
     public static final MutableComponent eyeOffsetComp = REG.addRawLang("item.create_security.fini_goggles.eye_offset", "Eye Offset: ");
-public static final MutableComponent detectionDistanceComp = REG.addRawLang("blocks.create_security.sight_sensor.distance", "Detection Distance");
+    public static final MutableComponent detectionDistanceComp = REG.addRawLang("blocks.create_security.sight_sensor.distance", "Detection Distance");
+    public static final MutableComponent goToNewestComp = REG.addRawLang("gui.create_security.tooltip.log.goToNewestButton", "Go to Newest");
+    public static final MutableComponent goToOldestComp = REG.addRawLang("gui.create_security.tooltip.log.goToOldestButton", "Go to Oldest");
 
     public static void gatherHigherData(GatherDataEvent event) {
         if (event.getMods().contains(MODID)) {
@@ -37,7 +38,7 @@ public static final MutableComponent detectionDistanceComp = REG.addRawLang("blo
                 prov.add("chat.end_sick.warning4", "You can feel your hearts draining...");
                 prov.add("chat.invisiblePlayer", "This player was invisible when this message was sent.");
                 prov.add("sound.create_security.finiranium_warning", "Finiranium Detector Beeps (Warning!)");
-                
+
                 providePonderLang(prov::add);
             });
         }
@@ -60,7 +61,7 @@ public static final MutableComponent detectionDistanceComp = REG.addRawLang("blo
         generator.addProvider(incServer, new CSSSequencedAssemblyRecipeProvider(output, lookup, MODID));
         generator.addProvider(incServer, new CSSFillingRecipeProvider(output, lookup, MODID));
         generator.addProvider(incServer, new CSSRecipeProvider(output, lookup));
-        
+
         generator.addProvider(incServer, new CSSSoundDefinitionsProvider(output, existingFileHelper));
     }
 

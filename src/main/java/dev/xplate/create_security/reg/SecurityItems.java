@@ -6,13 +6,16 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xplate.create_security.items.*;
 import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
 import dev.xplate.create_security.items.propfuncs.FiniraniumSensorPropertyFunction;
+import dev.xplate.create_security.misc.LogEntry;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static dev.xplate.create_security.CSSecurity.REG;
 import static dev.xplate.create_security.CSSecurity.res;

@@ -16,6 +16,8 @@ public enum SecurityGUITexture implements ScreenElement, TextureSheetSegment {
     LOG_SCROLL("log", 248,0,8,143),
 
     ICON_BIG_ARROW("log", 0,26, 122,7),
+    ICON_DOWN_ARROW("log", 0,50,18,18),
+    ICON_UP_ARROW("log", 18,50,18,18),
     BUTTONBG_WIDE_NORMAL("log", 0,0, 193,13),
     BUTTONBG_WIDE_SELECT("log", 0,13, 193,13),
     ;

@@ -10,6 +10,7 @@ import dev.xplate.create_security.reg.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -73,7 +74,8 @@ public class CSSecurity {
 
     @SubscribeEvent
     public static void onWorldTick(ServerTickEvent.Pre event) {
-        Iterable<ServerLevel> slevs = event.getServer().getAllLevels();
+        MinecraftServer server = event.getServer();
+        Iterable<ServerLevel> slevs = server.getAllLevels();
         tickCounter++;
         CSSecServer serverConfig = CSSecurityConfigs.server();
         boolean endSicknessEnabled = serverConfig.endSicknessEnabled.get();

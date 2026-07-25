@@ -3,6 +3,7 @@ package dev.xplate.create_security.blocks;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.base.KineticBlock;
 import com.simibubi.create.foundation.block.IBE;
+import dev.xplate.create_security.blocks.base.LoggableKineticBlock;
 import dev.xplate.create_security.blocks.entity.ChunkDetectorEntity;
 import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.reg.SecurityBlockEntities;
@@ -12,7 +13,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class ChunkDetector extends KineticBlock implements IBE<ChunkDetectorEntity>, IWrenchable {
+public class ChunkDetector extends LoggableKineticBlock<ChunkDetectorEntity> {
     public ChunkDetector(Properties properties) {
         super(properties);
     }
