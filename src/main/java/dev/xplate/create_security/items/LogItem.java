@@ -5,7 +5,6 @@ import dev.xplate.create_security.blocks.base.LoggableKineticBlock;
 import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.menus.LogMenu;
 import dev.xplate.create_security.misc.LogEntry;
-import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityItemComponents;
 import dev.xplate.create_security.reg.SecurityMenus;
 import net.minecraft.core.BlockPos;
@@ -13,6 +12,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -27,10 +27,12 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.SupportsItemCopying {
     public LogItem(Properties properties) {
@@ -51,7 +53,37 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         List<LogEntry> entries = stack.get(SecurityItemComponents.LOGS);
-        tooltipComponents.add(Component.translatable(CSSDataGen.entriesComp.getA(), entries.size()));
+        int toolColour = FastColor.ARGB32.color(150, 150, 150);
+        tooltipComponents.add(Component.translatable(CSSDataGen.entriesComp.getA(), entries.size()).withColor(toolColour));
+        ArrayList<Holder<Block>> unqiueBlocks = getUniqueSources(entries);
+        tooltipComponents.add(Component.translatable(CSSDataGen.blocksLoggedComp.getA(), unqiueBlocks.toArray()).withColor(toolColour));
+    }
+
+    public static @NotNull String[] getBlocksInLog(List<LogEntry> entries) {
+        ArrayList<String> names = new ArrayList<>();
+        for (LogEntry entry : entries) {
+            Optional<Block> block = entry.blockSource().unwrap().right();
+            block.ifPresent(value -> names.add(value.getName().getString()));
+        }
+        return names.toArray(new String[0]);
+    }
+
+
+    @Override
+    public ItemStack getDefaultInstance() {
+        ItemStack inst = super.getDefaultInstance();
+        inst.set(SecurityItemComponents.LOGS, new ArrayList<>());
+        return inst;
+    }
+
+    @Override
+    public void verifyComponentsAfterLoad(ItemStack stack) {
+        if (!stack.has(SecurityItemComponents.LOGS)) {
+            stack.set(SecurityItemComponents.LOGS, new ArrayList<>());
+        }
+    }
+
+    public static @NotNull ArrayList<Holder<Block>> getUniqueSources(List<LogEntry> entries) {
         ArrayList<Holder<Block>> unqiueBlocks = new ArrayList<>();
         entries.stream().filter(entry -> {
             Holder<Block> source = entry.blockSource();
@@ -61,6 +93,7 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
             }
             return false;
         });
+        return unqiueBlocks;
     }
 
     @Override

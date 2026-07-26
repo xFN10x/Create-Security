@@ -9,6 +9,7 @@ import dev.xplate.create_security.blocks.entity.LaserDiodeEntity;
 import dev.xplate.create_security.reg.SecurityBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;

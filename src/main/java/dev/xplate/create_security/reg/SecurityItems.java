@@ -156,8 +156,7 @@ public class SecurityItems {
     public static final ItemEntry<LogItem> LOG = REG
             .item("log", LogItem::new)
             .properties(p ->
-                    p.stacksTo(1)
-                            .component(SecurityItemComponents.LOGS, new ArrayList<>()))
+                    p.stacksTo(1))
             .lang("Log")
             .defaultModel()
             .register();

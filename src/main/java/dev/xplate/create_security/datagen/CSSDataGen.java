@@ -5,7 +5,10 @@ import dev.xplate.create_security.datagen.provider.*;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityCreativeTabs;
 import dev.xplate.create_security.reg.SecurityEffects;
+import joptsimple.internal.Strings;
+import net.createmod.catnip.lang.LangBuilder;
 import net.createmod.ponder.foundation.PonderIndex;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -26,6 +29,11 @@ public class CSSDataGen {
     public static final Pair<String, MutableComponent> eyeOffsetComp = rawLang("item.create_security.tooltip.fini_goggles.eye_offset", "Eye Offset: %s");
     public static final Pair<String, MutableComponent> entriesComp = rawLang("item.create_security.tooltip.log.entries", "%s entries. ");
     public static final Pair<String, MutableComponent> blocksLoggedComp = rawLang("item.create_security.tooltip.log.loggedBlocks", "Logged blocks; %s");
+    //gog_tooltips must be indented with 2 tabs.
+    public static final Pair<String, MutableComponent> logInsertStats = gogLang("item.create_security.gog_tooltip.loggable_block.log_stats", "Log inserted;");
+    public static final Pair<String, MutableComponent> logInsertStats1 = gogLang("item.create_security.gog_tooltip.loggable_block.log_stats1", "%s entries,", 2);
+    public static final Pair<String, MutableComponent> logInsertStats2 = gogLang("item.create_security.gog_tooltip.loggable_block.log_stats2", "%s from this block.", 2);
+    public static final Pair<String, MutableComponent> chunkDetectorHeading = gogLang("item.create_security.gog_tooltip.chunk_detector", "Chunk Detector Stats");
     
     public static final Pair<String, MutableComponent> detectionDistanceComp = rawLang("blocks.create_security.sight_sensor.distance", "Detection Distance");
     public static final Pair<String, MutableComponent> goToNewestComp = rawLang("gui.create_security.tooltip.log.goToNewestButton", "Go to Newest");
@@ -37,6 +45,14 @@ public class CSSDataGen {
     public static final Pair<String, MutableComponent> logBottomText4 = rawLang("gui.create_security.log.bottom4", "This is the end... for now");
     public static final Pair<String, MutableComponent> logBottomText5 = rawLang("gui.create_security.log.bottom5", "*Over.*");
     public static final Pair<String, MutableComponent> logBottomText6 = rawLang("gui.create_security.log.bottom6", "You've reached the bottom!");
+
+    public static Pair<String, MutableComponent> gogLang(String key, String eng) {
+        return gogLang(key,eng,0);
+    }
+    
+    public static Pair<String, MutableComponent> gogLang(String key, String eng, int indents) {
+        return rawLang(key, Strings.repeat(' ', 4 + indents) + eng);
+    }
 
     public static Pair<String, MutableComponent> rawLang(String key, String eng) {
         return new Pair<>(key, REG.addRawLang(key,eng));

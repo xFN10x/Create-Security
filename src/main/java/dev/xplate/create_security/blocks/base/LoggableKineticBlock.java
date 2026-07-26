@@ -21,10 +21,12 @@ public abstract class LoggableKineticBlock<T extends LoggableKineticBlockEntity>
     public LoggableKineticBlock(Properties properties) {
         super(properties);
     }
+    
+    
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, @Nullable BlockHitResult hitResult) {
-        if (level instanceof ServerLevel slev && player instanceof ServerPlayer splay) {
+        if (level instanceof ServerLevel slev && player instanceof ServerPlayer splay && hand == InteractionHand.MAIN_HAND) {
             if (stack.is(SecurityItems.LOG)) {
                 T entity = (T) slev.getBlockEntity(pos);
                 if (entity.isEmpty()) {
