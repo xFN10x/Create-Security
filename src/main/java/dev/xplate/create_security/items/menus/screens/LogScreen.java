@@ -28,10 +28,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /// some of the code here is based on {@link com.simibubi.create.content.logistics.filter.AbstractFilterScreen}
 public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
-
-    public int menuPosX;
-    public int menuPosY = topPos;
-
     private final SecurityGUITexture bg = SecurityGUITexture.BG_LOGMENU;
     private final SecurityGUITexture scrollPart = SecurityGUITexture.LOG_SCROLL;
 
@@ -40,11 +36,11 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
     private int scroll = maxScroll;
     private int goTo = 0;
     private int minScroll = 0;
-    private final int minScrollOffset = 8;
+    private final int minScrollOffset = 10;
     private final ScreenOverlay scrollArea = new ScreenOverlay(100);
     private final static int entryHeight = 32;
-    private final static int scrollViewHeight = 137;
-    private final static int scrollViewWidth = 156;
+    private final static int scrollViewHeight = 205;
+    private final static int scrollViewWidth = 201;
     private final ArrayList<LogEntryWidget> entries = new ArrayList<>();
     private final String secret = CSSDataGen.getLogBottomText().getB().getString();
 
@@ -68,15 +64,10 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 
         scrollAreaLeft.set(13 + leftPos);
         scrollAreaTop.set(18 + topPos);
-        scrollAreaBottom.set(154 + topPos);
-        scrollAreaRight.set(180 + leftPos);
-
-        //scrollInput.calling(integer -> scroll += integer);
-
-        menuPosX = leftPos;
-        menuPosY = topPos;
-
-        LogCloseButton closeButton = new LogCloseButton(menuPosX + 7, menuPosY + 165);
+        scrollAreaBottom.set(205 + scrollAreaTop.get());
+        scrollAreaRight.set(201 + scrollAreaLeft.get());
+        
+        LogCloseButton closeButton = new LogCloseButton(((bg.getWidth()/2) - (LogCloseButton.BG_NORMAL.getWidth()/2)) + leftPos, (scrollAreaBottom.get()) + topPos);
         closeButton.withCallback(() -> minecraft.player.closeContainer());
 
         IconButton goToNewest = new IconButton(scrollAreaRight.get() + 4, scrollAreaBottom.get() - 18, SecurityGUITexture.ICON_DOWN_ARROW);
@@ -112,9 +103,9 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
         if (!entries.isEmpty()) {
             lastY = entries.getLast().getY();
         }
-        int secretHeight = lastY + entryHeight + 8;
+        int secretHeight = lastY + entryHeight - 5;
         int textWidth = font.width(secret);
-        guiGraphics.drawString(font, secret, (scrollViewWidth/2) - (textWidth/2), secretHeight, 0xAAFFFFFF);
+        guiGraphics.drawString(font, secret, (scrollViewWidth/2) - (textWidth/2), secretHeight, 0x44000000, false);
     }
 
     @Override
@@ -130,26 +121,26 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 //        int invY = topPos + bg.getHeight() + 4;
 //        renderPlayerInventory(guiGraphics, invX, invY);
         scrollPosTop.set(18 + topPos + scroll);
-        minScroll = Math.min((scrollViewHeight - entries.size() * entryHeight) - 3, 0) - minScrollOffset;
+        minScroll = Math.min((scrollViewHeight - (entries.size() * entryHeight)) - 3, 0) - minScrollOffset;
         if (goTo > 0) {
             scroll = maxScroll;
             goTo = 0;
         } else if (goTo < 0) {
-            scroll = minScroll;
+            scroll = minScroll + minScrollOffset;
             goTo = 0;
         }
         
-        bg.render(guiGraphics, menuPosX, menuPosY);
+        bg.render(guiGraphics, leftPos, topPos);
 
         GuiGameElement.of(menu.contentHolder).<GuiGameElement
-                        .GuiRenderBuilder>at(215 + menuPosX, (menuPosY + (float) bg.getHeight() / 2) - 16 * 2, -200)
+                        .GuiRenderBuilder>at(bg.getWidth() + leftPos, (topPos + (float) bg.getHeight() / 2) - 16 * 2, -200)
                 .scale(4)
                 .render(guiGraphics);
 
         PoseStack pose = guiGraphics.pose();
 
 
-        guiGraphics.blit(scrollPart.getLocation(), scrollAreaLeft.get(), scrollAreaTop.get(), scrollPart.getStartX(), (int) -scroll, scrollPart.getWidth(), 137);
+        guiGraphics.blit(scrollPart.getLocation(), scrollAreaLeft.get(), scrollAreaTop.get(), scrollPart.getStartX(), -scroll, scrollPart.getWidth(), 205);
 
         guiGraphics.enableScissor(scrollAreaLeft.get(), scrollAreaTop.get(), scrollAreaRight.get(), scrollAreaBottom.get());
         pose.pushPose();
@@ -181,9 +172,15 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
             long rlSeconds = entry.time().rlSecond();
             this.time = Instant.ofEpochSecond(rlSeconds);
             toolTip.add(Component.literal(
-                    entry.target().strEntityName() + " " + entry.message() + " At; \n" 
-                            + "Real Time: " + format.format(Date.from(time)) 
-                            +"\nIGT: Day " + Math.floor((double) entry.time().igt() /24000L)
+                            entry.target().strEntityName() + " " + entry.message()
+                    )
+            );
+            toolTip.add(Component.literal(
+                            "Real Time: " + format.format(Date.from(time))
+                    )
+            );
+            toolTip.add(Component.literal(
+                                    "Game Time: Day " + Math.floor((double) entry.time().igt() /24000L)
                     )
             );
             this.entry = entry;
@@ -259,9 +256,9 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 
     public static class LogCloseButton extends AbstractSimiWidget {
 
-        private static final SecurityGUITexture BG_NORMAL = SecurityGUITexture.BUTTONBG_WIDE_NORMAL;
-        private static final SecurityGUITexture BG_HOVERED = SecurityGUITexture.BUTTONBG_WIDE_SELECT;
-        private static final SecurityGUITexture ICON = SecurityGUITexture.ICON_BIG_ARROW;
+        public static final SecurityGUITexture BG_NORMAL = SecurityGUITexture.BUTTONBG_WIDE_NORMAL;
+        public static final SecurityGUITexture BG_HOVERED = SecurityGUITexture.BUTTONBG_WIDE_SELECT;
+        public static final SecurityGUITexture ICON = SecurityGUITexture.ICON_BIG_ARROW;
 
         protected LogCloseButton(int x, int y) {
             super(x, y, BG_NORMAL.getWidth(), BG_NORMAL.getHeight());

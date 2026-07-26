@@ -1,5 +1,7 @@
 package dev.xplate.create_security.blocks.entity.base;
 
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.LogItem;
@@ -44,6 +46,11 @@ public abstract class LoggableKineticBlockEntity extends KineticBlockEntity impl
         ItemStack logStack = inventory.get(0);
         if (logStack.isEmpty()) return;
         List<LogEntry> existingEntries = logStack.getOrDefault(SecurityItemComponents.LOGS, new ArrayList<>());
+        if (!(existingEntries instanceof ArrayList<LogEntry>)) {
+            ArrayList<LogEntry> arrayList = new ArrayList<>(existingEntries);
+            existingEntries = arrayList;
+            logStack.set(SecurityItemComponents.LOGS, arrayList);
+        }
         existingEntries.add(new LogEntry(
                 message,
                 LogEntry.LogTarget.of(target),

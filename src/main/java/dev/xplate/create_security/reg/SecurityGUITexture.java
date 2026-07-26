@@ -12,14 +12,14 @@ import net.neoforged.api.distmarker.OnlyIn;
 import static dev.xplate.create_security.CSSecurity.res;
 
 public enum SecurityGUITexture implements ScreenElement, TextureSheetSegment {
-    BG_LOGMENU("log", 0, 68, 214, 188),
-    LOG_SCROLL("log", 248,0,8,143),
+    BG_LOGMENU("log", 0, 0, 247, 256),
+    LOG_SCROLL("log_sprites", 248,0,8,143),
 
-    ICON_BIG_ARROW("log", 0,26, 122,7),
-    ICON_DOWN_ARROW("log", 0,50,18,18),
-    ICON_UP_ARROW("log", 18,50,18,18),
-    BUTTONBG_WIDE_NORMAL("log", 0,0, 193,13),
-    BUTTONBG_WIDE_SELECT("log", 0,13, 193,13),
+    ICON_BIG_ARROW("log_sprites", 0,26, 122,7),
+    ICON_DOWN_ARROW("log_sprites", 0,50,18,18),
+    ICON_UP_ARROW("log_sprites", 18,50,18,18),
+    BUTTONBG_WIDE_NORMAL("log_sprites", 0,0, 193,13),
+    BUTTONBG_WIDE_SELECT("log_sprites", 0,13, 193,13),
     ;
 
     public static final int FONT_COLOR = 0x575F7A;
