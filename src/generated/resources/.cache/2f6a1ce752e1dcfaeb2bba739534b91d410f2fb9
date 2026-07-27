@@ -1,4 +1,4 @@
-// 1.21.1	2026-07-25T22:25:38.4939552	Registrate Provider for create_security [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2026-07-27T15:27:03.1102938	Registrate Provider for create_security [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 3eecaa629172fcfd3166d2b2c5e60619747d6d11 assets/create_security/blockstates/chunk_detector.json
 fb02574fa1e0dd793cb3baa90d1f1af9f22f3802 assets/create_security/blockstates/finiranium_block.json
 55944a5899719983a9e5da691a87c8d6f4edec14 assets/create_security/blockstates/finiranium_ore.json
@@ -6,8 +6,8 @@ be7eab22b612207792d10ce0bc8bfe0108283baf assets/create_security/blockstates/lase
 ac5077199f74c6ad390c2742588043bf6c2369e1 assets/create_security/blockstates/liquid_finiranium.json
 6d89eeda3923a408c8ce6551fe6821a708ef82b7 assets/create_security/blockstates/sight_sensor.json
 050b3b3a1aa85dd53848191c2f05d1a44c8134e7 assets/create_security/blockstates/the_block.json
-870e2c1b5beb27695fc4ec6c9aea078233dc8f6d assets/create_security/lang/en_ud.json
-0e08e5b4e659ed96e6aed04f44005664e85f5604 assets/create_security/lang/en_us.json
+decb2f5331a0d83e71a0721dba9a70334b0f707c assets/create_security/lang/en_ud.json
+9b45a07543375baef4c7f5981a375d8f5a3e192c assets/create_security/lang/en_us.json
 5c4b54cf02e857edb6e55f20b33b93d2d0bb6c4f assets/create_security/models/block/finiranium_block.json
 085172cdd435afbc80865bce87bfa11a93dcefb4 assets/create_security/models/block/finiranium_ore.json
 5db87a61855d01205cf185a2c251d05a36652195 assets/create_security/models/block/liquid_finiranium.json

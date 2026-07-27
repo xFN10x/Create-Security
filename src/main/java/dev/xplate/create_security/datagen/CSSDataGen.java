@@ -40,9 +40,9 @@ public class CSSDataGen {
     public static final Pair<String, MutableComponent> goToOldestComp = rawLang("gui.create_security.tooltip.log.goToOldestButton", "Go to Oldest");
 
     public static final Pair<String, MutableComponent> logBottomText1 = rawLang("gui.create_security.log.bottom1", "Welp, there isn't a man here.");
-    public static final Pair<String, MutableComponent> logBottomText2 = rawLang("gui.create_security.log.bottom2", "It appears you have reached an end.");
+    public static final Pair<String, MutableComponent> logBottomText2 = rawLang("gui.create_security.log.bottom2", "You have reached an end.");
     public static final Pair<String, MutableComponent> logBottomText3 = rawLang("gui.create_security.log.bottom3", "Nothin' new.");
-    public static final Pair<String, MutableComponent> logBottomText4 = rawLang("gui.create_security.log.bottom4", "This is the end... for now");
+    public static final Pair<String, MutableComponent> logBottomText4 = rawLang("gui.create_security.log.bottom4", "\uD83D\uDD48︎♒︎⍓︎ ⧫︎❒︎♋︎■︎⬧︎●︎♋︎⧫︎♏︎✍︎");
     public static final Pair<String, MutableComponent> logBottomText5 = rawLang("gui.create_security.log.bottom5", "*Over.*");
     public static final Pair<String, MutableComponent> logBottomText6 = rawLang("gui.create_security.log.bottom6", "You've reached the bottom!");
 

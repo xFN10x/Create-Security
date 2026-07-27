@@ -18,21 +18,16 @@ public enum SecurityGUITexture implements ScreenElement, TextureSheetSegment {
     ICON_BIG_ARROW("log_sprites", 0,26, 122,7),
     ICON_DOWN_ARROW("log_sprites", 0,50,18,18),
     ICON_UP_ARROW("log_sprites", 18,50,18,18),
-    BUTTONBG_WIDE_NORMAL("log_sprites", 0,0, 193,13),
-    BUTTONBG_WIDE_SELECT("log_sprites", 0,13, 193,13),
+    BUTTONBG_WIDE_NORMAL("log_sprites", 0,0, 194,13),
+    BUTTONBG_WIDE_SELECT("log_sprites", 0,13, 194,13),
     ;
 
-    public static final int FONT_COLOR = 0x575F7A;
 
     public final ResourceLocation location;
     private final int width;
     private final int height;
     private final int startX;
     private final int startY;
-
-    SecurityGUITexture(String location, int width, int height) {
-        this(location, 0, 0, width, height);
-    }
 
     SecurityGUITexture(String location, int startX, int startY, int width, int height) {
         this.location = res("textures/gui/" + location + ".png");
