@@ -68,18 +68,16 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
         return names.toArray(new String[0]);
     }
 
-
     @Override
-    public ItemStack getDefaultInstance() {
-        ItemStack inst = super.getDefaultInstance();
-        inst.set(SecurityItemComponents.LOGS, new ArrayList<>());
-        return inst;
-    }
-
-    @Override
-    public void verifyComponentsAfterLoad(ItemStack stack) {
-        if (!stack.has(SecurityItemComponents.LOGS)) {
-            stack.set(SecurityItemComponents.LOGS, new ArrayList<>());
+    public void verifyComponentsAfterLoad(ItemStack logStack) {
+        if (!logStack.has(SecurityItemComponents.LOGS)) {
+            logStack.set(SecurityItemComponents.LOGS, new ArrayList<>());
+        } else {
+            List<LogEntry> existingEntries = logStack.getOrDefault(SecurityItemComponents.LOGS, new ArrayList<>());
+            if (!(existingEntries instanceof ArrayList<LogEntry>)) {
+                ArrayList<LogEntry> arrayList = new ArrayList<>(existingEntries);
+                logStack.set(SecurityItemComponents.LOGS, arrayList);
+            }
         }
     }
 

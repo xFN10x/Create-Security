@@ -46,11 +46,6 @@ public abstract class LoggableKineticBlockEntity extends KineticBlockEntity impl
         ItemStack logStack = inventory.get(0);
         if (logStack.isEmpty()) return;
         List<LogEntry> existingEntries = logStack.getOrDefault(SecurityItemComponents.LOGS, new ArrayList<>());
-        if (!(existingEntries instanceof ArrayList<LogEntry>)) {
-            ArrayList<LogEntry> arrayList = new ArrayList<>(existingEntries);
-            existingEntries = arrayList;
-            logStack.set(SecurityItemComponents.LOGS, arrayList);
-        }
         existingEntries.add(new LogEntry(
                 message,
                 LogEntry.LogTarget.of(target),

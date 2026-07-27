@@ -1,7 +1,10 @@
 package dev.xplate.create_security.misc;
 
+import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.tterrag.registrate.util.entry.BlockEntry;
+import dev.xplate.create_security.reg.SecurityBlocks;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -10,13 +13,19 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import java.time.Instant;
+import java.util.Objects;
+import java.util.Optional;
 
 public record LogEntry(String message, LogTarget target, Holder<Block> blockSource, LogTime time) {
     public static final Codec<LogEntry> CODEC = RecordCodecBuilder.create(o ->
@@ -34,6 +43,26 @@ public record LogEntry(String message, LogTarget target, Holder<Block> blockSour
             LogTime.STREAM_CODEC, LogEntry::time,
             LogEntry::new
     );
+    
+    @Nonnull
+    public Block getSourceBlock() {
+        final Block returning;
+        Either<ResourceKey<Block>, Block> unwrapped = blockSource.unwrap();
+        Optional<Block> opt = unwrapped.right();
+        BlockEntry<Block> defaultBlock = SecurityBlocks.THE_BLOCK;
+        if (opt.isEmpty()) {
+            Optional<ResourceKey<Block>> leftOpt = unwrapped.left();
+            ResourceKey<Block> resKey = leftOpt.orElseGet(defaultBlock::getKey);
+            return Objects.requireNonNullElse(BuiltInRegistries.BLOCK.get(resKey), defaultBlock.get());
+        } else {
+            returning = opt.orElseGet(defaultBlock);
+            return returning;
+        }
+    }
+    
+    public @Nonnull BlockState getSourceBlockState() {
+        return getSourceBlock().defaultBlockState();
+    }
 
     public record LogTime(long rlSecond, long igt) {
         public static final Codec<LogTime> CODEC = RecordCodecBuilder.create(o ->
