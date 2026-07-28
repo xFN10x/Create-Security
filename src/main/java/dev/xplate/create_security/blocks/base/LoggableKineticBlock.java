@@ -21,8 +21,6 @@ public abstract class LoggableKineticBlock<T extends LoggableKineticBlockEntity>
     public LoggableKineticBlock(Properties properties) {
         super(properties);
     }
-    
-    
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, @Nullable BlockHitResult hitResult) {

@@ -32,7 +32,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.SupportsItemCopying {
     public LogItem(Properties properties) {
@@ -41,7 +40,7 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
 
     @Override
     public DataComponentType<?> getComponentType() {
-        return null;
+        return SecurityItemComponents.LOGS.get();
     }
 
     @Override
@@ -55,15 +54,27 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
         List<LogEntry> entries = stack.get(SecurityItemComponents.LOGS);
         int toolColour = FastColor.ARGB32.color(150, 150, 150);
         tooltipComponents.add(Component.translatable(CSSDataGen.entriesComp.getA(), entries.size()).withColor(toolColour));
-        ArrayList<Holder<Block>> unqiueBlocks = getUniqueSources(entries);
-        tooltipComponents.add(Component.translatable(CSSDataGen.blocksLoggedComp.getA(), unqiueBlocks.toArray()).withColor(toolColour));
+        ArrayList<Holder<Block>> unqiueBlocks = getBlocks(entries);
+        tooltipComponents.add(Component.translatable(CSSDataGen.blocksLoggedComp.getA(), unqiueBlocks.size()).withColor(toolColour));
+    }
+    
+    public static int getNumEntriesForBlock(Holder<Block> block, List<LogEntry> entries) {
+        int amount = 0;
+        for (LogEntry entry : entries) {
+            if (entry.blockSource().is(block)) {
+                amount++;
+            }
+        }
+        return amount;
     }
 
-    public static @NotNull String[] getBlocksInLog(List<LogEntry> entries) {
+    public static @NotNull String[] getBlockNames(List<LogEntry> entries) {
         ArrayList<String> names = new ArrayList<>();
         for (LogEntry entry : entries) {
-            Optional<Block> block = entry.blockSource().unwrap().right();
-            block.ifPresent(value -> names.add(value.getName().getString()));
+            Block block = entry.getSourceBlock();
+            String blockName = block.getName().getString();
+            if (!names.contains(blockName))
+                names.add(blockName);
         }
         return names.toArray(new String[0]);
     }
@@ -81,7 +92,7 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
         }
     }
 
-    public static @NotNull ArrayList<Holder<Block>> getUniqueSources(List<LogEntry> entries) {
+    public static @NotNull ArrayList<Holder<Block>> getBlocks(List<LogEntry> entries) {
         ArrayList<Holder<Block>> unqiueBlocks = new ArrayList<>();
         entries.stream().filter(entry -> {
             Holder<Block> source = entry.blockSource();

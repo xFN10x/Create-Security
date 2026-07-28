@@ -1,7 +1,5 @@
 package dev.xplate.create_security.blocks.entity.base;
 
-import com.google.common.collect.ImmutableCollection;
-import com.google.common.collect.ImmutableList;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.LogItem;
@@ -145,14 +143,13 @@ public abstract class LoggableKineticBlockEntity extends KineticBlockEntity impl
         ItemStack logStack = getItem(0);
         return logStack.is(SecurityItems.LOG);
     }
-
-    @Override
-    public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(CSSDataGen.chunkDetectorHeading.getB());
+    
+    public final boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking, Component header) {
+        tooltip.add(header);
         if (logInside()) {
             tooltip.add(CSSDataGen.logInsertStats.getB());
             tooltip.add(Component.translatable(CSSDataGen.logInsertStats1.getA(), getEntiresList().size()));
-            tooltip.add(Component.translatable(CSSDataGen.logInsertStats2.getA(), String.join(", ", LogItem.getBlocksInLog(getEntiresList()))));
+            tooltip.add(Component.translatable(CSSDataGen.logInsertStats2.getA(), LogItem.getNumEntriesForBlock(getBlockState().getBlock().builtInRegistryHolder(),getEntiresList())));
         }
 
         super.addToGoggleTooltip(tooltip, isPlayerSneaking);
