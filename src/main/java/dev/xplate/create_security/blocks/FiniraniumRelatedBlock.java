@@ -1,7 +1,6 @@
 package dev.xplate.create_security.blocks;
 
 import dev.xplate.create_security.misc.IEndSickining;
-import dev.xplate.create_security.misc.Utils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.level.block.Block;
 
