@@ -54,7 +54,7 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
         List<LogEntry> entries = stack.get(SecurityItemComponents.LOGS);
         int toolColour = FastColor.ARGB32.color(150, 150, 150);
         tooltipComponents.add(Component.translatable(CSSDataGen.entriesComp.getA(), entries.size()).withColor(toolColour));
-        ArrayList<Holder<Block>> unqiueBlocks = getBlocks(entries);
+        ArrayList<Block> unqiueBlocks = getBlocks(entries);
         tooltipComponents.add(Component.translatable(CSSDataGen.blocksLoggedComp.getA(), unqiueBlocks.size()).withColor(toolColour));
     }
     
@@ -92,17 +92,14 @@ public class LogItem extends Item implements MenuProvider, ItemCopyingRecipe.Sup
         }
     }
 
-    public static @NotNull ArrayList<Holder<Block>> getBlocks(List<LogEntry> entries) {
-        ArrayList<Holder<Block>> unqiueBlocks = new ArrayList<>();
-        entries.stream().filter(entry -> {
-            Holder<Block> source = entry.blockSource();
-            if (!unqiueBlocks.contains(source)) {
-                unqiueBlocks.add(source);
-                return true;
-            }
-            return false;
-        });
-        return unqiueBlocks;
+    public static @NotNull ArrayList<Block> getBlocks(List<LogEntry> entries) {
+        ArrayList<Block> blocks = new ArrayList<>();
+        for (LogEntry entry : entries) {
+            Block block = entry.getSourceBlock();
+            if (!blocks.contains(block))
+                blocks.add(block);
+        }
+        return blocks;
     }
 
     @Override

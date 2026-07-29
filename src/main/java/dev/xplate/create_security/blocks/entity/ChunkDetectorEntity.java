@@ -42,6 +42,7 @@ public class ChunkDetectorEntity extends LoggableKineticBlockEntity {
 
         public ChunkDetectorBehaviour(LoggableKineticBlockEntity be) {
             super(be);
+            setLazyTickRate(2);
         }
 
         @Override
