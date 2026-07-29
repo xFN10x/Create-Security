@@ -85,15 +85,18 @@ public class ChunkDetectorEntity extends LoggableKineticBlockEntity {
             int minZ = centerZ - range;
             int maxX = centerX + range;
             int maxZ = centerZ + range;
+            SectionPos min = SectionPos.of(minX,0,minZ);
+            SectionPos max = SectionPos.of(maxX,0,maxZ);
             List<Entity> entities = new ArrayList<>();
+            
             AABB aabb = new AABB(
-                    SectionPos.sectionToBlockCoord(minX), 
+                    min.minBlockX(),
                     -64,
-                    SectionPos.sectionToBlockCoord(minZ),
+                    min.minBlockZ(),
 
-                    SectionPos.sectionToBlockCoord(maxX),
+                    max.maxBlockX(),
                     256,
-                    SectionPos.sectionToBlockCoord(maxZ)
+                    max.maxBlockZ()
             );
             Outliner.getInstance().showAABB("fesds", aabb);
             entities.addAll(getLevel().getEntities((Entity) null, aabb, entity -> entity instanceof LivingEntity));
