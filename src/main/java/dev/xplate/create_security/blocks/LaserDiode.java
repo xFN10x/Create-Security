@@ -74,7 +74,7 @@ public class LaserDiode extends KineticBlock implements IBE<LaserDiodeEntity>, I
 
     @Override
     public SpeedLevel getMinimumRequiredSpeedLevel() {
-        return SpeedLevel.FAST;
+        return SpeedLevel.of(150);
     }
 
     @Override

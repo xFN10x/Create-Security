@@ -48,7 +48,7 @@ public class LaserDiodeEntity extends KineticBlockEntity {
         if (getBlockState().getValue(LaserDiode.RECEIVER))
             return 256;
         else
-            return 256 / 4;
+            return 32;
     }
 
     public static Tuple<Float, HitResult> calcLength(Vec3 start, Vec3 dirNorm, Level level, int maxLength) {
