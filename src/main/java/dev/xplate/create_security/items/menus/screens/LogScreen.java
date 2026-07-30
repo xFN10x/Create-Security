@@ -121,7 +121,7 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
-        scroll = (int) Math.clamp(scroll + (scrollY * 4), minScroll, maxScroll);
+        scroll = (int) Math.clamp(scroll + (scrollY * 8), minScroll, maxScroll);
         return true;
         //return super.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
     }
