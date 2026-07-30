@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "f": {
+      "item": "create_security:finiranium"
+    },
+    "g": {
+      "item": "create_security:nether_glass"
+    },
+    "s": {
+      "item": "create:shaft"
+    },
+    "t": {
+      "item": "create_security:sturdier_sheet"
+    }
+  },
+  "pattern": [
+    "ggg",
+    "sft",
+    " s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_security:chunk_detector"
+  }
+}

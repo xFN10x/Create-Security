@@ -3,6 +3,7 @@ package dev.xplate.create_security.reg;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.*;
 import dev.xplate.create_security.items.datacomps.EyeOffsetComponent;
 import dev.xplate.create_security.items.propfuncs.FiniraniumSensorPropertyFunction;
@@ -159,8 +160,9 @@ public class SecurityItems {
                     p.stacksTo(1))
             .lang("Log")
             .defaultModel()
-            .register();
-    
+            .register();            
+
+
     public static void reg() {
     }
 }

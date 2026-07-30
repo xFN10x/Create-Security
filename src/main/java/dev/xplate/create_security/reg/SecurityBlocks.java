@@ -8,6 +8,7 @@ import dev.xplate.create_security.blocks.LaserDiode;
 import dev.xplate.create_security.blocks.SightSensor;
 import dev.xplate.create_security.blocks.movement.LaserDiodeMovement;
 import dev.xplate.create_security.blocks.movement.SightSensorMovement;
+import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.datagen.blockstate.ChunkDetectorGenerator;
 import dev.xplate.create_security.datagen.blockstate.LaserDiodeGenerator;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -96,6 +98,7 @@ public class SecurityBlocks {
             .defaultBlockstate()
             .lang("")
             .loot((lt, t) -> lt.dropOther(t, Items.AIR))
+            
             .register();
 
     public static final BlockEntry<FiniraniumRelatedBlock> FINIRANIUM_BLOCK = REG
@@ -126,6 +129,15 @@ public class SecurityBlocks {
             .defaultLoot()
             .lang("Chunk Detector")
             .blockstate(new ChunkDetectorGenerator()::generate)
+            
+            .register();
+
+    public static final BlockEntry<TransparentBlock> NETHER_GLASS = REG.block("nether_glass", TransparentBlock::new)
+            .initialProperties(() -> Blocks.TINTED_GLASS)
+            .simpleItem()
+            .defaultLoot()
+            .lang("Nether Glass")
+            .defaultBlockstate()
             .register();
 
     public static void reg() {

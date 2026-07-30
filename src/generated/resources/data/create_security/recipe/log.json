@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "create:brass_nugget"
+    },
+    "p": {
+      "item": "minecraft:paper"
+    }
+  },
+  "pattern": [
+    "bpb",
+    " p ",
+    " p "
+  ],
+  "result": {
+    "components": {
+      "create_security:log_entries": []
+    },
+    "count": 1,
+    "id": "create_security:log"
+  }
+}

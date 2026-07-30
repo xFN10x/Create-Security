@@ -2,26 +2,38 @@ package dev.xplate.create_security.datagen.provider;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
+import com.simibubi.create.AllRecipeTypes;
+import com.simibubi.create.Create;
+import com.simibubi.create.api.data.recipe.BaseRecipeProvider;
+import com.simibubi.create.foundation.recipe.ItemCopyingRecipe;
+import dev.xplate.create_security.CSSecurity;
 import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Function;
 
-public class CSSRecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
+import static dev.xplate.create_security.CSSecurity.res;
+
+public class CSSRecipeProvider extends BaseRecipeProvider {
     public CSSRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries);
+        super(output, registries, CSSecurity.MODID);
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput output) {
+    public void buildRecipes(RecipeOutput output) {
+        createSpecial(ItemCopyingRecipe::new, "crafting", "item_copying");
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, SecurityBlocks.SIGHT_SENSOR)
                 .pattern(" g ")
                 .pattern("rer")
@@ -80,5 +92,69 @@ public class CSSRecipeProvider extends net.minecraft.data.recipes.RecipeProvider
                 .unlockedBy("has_sheet", has(SecurityItems.STURDIER_SHEET))
 
                 .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, SecurityBlocks.CHUNK_DETECTOR)
+                .pattern("ggg")
+                .pattern("sft")
+                .pattern(" s ")
+
+                .define('s', AllBlocks.SHAFT)
+                .define('f', SecurityItems.FINIRANIUM)
+                .define('g', SecurityBlocks.NETHER_GLASS)
+                .define('t', SecurityItems.STURDIER_SHEET)
+
+                .unlockedBy("has_self", has(SecurityBlocks.CHUNK_DETECTOR))
+                .unlockedBy("has_nether_glass", has(SecurityBlocks.NETHER_GLASS))
+
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, SecurityBlocks.NETHER_GLASS, 4)
+                .pattern("ngn")
+                .pattern("g g")
+                .pattern("ngn")
+
+                .define('n', Blocks.NETHER_BRICKS)
+                .define('g', Blocks.GLASS)
+
+                .unlockedBy("has_self", has(SecurityBlocks.NETHER_GLASS))
+                .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS))
+
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SecurityItems.LOG)
+                .pattern("bpb")
+                .pattern(" p ")
+                .pattern(" p ")
+
+                .define('b', AllItems.BRASS_NUGGET)
+                .define('p', Items.PAPER)
+
+                .unlockedBy("has_self", has(SecurityItems.LOG))
+                .unlockedBy("has_paper", has(Items.PAPER))
+
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SecurityItems.FINIRANIUM_SENSOR)
+                .pattern(" g ")
+                .pattern("sps")
+                .pattern(" s ")
+
+                .define('g', Items.GLASS)
+                .define('p', AllItems.PRECISION_MECHANISM)
+                .define('s', AllItems.STURDY_SHEET)
+
+                .unlockedBy("has_self", has(SecurityItems.FINIRANIUM_SENSOR))
+                .unlockedBy("has_sturdy", has(AllItems.STURDY_SHEET))
+
+                .save(output);
+    }
+    
+    BaseRecipeProvider.GeneratedRecipe createSpecial(Function<CraftingBookCategory, Recipe<?>> builder, String recipeType,
+                                                     String path) {
+        ResourceLocation location = res(recipeType + "/" + path);
+        return register(consumer -> {
+            SpecialRecipeBuilder b = SpecialRecipeBuilder.special(builder);
+            b.save(consumer, location.toString());
+        });
     }
 }

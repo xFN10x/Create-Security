@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "p": {
+      "item": "create:precision_mechanism"
+    },
+    "s": {
+      "item": "create:sturdy_sheet"
+    }
+  },
+  "pattern": [
+    " g ",
+    "sps",
+    " s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_security:finiranium_sensor"
+  }
+}

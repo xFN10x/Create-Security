@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "n": {
+      "item": "minecraft:nether_bricks"
+    }
+  },
+  "pattern": [
+    "ngn",
+    "g g",
+    "ngn"
+  ],
+  "result": {
+    "count": 4,
+    "id": "create_security:nether_glass"
+  }
+}

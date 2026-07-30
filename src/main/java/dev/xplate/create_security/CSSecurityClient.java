@@ -9,6 +9,7 @@ import dev.xplate.create_security.misc.SecurityCommands;
 import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.misc.rendering.FiniraniumGogglesPostProcessingHandler;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
+import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityEffects;
 import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
 import net.createmod.catnip.command.CatnipCommands;
@@ -17,6 +18,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -61,6 +64,7 @@ public class CSSecurityClient {
     public static void onClientSetup(FMLClientSetupEvent event) {
         PonderIndex.addPlugin(new SecurityPonderPlugin());
         LOGGER.info("Hello from Create Security client!");
+        ItemBlockRenderTypes.setRenderLayer(SecurityBlocks.NETHER_GLASS.get(), RenderType.CUTOUT);
 
         //this thread is not the render thread, so this makes sure that this code does run on it vvvv
         Minecraft.getInstance().execute(() -> {

@@ -2,11 +2,15 @@ package dev.xplate.create_security;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.item.ItemDescription;
+import com.simibubi.create.foundation.item.KineticStats;
+import com.simibubi.create.foundation.item.TooltipModifier;
 import dev.xplate.create_security.config.CSSecServer;
 import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.misc.IEndSickining;
 import dev.xplate.create_security.reg.*;
+import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -41,7 +45,9 @@ import java.util.stream.Stream;
 public class CSSecurity {
     public static final String MODID = "create_security";
     public static final Logger LOGGER = LogUtils.getLogger();
-    public final static CreateRegistrate REG = CreateRegistrate.create(MODID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
+    public final static CreateRegistrate REG = CreateRegistrate.create(MODID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null).setTooltipModifierFactory(item ->
+            new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
+                    .andThen(TooltipModifier.mapNull(KineticStats.create(item))));
 
     public static ResourceLocation res(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);

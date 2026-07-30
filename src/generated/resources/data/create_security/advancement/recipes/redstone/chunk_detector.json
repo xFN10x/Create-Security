@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nether_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "create_security:nether_glass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_self": {
+      "conditions": {
+        "items": [
+          {
+            "items": "create_security:chunk_detector"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "create_security:chunk_detector"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_self",
+      "has_nether_glass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "create_security:chunk_detector"
+    ]
+  }
+}
