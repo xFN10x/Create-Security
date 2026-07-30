@@ -87,11 +87,6 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
         goToOldest.setToolTip(CSSDataGen.goToOldestComp.getB());
 
         //addRenderableWidget(scrollInput);
-        addRenderableWidget(goToOldest);
-        addRenderableWidget(goToNewest);
-
-        addRenderableWidget(scrollArea);
-        addRenderableWidget(closeButton);
 
         if (firstInit) {
             int y = 8;
@@ -102,6 +97,11 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
             goTo = -1;
         }
         firstInit = false;
+        
+        addRenderableWidget(scrollArea);
+        addRenderableWidget(closeButton);
+        addRenderableWidget(goToOldest);
+        addRenderableWidget(goToNewest);
     }
 
     protected void renderLogEntries(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
@@ -159,9 +159,11 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
         pose.popPose();
         guiGraphics.disableScissor();
 
-        entries.forEach(entry -> entry.renderTooltip(guiGraphics, mouseX, mouseY, partialTick));
+        for (LogEntryWidget entry : entries) {
+            entry.renderTooltip(guiGraphics, mouseX, mouseY, partialTick);
+        }
     }
-
+    
     public static class LogEntryWidget extends AbstractSimiWidget {
         private final Minecraft mc = Minecraft.getInstance();
 
