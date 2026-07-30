@@ -64,7 +64,6 @@ public class CSSecurityClient {
     public static void onClientSetup(FMLClientSetupEvent event) {
         PonderIndex.addPlugin(new SecurityPonderPlugin());
         LOGGER.info("Hello from Create Security client!");
-        ItemBlockRenderTypes.setRenderLayer(SecurityBlocks.NETHER_GLASS.get(), RenderType.CUTOUT);
 
         //this thread is not the render thread, so this makes sure that this code does run on it vvvv
         Minecraft.getInstance().execute(() -> {

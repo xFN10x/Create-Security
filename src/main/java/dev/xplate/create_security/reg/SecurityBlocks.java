@@ -13,6 +13,7 @@ import dev.xplate.create_security.datagen.blockstate.ChunkDetectorGenerator;
 import dev.xplate.create_security.datagen.blockstate.LaserDiodeGenerator;
 import dev.xplate.create_security.datagen.blockstate.SightSensorGenerator;
 import dev.xplate.create_security.items.FiniraniumRelatedBlockItem;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
@@ -137,6 +138,7 @@ public class SecurityBlocks {
             .simpleItem()
             .defaultLoot()
             .lang("Nether Glass")
+            .addLayer(() -> RenderType::translucent)
             .defaultBlockstate()
             .register();
 
