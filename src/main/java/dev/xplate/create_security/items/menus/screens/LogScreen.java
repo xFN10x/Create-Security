@@ -39,7 +39,7 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 
     //private final ScrollInput scrollInput = new ScrollInput(13,18, 168, 137);
     private final int maxScroll = 0;
-    private int scroll = maxScroll;
+    public int scroll = maxScroll;
     private int goTo = 0;
     private int minScroll = 0;
     private final int minScrollOffset = 16;
@@ -164,7 +164,7 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
         }
     }
     
-    public static class LogEntryWidget extends AbstractSimiWidget {
+    public class LogEntryWidget extends AbstractSimiWidget {
         private final Minecraft mc = Minecraft.getInstance();
 
         private final Font font = mc.font;
@@ -175,6 +175,8 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
         private final AtomicInteger scrollAreaUp;
         private final AtomicInteger scrollAreaLeft;
         private final DateFormat format = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM);
+        private final String name;
+        private final BlockState targetState;
         
         private final static int yOffset = 6;
         //private volatile PlayerSkin skin;
@@ -204,23 +206,8 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
             this.entry = entry;
             this.scrollAreaUp = scrollAreaUp;
             this.scrollAreaLeft = scrollAreaLeft;
-//            String uuid = entry.playerUUID();
-//            if (!uuid.isBlank()) {
-//                if (skinCache.containsKey(uuid)) {
-//                    skin = skinCache.get(uuid);
-//                } else {
-//                    new Thread(() -> {
-//                        try {
-//                            GameProfile profile = new GameProfile(UUID.fromString(uuid), entry.targetName());
-//                            PlayerSkin playerSkin = mc.getSkinManager().getInsecureSkin(profile);
-//                            skinCache.put(uuid, playerSkin);
-//                            skin = playerSkin;
-//                        } catch (Exception e) {
-//                            throw new RuntimeException(e);
-//                        }
-//                    }).start();
-//                }
-//            } else skin = null;t
+            this.name = "§l" + (!entry.target().isTargetInvisible() ? entry.target().strEntityName() : "§kInvisible§r");
+            this.targetState = entry.getSourceBlockState();
         }
 
         public void renderTooltip(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
@@ -229,6 +216,7 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
 
         @Override
         protected void doRender(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+            if (getY() + scroll < -entryHeight || getY() + scroll > scrollAreaBottom.get()) return;
             int left = getLeft();
             int top = getTop();
             int right = getRight();
@@ -250,9 +238,7 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
                 x += headSize + 4;
             }
 
-            String name = "§l" + (!entry.target().isTargetInvisible() ? entry.target().strEntityName() : "§kInvisible§r");
             graphics.drawString(font, name, x, y, color, false);
-            BlockState targetState = entry.getSourceBlockState();
             x += font.width(name) + 4;
             int dateX = x;
             int dateY = y + 2;
@@ -300,7 +286,7 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
         }
     }
 
-    public static class LogCloseButton extends AbstractSimiWidget {
+    public class LogCloseButton extends AbstractSimiWidget {
 
         public static final SecurityGUITexture BG_NORMAL = SecurityGUITexture.BUTTONBG_WIDE_NORMAL;
         public static final SecurityGUITexture BG_HOVERED = SecurityGUITexture.BUTTONBG_WIDE_SELECT;
