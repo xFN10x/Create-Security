@@ -98,7 +98,7 @@ public class ChunkDetectorEntity extends LoggableKineticBlockEntity {
                     256,
                     max.maxBlockZ()
             );
-            Outliner.getInstance().showAABB("fesds", aabb);
+            //Outliner.getInstance().showAABB("fesds", aabb);
             entities.addAll(getLevel().getEntities((Entity) null, aabb, entity -> entity instanceof LivingEntity));
             //removes the old ones from the list, so the returning will be new
             ArrayList<Entity> newEntites = new ArrayList<>(entities);
