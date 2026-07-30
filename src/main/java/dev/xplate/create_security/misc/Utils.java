@@ -1,13 +1,18 @@
 package dev.xplate.create_security.misc;
 
+import com.mojang.realmsclient.util.RealmsUtil;
 import dev.xplate.create_security.effects.ColourGradient;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 
 import java.awt.*;
+import java.util.UUID;
+
+import static dev.xplate.create_security.CSSecurity.res;
 
 public class Utils {
     public static final ColourGradient FiniraniumGrad = new ColourGradient(Color.decode("#DE63E7"), Color.decode("#FF00E5"));
@@ -29,5 +34,15 @@ public class Utils {
 
     public static MutableComponent createGradiant(ColourGradient grad, MutableComponent input) {
         return createGradiant(grad, input.getString());
+    }
+
+    /// Invis compat
+    public static void renderPlayerFace(GuiGraphics graphics, int x, int y, int size, LogEntry.LogTarget targetPlr) {
+        UUID uuid = UUID.fromString(targetPlr.plrUUID());
+        if (targetPlr.isTargetInvisible()) {
+            graphics.blitSprite(res("unknownplr"), x,y,size,size);
+        } else {
+            RealmsUtil.renderPlayerFace(graphics, x, y, size, uuid);
+        }
     }
 }

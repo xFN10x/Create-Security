@@ -10,6 +10,7 @@ import dev.engine_room.flywheel.lib.transform.TransformStack;
 import dev.xplate.create_security.datagen.CSSDataGen;
 import dev.xplate.create_security.items.menus.LogMenu;
 import dev.xplate.create_security.misc.LogEntry;
+import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.reg.SecurityGUITexture;
 import dev.xplate.create_security.reg.SecurityItemComponents;
 import net.createmod.catnip.gui.element.GuiGameElement;
@@ -21,6 +22,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.sql.Date;
@@ -242,11 +244,11 @@ public class LogScreen extends AbstractSimiContainerScreen<LogMenu> {
             if (entry.target().isTargetPlayer()) {
                 //graphics.blit(skin.texture(), x, y, 8, 8, 8, 8, 64, 64);
                 int headSize = 12;
-                RealmsUtil.renderPlayerFace(graphics, x, y - ((headSize - 8) / 2), headSize, UUID.fromString(entry.target().plrUUID()));
+                Utils.renderPlayerFace(graphics, x, y - ((headSize - 8) / 2), headSize, entry.target());
                 x += headSize + 4;
             }
 
-            String name = "§l" + entry.target().strEntityName();
+            String name = "§l" + (!entry.target().isTargetInvisible() ? entry.target().strEntityName() : "§kInvisible§r");
             graphics.drawString(font, name, x, y, color, false);
             BlockState targetState = entry.getSourceBlockState();
             x += font.width(name) + 4;

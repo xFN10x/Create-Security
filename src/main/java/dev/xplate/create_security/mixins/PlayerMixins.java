@@ -25,7 +25,7 @@ public class PlayerMixins {
             if (sConfig.obfuscatedNamesRandomLength.get()) {
                 original = Component.literal("?".repeat(RandomSource.create(hashCode()).nextIntBetweenInclusive(3,10)));
             } 
-            return Component.literal("§k" + original.getString().replaceAll(".", "?")).withStyle(createSecurity$getObfuscatedStyle());
+            return Component.literal("§k" + original.getString().replaceAll(".", "?") + "§r").withStyle(createSecurity$getObfuscatedStyle());
         }
         return original;
     }
