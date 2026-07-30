@@ -127,7 +127,7 @@ dependencies {
 
     localImplementation("mezz.jei:jei-$minecraft_version-neoforge:$jei_version")
     localImplementation("maven.modrinth:XqqOkvZz:lnOeoKcQ") // Carpet mod for neoforge
-    localImplementation("maven.modrinth:ETlrkaYF:Zn8JbMkF") // borderless fullscreen
+    localImplementation("maven.modrinth:ETlrkaYF:epixUL1j") // borderless fullscreen
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
