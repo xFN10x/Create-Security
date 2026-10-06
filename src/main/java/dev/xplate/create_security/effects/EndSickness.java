@@ -2,6 +2,7 @@ package dev.xplate.create_security.effects;
 
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
 import dev.xplate.create_security.misc.Utils;
+import dev.xplate.create_security.reg.SecurityDamageTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
@@ -28,7 +29,7 @@ public class EndSickness extends MobEffect {
         float targetHealth = maxHealth / (amplifier + 1.2f);
         float currentHealth = livingEntity.getHealth();
         if (currentHealth > targetHealth) {
-            livingEntity.hurt(livingEntity.damageSources().dragonBreath(), amplifier + 1);
+            livingEntity.hurt(DamageSource., amplifier + 1);
         }
         if (livingEntity instanceof Player plr) {
             FoodData foodData = plr.getFoodData();

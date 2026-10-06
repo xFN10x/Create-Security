@@ -130,7 +130,6 @@ public class SecurityBlocks {
             .defaultLoot()
             .lang("Chunk Detector")
             .blockstate(new ChunkDetectorGenerator()::generate)
-            
             .register();
 
     public static final BlockEntry<TransparentBlock> NETHER_GLASS = REG.block("nether_glass", TransparentBlock::new)
@@ -141,6 +140,13 @@ public class SecurityBlocks {
             .addLayer(() -> RenderType::translucent)
             .defaultBlockstate()
             .register();
+    
+    /*TODO: 
+    make nether glass block finiranium,
+    add finiranium blockers
+    add card detectors with numistatics
+    add finisidion (obsidian basicly unbreakable without certain card
+    add advanced sight sensor*/
 
     public static void reg() {
     }
