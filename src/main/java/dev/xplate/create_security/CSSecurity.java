@@ -7,7 +7,6 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import dev.xplate.create_security.config.CSSecServer;
 import dev.xplate.create_security.datagen.CSSDataGen;
-import dev.xplate.create_security.items.FiniraniumRelatedItem;
 import dev.xplate.create_security.misc.IEndSickining;
 import dev.xplate.create_security.reg.*;
 import net.createmod.catnip.lang.FontHelper;
@@ -72,6 +71,7 @@ public class CSSecurity {
         SecurityItemComponents.reg(modEventBus);
         SecuritySoundEvents.reg(modEventBus);
         SecurityMenus.reg();
+        SecurityDamageTypes.reg();
         
         CSSecurityConfigs.register(modContainer);
     }

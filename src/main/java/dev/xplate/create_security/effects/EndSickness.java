@@ -1,9 +1,13 @@
 package dev.xplate.create_security.effects;
 
 import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
+import dev.xplate.create_security.datagen.provider.CSSGeneratedEntriesProvider;
 import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.reg.SecurityDamageTypes;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
@@ -14,6 +18,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 
 public class EndSickness extends MobEffect {
+
+    private static DamageSource dmgSrc = null;
+
     public EndSickness() {
         super(MobEffectCategory.HARMFUL, Utils.FiniraniumGrad.getAtPercent(.8f));
     }
@@ -25,11 +32,12 @@ public class EndSickness extends MobEffect {
 
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+        if (dmgSrc == null)     dmgSrc = new DamageSource(livingEntity.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SecurityDamageTypes.END_SICKNESS));
         float maxHealth = livingEntity.getMaxHealth();
         float targetHealth = maxHealth / (amplifier + 1.2f);
         float currentHealth = livingEntity.getHealth();
         if (currentHealth > targetHealth) {
-            livingEntity.hurt(new DamageSource(SecurityDamageTypes.END_SICKNESS.), amplifier + 1);
+            livingEntity.hurt(dmgSrc, amplifier + 1);
         }
         if (livingEntity instanceof Player plr) {
             FoodData foodData = plr.getFoodData();

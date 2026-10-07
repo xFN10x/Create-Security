@@ -10,4 +10,8 @@ public class SecurityDamageTypes {
 
     public static final ResourceKey<DamageType> END_SICKNESS =
             ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(CSSecurity.MODID, "end_sickness"));
+    
+    public static void reg() {
+        
+    }
 }

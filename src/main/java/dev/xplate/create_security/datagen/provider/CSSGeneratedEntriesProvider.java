@@ -3,6 +3,7 @@ package dev.xplate.create_security.datagen.provider;
 import dev.xplate.create_security.reg.SecurityBiomeMods;
 import dev.xplate.create_security.reg.SecurityDamageTypes;
 import dev.xplate.create_security.reg.SecurityFeatures;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,13 @@ import java.util.concurrent.CompletableFuture;
 import static dev.xplate.create_security.CSSecurity.MODID;
 
 public class CSSGeneratedEntriesProvider extends DatapackBuiltinEntriesProvider {
+
+    private static final DamageType endSicknessDamageType = new DamageType(SecurityDamageTypes.END_SICKNESS.location().getPath(),
+            DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER,
+            0.5f,
+            DamageEffects.BURNING,
+            DeathMessageType.DEFAULT);
+
     public CSSGeneratedEntriesProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, new RegistrySetBuilder()
                         .add(Registries.CONFIGURED_FEATURE, SecurityFeatures::configured)
@@ -29,11 +37,8 @@ public class CSSGeneratedEntriesProvider extends DatapackBuiltinEntriesProvider 
                             // Use new DamageType() to create an in-code representation of a damage type.
                             // The parameters map to the values of the JSON file, in the order seen above.
                             // All parameters except for the message id and the exhaustion value are optional.
-                            bootstrap.register(SecurityDamageTypes.END_SICKNESS, new DamageType(SecurityDamageTypes.END_SICKNESS.location().getPath(),
-                                    DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER,
-                                    0.5f,
-                                    DamageEffects.BURNING,
-                                    DeathMessageType.DEFAULT));
+                            
+                            bootstrap.register(SecurityDamageTypes.END_SICKNESS, endSicknessDamageType);
                         }),
                 Set.of(MODID));
     }
