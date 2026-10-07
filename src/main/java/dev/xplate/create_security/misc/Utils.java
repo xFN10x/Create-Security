@@ -1,12 +1,9 @@
 package dev.xplate.create_security.misc;
 
 import com.mojang.realmsclient.util.RealmsUtil;
-import dev.xplate.create_security.effects.ColourGradient;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ItemLike;
 
 import java.awt.*;

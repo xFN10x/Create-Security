@@ -1,4 +1,4 @@
-package dev.xplate.create_security.effects;
+package dev.xplate.create_security.misc;
 
 import java.awt.*;
 

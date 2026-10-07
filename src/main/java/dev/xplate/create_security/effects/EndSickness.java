@@ -29,7 +29,7 @@ public class EndSickness extends MobEffect {
         float targetHealth = maxHealth / (amplifier + 1.2f);
         float currentHealth = livingEntity.getHealth();
         if (currentHealth > targetHealth) {
-            livingEntity.hurt(DamageSource., amplifier + 1);
+            livingEntity.hurt(new DamageSource(SecurityDamageTypes.END_SICKNESS.), amplifier + 1);
         }
         if (livingEntity instanceof Player plr) {
             FoodData foodData = plr.getFoodData();
