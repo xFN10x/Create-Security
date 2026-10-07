@@ -1,0 +1,10 @@
+// 1.21.1	2026-10-07T16:03:09.7494952	Tags for minecraft:damage_type mod id create_security
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/always_triggers_silverfish.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/bypasses_armor.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/bypasses_cooldown.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/bypasses_enchantments.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/bypasses_resistance.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/bypasses_wolf_armor.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/no_knockback.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/panic_causes.json
+0339134fbf56d26c5392b8d06dc832935cc9fc1e data/minecraft/tags/damage_type/panic_environmental_causes.json

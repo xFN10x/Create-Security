@@ -40,6 +40,7 @@
   "create_security.ponder.finiranium_end_sickness.text_2": "However, it is not safe to be around.",
   "create_security.ponder.finiranium_end_sickness.text_3": "Being around Finiranium products can build up End Sickness.",
   "create_security.ponder.finiranium_end_sickness.text_4": "End Sickness slowly drains your health as you remain around finiranium, so heed the warnings in the chat. ",
+  "death.attack.end_sickness": "%s melted away",
   "effect.create_security.end_sickness": "End Sickness",
   "fluid.create_security.liquid_finiranium": "Liquid Finiranium",
   "gui.create_security.log.bottom1": "Welp, there isn't a man here.",

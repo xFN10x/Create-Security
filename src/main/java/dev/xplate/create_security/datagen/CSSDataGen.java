@@ -2,6 +2,7 @@ package dev.xplate.create_security.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xplate.create_security.datagen.provider.*;
+import dev.xplate.create_security.datagen.provider.tags.CSSDamageTypeTagsProvider;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.*;
 import joptsimple.internal.Strings;
@@ -102,7 +103,8 @@ public class CSSDataGen {
                 prov.add("chat.end_sick.warning3", "You really need to leave the area...");
                 prov.add("chat.end_sick.warning4", "You can feel your hearts draining...");
                 prov.add("chat.invisiblePlayer", "This player was invisible when this message was sent.");
-                prov.add("sound.create_security.finiranium_warning", "Finiranium Detector Beeps (Warning!)");
+                prov.add("sound.create_security.finiranium_warning", "Finiranium Detector Alerts");
+                prov.add("death.attack.end_sickness", "%s melted away");
 
                 providePonderLang(prov::add);
             });
@@ -172,6 +174,8 @@ public class CSSDataGen {
         generator.addProvider(incServer, new CSSRecipeProvider(output, lookup));
 
         generator.addProvider(incServer, new CSSSoundDefinitionsProvider(output, existingFileHelper));
+        
+        generator.addProvider(incServer, new CSSDamageTypeTagsProvider(output, lookup, existingFileHelper));
     }
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {
