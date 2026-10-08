@@ -7,3 +7,4 @@ public class KeycardItem extends Item {
         super(properties);
     }
 }
+

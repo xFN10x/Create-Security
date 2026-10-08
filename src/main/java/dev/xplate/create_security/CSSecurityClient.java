@@ -9,7 +9,6 @@ import dev.xplate.create_security.misc.SecurityCommands;
 import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.misc.rendering.FiniraniumGogglesPostProcessingHandler;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
-import dev.xplate.create_security.reg.SecurityBlocks;
 import dev.xplate.create_security.reg.SecurityEffects;
 import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
 import net.createmod.catnip.command.CatnipCommands;
@@ -18,8 +17,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -82,9 +79,9 @@ public class CSSecurityClient {
 
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         LiteralCommandNode<CommandSourceStack> root = dispatcher.register(rootCommands);
-        CatnipCommands.buildRedirect("security", root);
-        CatnipCommands.buildRedirect("stealth", root);
-        CatnipCommands.buildRedirect("cs", root);
+        dispatcher.register(CatnipCommands.buildRedirect("security", root).createBuilder());
+        dispatcher.register(CatnipCommands.buildRedirect("stealth", root).createBuilder());
+        dispatcher.register(CatnipCommands.buildRedirect("cs", root).createBuilder());
     }
 
     private static int tickCounter = 0;
@@ -101,20 +98,21 @@ public class CSSecurityClient {
         //plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
 
         long sicknessThreshold = CSSecurityConfigs.server().endSicknessThreshold.get();
-        long warningThreshold = sicknessThreshold/4;
+        long warningThreshold = sicknessThreshold / 4;
         EndSicknessWarningLevel configedWarningLevel = CSSecurityConfigs.client().endSicknessWarnings.get();
+        
         if (sickness >= warningThreshold && lastCheck < warningThreshold
-        && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.EVERY_OTHER)) {
+                && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.EVERY_OTHER)) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning1")));
-        } else if (sickness >= (warningThreshold*2) && lastCheck < (warningThreshold*2)
+        } else if (sickness >= (warningThreshold * 2) && lastCheck < (warningThreshold * 2)
                 && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.NORMAL)) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning2")));
 
-        } else if (sickness >= (warningThreshold*3) && lastCheck < (warningThreshold*3)
+        } else if (sickness >= (warningThreshold * 3) && lastCheck < (warningThreshold * 3)
                 && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.LAST)) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning3")));
 
-        } else if (sickness >= (warningThreshold*4) && lastCheck < (warningThreshold*4)
+        } else if (sickness >= (warningThreshold * 4) && lastCheck < (warningThreshold * 4)
                 && configedWarningLevel.isLevelAtLeast(EndSicknessWarningLevel.NONE)) {
             plr.sendSystemMessage(Utils.createGradiant(Utils.FiniraniumGrad, Component.translatable("chat.end_sick.warning4")));
         }

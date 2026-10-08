@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Container;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
@@ -22,7 +23,6 @@ import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.npc.InventoryCarrier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.EventPriority;
@@ -72,14 +72,14 @@ public class CSSecurity {
         SecuritySoundEvents.reg(modEventBus);
         SecurityMenus.reg();
         SecurityDamageTypes.reg();
-        
+
         CSSecurityConfigs.register(modContainer);
     }
 
     private static int tickCounter = 0;
 
     @SubscribeEvent
-    public static void onWorldTick(ServerTickEvent.Pre event) {
+    public static void onServerTick(ServerTickEvent.Pre event) {
         MinecraftServer server = event.getServer();
         Iterable<ServerLevel> slevs = server.getAllLevels();
         tickCounter++;
@@ -95,7 +95,9 @@ public class CSSecurity {
             //you dont get end sickness in the nether
             if (slev.dimension() != Level.NETHER)
                 slev.getEntities().getAll().forEach(e -> {
+                    //TODO: add end_sick_immune entity tag
                     if (!(e instanceof EnderMan || e instanceof EnderDragon) && e instanceof LivingEntity le) {
+                        //region end sickining blocks
                         BlockPos entityPos = BlockPos.containing(le.getPosition(.5f));
                         BlockPos firstCorner = entityPos.above(8).west(8).north(8);
                         BlockPos secondCorner = entityPos.below(8).east(8).south(8);
@@ -113,24 +115,28 @@ public class CSSecurity {
                             sick.set(sick.get() + (block.sickAmount() * everyXTick));
                             didAnything.set(true);
                         });
+                        //endregion
                         if (serverConfig.endSicknessEnabledInInventory.get()) {
+
+                            Container inventory = null;
                             if (le instanceof InventoryCarrier inventoryCarrier) {
-                                for (ItemStack item : inventoryCarrier.getInventory().getItems()) {
-                                    if (item.getItem() instanceof IEndSickining it) {
-                                        sick.set(sick.get() + (it.sickAmount() * everyXTick / 2) * (item.getCount() / 2));
-                                    }
-                                }
-                            }
-//we have to add another check here because mojang decided players are special
+                                inventory = inventoryCarrier.getInventory();
+                            } else
                             if (le instanceof Player plr) {
-                                for (ItemStack item : plr.getInventory().items) {
-                                    if (item.getItem() instanceof IEndSickining it) {
-                                        sick.set(sick.get() + (it.sickAmount() * everyXTick) * item.getCount());
+//we have to add another check here because mojang decided players are special
+                                inventory = plr.getInventory();
+                            }
+                            if (inventory != null) {
+                                inventory.hasAnyMatching(stack -> {
+                                    if (stack.getItem() instanceof IEndSickining it) {
+                                        sick.set(sick.get() + (it.sickAmount() * everyXTick / 2) * (stack.getCount() / 2));
+                                        return true;
                                     }
-                                }
+                                    return false;
+                                });
                             }
                         }
-//TODO: make the level configurable
+                        
                         long sicknessThreshold = serverConfig.endSicknessThreshold.get();
                         long sicknessLevelThreshold = serverConfig.endSicknessLevelThreshold.get();
                         if (sick.get() > sicknessThreshold) {
@@ -138,7 +144,7 @@ public class CSSecurity {
                             le.addEffect(new MobEffectInstance(SecurityEffects.END_SICKNESS, 20 * 15, sickLevel));
                         }
                         if (!didAnything.get())
-                            le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, Math.max(sick.get() - (decreaseAmount * everyXTick), 0));
+                            le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, Math.max(sick.get() - ((long) decreaseAmount * everyXTick), 0));
                         else
                             le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, sick.get());
                     }

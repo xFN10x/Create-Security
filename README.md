@@ -1,4 +1,5 @@
 <p align="center">
+<img src="src/main/resources/banner.png" alt="banner" />
 <img src="src/main/resources/icon_small.png" height="200" alt="Stealth & Security Icon">
 </p>
 <p align="center">
