@@ -3,6 +3,7 @@ package dev.xplate.create_security.datagen;
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xplate.create_security.datagen.provider.*;
 import dev.xplate.create_security.datagen.provider.tags.CSSDamageTypeTagsProvider;
+import dev.xplate.create_security.datagen.provider.tags.CSSEntityTagsProvider;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.*;
 import joptsimple.internal.Strings;
@@ -174,8 +175,9 @@ public class CSSDataGen {
         generator.addProvider(incServer, new CSSRecipeProvider(output, lookup));
 
         generator.addProvider(incServer, new CSSSoundDefinitionsProvider(output, existingFileHelper));
-        
+
         generator.addProvider(incServer, new CSSDamageTypeTagsProvider(output, lookup, existingFileHelper));
+        generator.addProvider(incServer, new CSSEntityTagsProvider(output, lookup, existingFileHelper));
     }
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {

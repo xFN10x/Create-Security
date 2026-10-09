@@ -7,6 +7,7 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import dev.xplate.create_security.config.CSSecServer;
 import dev.xplate.create_security.datagen.CSSDataGen;
+import dev.xplate.create_security.datagen.provider.tags.CSSEntityTagsProvider;
 import dev.xplate.create_security.misc.IEndSickining;
 import dev.xplate.create_security.reg.*;
 import net.createmod.catnip.lang.FontHelper;
@@ -35,6 +36,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slf4j.Logger;
 
+import javax.swing.text.html.HTML;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
@@ -55,7 +57,6 @@ public class CSSecurity {
     public CSSecurity(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(EventPriority.HIGHEST, CSSDataGen::gatherHigherData);
         modEventBus.addListener(EventPriority.NORMAL, CSSDataGen::gatherData);
-        modEventBus.addListener(CSSecurity::onCommonSetup);
         //NeoForge.EVENT_BUS.register(this);
         REG.registerEventListeners(modEventBus);
 
@@ -96,7 +97,7 @@ public class CSSecurity {
             if (slev.dimension() != Level.NETHER)
                 slev.getEntities().getAll().forEach(e -> {
                     //TODO: add end_sick_immune entity tag
-                    if (!(e instanceof EnderMan || e instanceof EnderDragon) && e instanceof LivingEntity le) {
+                    if (e.getType().getTags().noneMatch(tag->tag.equals(CSSEntityTagsProvider.IMMUNE_TO_END_SICKNESS)) && e instanceof LivingEntity le) {
                         //region end sickining blocks
                         BlockPos entityPos = BlockPos.containing(le.getPosition(.5f));
                         BlockPos firstCorner = entityPos.above(8).west(8).north(8);
@@ -151,10 +152,4 @@ public class CSSecurity {
                 });
         });
     }
-
-    @SubscribeEvent
-    public static void onCommonSetup(FMLCommonSetupEvent event) {
-        LOGGER.info("Hello from Create Security server!");
-    }
-
 }

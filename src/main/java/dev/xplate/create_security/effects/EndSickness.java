@@ -1,21 +1,15 @@
 package dev.xplate.create_security.effects;
 
-import dev.xplate.create_security.blocks.FiniraniumRelatedBlock;
-import dev.xplate.create_security.datagen.provider.CSSGeneratedEntriesProvider;
 import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.reg.SecurityDamageTypes;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
+import org.jspecify.annotations.NonNull;
 
 public class EndSickness extends MobEffect {
 
@@ -31,8 +25,8 @@ public class EndSickness extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        if (dmgSrc == null)     dmgSrc = new DamageSource(livingEntity.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SecurityDamageTypes.END_SICKNESS));
+    public boolean applyEffectTick(@NonNull LivingEntity livingEntity, int amplifier) {
+        if (dmgSrc == null) dmgSrc = new DamageSource(livingEntity.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SecurityDamageTypes.END_SICKNESS));
         float maxHealth = livingEntity.getMaxHealth();
         float targetHealth = maxHealth / (amplifier + 1.2f);
         float currentHealth = livingEntity.getHealth();
@@ -42,7 +36,7 @@ public class EndSickness extends MobEffect {
         if (livingEntity instanceof Player plr) {
             FoodData foodData = plr.getFoodData();
             float currentSat = foodData.getSaturationLevel();
-            foodData.setSaturation(currentSat - 1);
+            foodData.setSaturation(currentSat - 2);
         }
         return true;
     }
