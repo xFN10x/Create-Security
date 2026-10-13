@@ -146,7 +146,9 @@ public class SecurityBlocks {
     add finiranium blockers
     add card detectors with numistatics
     add finisidion (obsidian basicly unbreakable without certain card
-    add advanced sight sensor*/
+    add advanced sight sensor
+    
+    */
 
     public static void reg() {
     }

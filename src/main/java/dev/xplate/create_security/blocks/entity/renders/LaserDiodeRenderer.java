@@ -89,7 +89,7 @@ public class LaserDiodeRenderer extends KineticBlockEntityRenderer<LaserDiodeEnt
         ms.mulPose(state.getValue(LaserDiode.FACING).getRotation());
         ms.translate(-0.5, -0.5, -0.5);
 
-        {
+        {  
             buf.addVertex(pose, half, length, half)
                     .setNormal(0, 1, 0)
                     .setUv(0, 0)

@@ -5,7 +5,7 @@ import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import dev.xplate.create_security.CSSecurityConfigs;
-import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
+import dev.xplate.create_security.reg.SecurityAttachmentTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -41,7 +41,7 @@ public class SecurityCommands {
             else
                 target = Minecraft.getInstance().player;
             if (target == null) return 1;
-            Long counter = target.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER.get());
+            Long counter = target.getData(SecurityAttachmentTypes.END_SICKNESS_COUNTER.get());
             String transKey = "chat.end_sick.command";
             REG.addRawLang(transKey, "%s has %s end sickness build-up.");
             s.getSource().sendSuccess(() -> Component.translatable(transKey, target.getDisplayName(), counter), true);

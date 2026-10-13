@@ -1,5 +1,7 @@
 package dev.xplate.create_security;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
@@ -10,19 +12,24 @@ import dev.xplate.create_security.misc.Utils;
 import dev.xplate.create_security.misc.rendering.FiniraniumGogglesPostProcessingHandler;
 import dev.xplate.create_security.ponder.SecurityPonderPlugin;
 import dev.xplate.create_security.reg.SecurityEffects;
-import dev.xplate.create_security.reg.SecurityEntityAttachmentTypes;
+import dev.xplate.create_security.reg.SecurityAttachmentTypes;
 import net.createmod.catnip.command.CatnipCommands;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -31,10 +38,12 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
+import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerHeartTypeEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
+import org.joml.Matrix4f;
 
 import java.io.IOException;
 
@@ -86,6 +95,50 @@ public class CSSecurityClient {
 
     private static int tickCounter = 0;
     private static Long lastCheck = 0L;
+    
+    @SubscribeEvent
+    public static void afterRender(RenderLevelStageEvent event) {
+        if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS) {
+            PoseStack posestack = event.getPoseStack();
+            posestack.pushPose();
+            VertexConsumer buf = Minecraft.getInstance().renderBuffers().crumblingBufferSource().getBuffer(RenderType.TRANSLUCENT);
+            BlockPos pos = BlockPos.ZERO;
+            Vec3 camPos = event.getCamera().getPosition();
+            Vec3 actualPos = pos.getCenter().subtract(0.5,0.5,0.5).subtract(camPos);
+            //posestack.mulPose(event.getModelViewMatrix());
+            //posestack.translate(actualPos.x, actualPos.y, actualPos.z);
+            Matrix4f iverted = new Matrix4f();
+            event.getModelViewMatrix().invert(iverted);
+            posestack.mulPose(iverted);
+            posestack.translate(actualPos.x, actualPos.y, actualPos.z);
+            PoseStack.Pose pose = posestack.last();
+            buf.addVertex(pose, 0, 1, 0)
+                    .setNormal(0, 1, 0)
+                    .setUv(0, 0)
+                    .setColor(255,255,255,255)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            buf.addVertex(pose, 1, 1, 0)
+                    .setNormal(1, 1, 0)
+                    .setColor(255,255,255,255)
+                    .setUv(0, 0)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            buf.addVertex(pose, 1, 0, 0)
+                    .setNormal(1, 0, 0)
+                    .setColor(255,255,255,255)
+                    .setUv(0, 0)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            buf.addVertex(pose, 0, 0, 0)
+                    .setNormal(0, 0, 0)
+                    .setColor(255,255,255,255)
+                    .setUv(0, 0)
+                    .setLight(LightTexture.FULL_BRIGHT)
+                    .setOverlay(OverlayTexture.NO_OVERLAY);
+            posestack.popPose();
+        }
+    }
 
     @SubscribeEvent
     public static void onClientLevelTick(LevelTickEvent.Pre event) {
@@ -94,7 +147,7 @@ public class CSSecurityClient {
         if (tickCounter % 20 != 0) return;
         LocalPlayer plr = mc.player;
         if (plr == null) return;
-        long sickness = plr.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER);
+        long sickness = plr.getData(SecurityAttachmentTypes.END_SICKNESS_COUNTER);
         //plr.sendSystemMessage(Component.literal(Long.toString(sickness)));
 
         long sicknessThreshold = CSSecurityConfigs.server().endSicknessThreshold.get();

@@ -1,0 +1,39 @@
+{
+  "values": [
+    "minecraft:ender_dragon",
+    "minecraft:enderman",
+    "minecraft:endermite",
+    {
+      "id": "alexsmobs:cosmaw",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cosmic_cod",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:endergrade",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:enderiophage",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:farseer",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mimicube",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:spectre",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:void_worm",
+      "required": false
+    }
+  ]
+}

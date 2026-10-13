@@ -4,11 +4,14 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.mojang.blaze3d.pipeline.RenderTarget;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import dev.xplate.create_security.CSSecurityClient;
 import dev.xplate.create_security.misc.rendering.FiniraniumGogglesEntityBufferSource;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.TickRateManager;
 import net.minecraft.world.entity.Entity;
 import org.joml.Matrix4f;
@@ -22,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import javax.annotation.Nullable;
 
 @Mixin(LevelRenderer.class)
-public class LevelRendererMixins {
+public abstract class LevelRendererMixins {
 
     @Shadow
     @Nullable
@@ -46,6 +49,8 @@ public class LevelRendererMixins {
             Entity entity, double camX, double camY, double camZ, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource
     ) {
     }
+
+    
 
     @Inject(method = "renderLevel", at = @At(
             value = "INVOKE",

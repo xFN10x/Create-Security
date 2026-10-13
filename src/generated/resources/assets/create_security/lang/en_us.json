@@ -72,5 +72,5 @@
   "item.create_security.tooltip.log.entries": "%s entries. ",
   "item.create_security.tooltip.log.loggedBlocks": "Logged blocks; %s",
   "itemGroup.create_security": "Stealth & Security",
-  "sound.create_security.finiranium_warning": "Finiranium Detector Beeps (Warning!)"
+  "sound.create_security.finiranium_warning": "Finiranium Detector Alerts"
 }

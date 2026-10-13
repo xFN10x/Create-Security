@@ -15,34 +15,35 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ChunkHolder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
-import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.npc.InventoryCarrier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slf4j.Logger;
 
-import javax.swing.text.html.HTML;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
 @EventBusSubscriber()
 @Mod(CSSecurity.MODID)
+//TODO: make finiranium block entity for finiranium blocks
 public class CSSecurity {
     public static final String MODID = "create_security";
     public static final Logger LOGGER = LogUtils.getLogger();
@@ -66,7 +67,7 @@ public class CSSecurity {
         SecurityBlocks.reg();
         SecurityBlockEntities.reg();
         SecurityCreativeTabs.reg(modEventBus);
-        SecurityEntityAttachmentTypes.reg(modEventBus);
+        SecurityAttachmentTypes.reg(modEventBus);
         SecurityFluids.reg();
         SecurityPartialModels.reg();
         SecurityItemComponents.reg(modEventBus);
@@ -92,12 +93,11 @@ public class CSSecurity {
             return;
         }
         tickCounter = 0;
-        slevs.forEach(slev -> {
-            //you dont get end sickness in the nether
-            if (slev.dimension() != Level.NETHER)
+        for (ServerLevel slev : slevs) {//you dont get end sickness in the nether
+            ///end sickness
+            if (slev.dimension() != Level.NETHER) {
                 slev.getEntities().getAll().forEach(e -> {
-                    //TODO: add end_sick_immune entity tag
-                    if (e.getType().getTags().noneMatch(tag->tag.equals(CSSEntityTagsProvider.IMMUNE_TO_END_SICKNESS)) && e instanceof LivingEntity le) {
+                    if (e.getType().getTags().noneMatch(tag -> tag.equals(CSSEntityTagsProvider.IMMUNE_TO_END_SICKNESS)) && e instanceof LivingEntity le) {
                         //region end sickining blocks
                         BlockPos entityPos = BlockPos.containing(le.getPosition(.5f));
                         BlockPos firstCorner = entityPos.above(8).west(8).north(8);
@@ -107,8 +107,8 @@ public class CSSecurity {
                         Stream<BlockPos> finiraniumBlocks = stream.filter((bp) -> (slev.getBlockState(bp).getBlock() instanceof IEndSickining));
 
                         final AtomicBoolean didAnything = new AtomicBoolean(false);
-                        final AtomicReference<Long> sick = new AtomicReference<>(le.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER));
-                        sick.set(le.getData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER));
+                        final AtomicReference<Long> sick = new AtomicReference<>(le.getData(SecurityAttachmentTypes.END_SICKNESS_COUNTER));
+                        sick.set(le.getData(SecurityAttachmentTypes.END_SICKNESS_COUNTER));
 
                         finiraniumBlocks.forEach(bp -> {
                             BlockState bs = slev.getBlockState(bp);
@@ -122,8 +122,7 @@ public class CSSecurity {
                             Container inventory = null;
                             if (le instanceof InventoryCarrier inventoryCarrier) {
                                 inventory = inventoryCarrier.getInventory();
-                            } else
-                            if (le instanceof Player plr) {
+                            } else if (le instanceof Player plr) {
 //we have to add another check here because mojang decided players are special
                                 inventory = plr.getInventory();
                             }
@@ -137,7 +136,7 @@ public class CSSecurity {
                                 });
                             }
                         }
-                        
+
                         long sicknessThreshold = serverConfig.endSicknessThreshold.get();
                         long sicknessLevelThreshold = serverConfig.endSicknessLevelThreshold.get();
                         if (sick.get() > sicknessThreshold) {
@@ -145,11 +144,38 @@ public class CSSecurity {
                             le.addEffect(new MobEffectInstance(SecurityEffects.END_SICKNESS, 20 * 15, sickLevel));
                         }
                         if (!didAnything.get())
-                            le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, Math.max(sick.get() - ((long) decreaseAmount * everyXTick), 0));
+                            le.setData(SecurityAttachmentTypes.END_SICKNESS_COUNTER, Math.max(sick.get() - ((long) decreaseAmount * everyXTick), 0));
                         else
-                            le.setData(SecurityEntityAttachmentTypes.END_SICKNESS_COUNTER, sick.get());
+                            le.setData(SecurityAttachmentTypes.END_SICKNESS_COUNTER, sick.get());
                     }
+
                 });
-        });
+            }
+            ///check for blocks that are affected by finiranium
+            for (ChunkHolder chunkHolder : slev.getChunkSource().chunkMap.getChunks()) {
+                ChunkAccess chunk = chunkHolder.getLatestChunk();
+                if (chunk != null)
+                    chunk.findBlocks(bs -> bs.getBlock() instanceof IEndSickining, (endSickeningPos, endSickeningState) -> {
+                        IEndSickining block = (IEndSickining) endSickeningState.getBlock();
+                        int range = block.sickRange() / 2;
+                        Stream<BlockPos> blocks = BlockPos.betweenClosedStream(endSickeningPos.above(range).west(range).north(range), endSickeningPos.below(range).east(range).south(range));
+                        Stream<BlockPos> testBlocks = blocks.filter(bp0 -> chunk.getBlockState(bp0).is(SecurityBlocks.THE_BLOCK));
+                        testBlocks.forEach(bp0 -> {
+                            double dist = bp0.getCenter().distanceTo(endSickeningPos.getCenter());
+                            double multi = Math.max(0, 1 - dist / range);
+                            if (multi == 0) return;
+                            double sickness = block.sickAmount() * multi;
+                            //chunk.getBlockState(bp0)
+                            Map<BlockPos, Long> sicknessData = new HashMap<>(chunk.getData(SecurityAttachmentTypes.END_SICKNESS_COUNTER_CHUNK));
+                            double sickNow = sicknessData.getOrDefault(bp0, 0L) + sickness;
+                            sicknessData.put(bp0, Math.round(sickNow));
+                            chunk.setData(SecurityAttachmentTypes.END_SICKNESS_COUNTER_CHUNK, sicknessData);
+                            //CSSecurity.LOGGER.debug(String.valueOf(sickNow));
+                        });
+                    });
+            }
+        }
+
+
     }
 }
